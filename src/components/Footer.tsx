@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Building2, Mail, Linkedin, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, MapPin, Phone } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -10,9 +10,11 @@ const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="bg-gradient-to-br from-blue-600 to-blue-500 p-2 rounded-lg">
-                <Building2 className="h-6 w-6 text-white" />
-              </div>
+              <img 
+                src="/WhatsApp_Image_2025-06-12_at_22.40.32_83de4719-removebg-preview (1).png" 
+                alt="Agilio Capital Partners Logo" 
+                className="h-10 w-auto"
+              />
               <div className="flex flex-col">
                 <span className="text-lg font-bold">Agilio Capital</span>
                 <span className="text-sm text-gray-300 -mt-1">Partners</span>

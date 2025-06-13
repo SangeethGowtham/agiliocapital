@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Building2 } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,9 +26,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <div className="bg-gradient-to-br from-blue-900 to-blue-700 p-2 rounded-lg">
-              <Building2 className="h-8 w-8 text-white" />
-            </div>
+            <img 
+              src="/WhatsApp_Image_2025-06-12_at_22.40.32_83de4719-removebg-preview (1).png" 
+              alt="Agilio Capital Partners Logo" 
+              className="h-12 w-auto transition-transform duration-300 hover:scale-110"
+            />
             <div className="flex flex-col">
               <span className="text-xl font-bold text-gray-900">Agilio Capital</span>
               <span className="text-sm text-gray-600 -mt-1">Partners</span>
