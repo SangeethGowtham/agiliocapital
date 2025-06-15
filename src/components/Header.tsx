@@ -7,16 +7,29 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      // Hide/show header based on scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setHideHeader(true);
+      } else {
+        setHideHeader(false);
+      }
+      
+      // Background change on scroll
+      setIsScrolled(currentScrollY > 50);
+      setLastScrollY(currentScrollY);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const isActiveLink = (path: string) => {
     return location.pathname === path;
@@ -34,38 +47,46 @@ const Header: React.FC = () => {
   return (
     <motion.header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
-        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
       }`}
       style={{ height: '80px' }}
-      initial={{ y: -80 }}
-      animate={{ y: 0 }}
+      initial={{ y: 0 }}
+      animate={{ y: hideHeader ? -80 : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div className="flex justify-between items-center h-full">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3" style={{ marginLeft: '24px' }}>
-            <img 
-              src="/files_5286024-1749798839350-WhatsApp_Image_2025-06-12_at_22.40.32_83de4719-removebg-preview (1).png" 
-              alt="Agilio Capital Partners Logo" 
-              className="transition-transform duration-300 hover:scale-110"
-              style={{ maxHeight: '40px' }}
-            />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold font-poppins text-primary-600">Agilio Capital</span>
-              <motion.span 
-                className="text-sm text-secondary-600 -mt-1 font-inter"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, ease: 'easeInOut' }}
-              >
-                Funds Progrez
-              </motion.span>
-            </div>
-          </Link>
+          {/* Logo - Hidden when scrolling down */}
+          <motion.div
+            initial={{ opacity: 1, scale: 1 }}
+            animate={{ 
+              opacity: hideHeader ? 0 : 1,
+              scale: hideHeader ? 0.8 : 1,
+              x: hideHeader ? -20 : 0
+            }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <Link to="/" className="flex items-center space-x-3" style={{ marginLeft: '24px' }}>
+              <div className="flex flex-col">
+                <span className="text-xl font-bold font-poppins text-primary-600">Agilio Capital</span>
+                <motion.span 
+                  className="text-sm text-secondary-600 -mt-1 font-inter"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, ease: 'easeInOut' }}
+                >
+                  Funds Progrez
+                </motion.span>
+              </div>
+            </Link>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden desktop:flex items-center space-x-8">
+          <motion.nav 
+            className="hidden desktop:flex items-center space-x-8"
+            animate={{ x: hideHeader ? -100 : 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
             <Link
               to="/"
               className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
@@ -149,7 +170,7 @@ const Header: React.FC = () => {
                 Get Started
               </Link>
             </motion.div>
-          </nav>
+          </motion.nav>
 
           {/* Mobile menu button */}
           <button
