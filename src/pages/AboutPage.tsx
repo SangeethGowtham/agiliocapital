@@ -29,7 +29,7 @@ const AboutPage: React.FC = () => {
     },
     {
       icon: <Award className="h-8 w-8" />,
-      title: 'Expertise',
+      title: 'Progress',
       description: 'Deep industry knowledge across multiple sectors and financial instruments.'
     }
   ];
