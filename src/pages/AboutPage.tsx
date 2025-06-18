@@ -40,9 +40,9 @@ const AboutPage: React.FC = () => {
       description: 'Seasoned investment banking professional with over 15 years of experience in corporate finance, mergers & acquisitions, and strategic advisory services.',
       credentials: ['Chartered Accountant', 'Corporate Finance Specialist', 'M&A Expert'],
       experience: [
-        { title: 'Investment Banking', years: '15+', icon: <TrendingUp className="h-6 w-6" /> },
-        { title: 'Corporate Finance', years: '12+', icon: <Building className="h-6 w-6" /> },
-        { title: 'Risk Management', years: '10+', icon: <Shield className="h-6 w-6" /> }
+        { title: 'Investment Banking', years: '15+ years', icon: <TrendingUp className="h-6 w-6" /> },
+        { title: 'Corporate Finance', years: '12+ years'", icon: <Building className="h-6 w-6" /> },
+        { title: 'Risk Management', years: '10+ years', icon: <Shield className="h-6 w-6" /> }
       ]
     }
   ];
@@ -50,7 +50,7 @@ const AboutPage: React.FC = () => {
   const stats = [
     { number: 50, label: 'Successful Deals', suffix: '+' },
     { number: 500, label: 'Transaction Value (₹Cr)', suffix: '+' },
-    { number: 15, label: 'Years Experience', suffix: '+' },
+    { number: 10, label: 'Years Experience', suffix: '+' },
     { number: 100, label: 'Client Satisfaction', suffix: '%' }
   ];
 
@@ -225,7 +225,7 @@ const AboutPage: React.FC = () => {
                     {/* LinkedIn Button with Brand Colors */}
                     <div className="mt-6">
                       <motion.a
-                        href="https://www.linkedin.com/company/agilio-capital-partners"
+                        href="linkedin.com/int/t-m-durai-b913356/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-white px-6 py-3 rounded-lg font-inter font-medium transition-colors duration-300"
