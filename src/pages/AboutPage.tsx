@@ -41,7 +41,7 @@ const AboutPage: React.FC = () => {
       credentials: ['Chartered Accountant', 'Corporate Finance Specialist', 'M&A Expert'],
       experience: [
         { title: 'Investment Banking', years: '15+ years', icon: <TrendingUp className="h-6 w-6" /> },
-        { title: 'Corporate Finance', years: '12+ years'", icon: <Building className="h-6 w-6" /> },
+        { title: 'Corporate Finance', years: '12+ years', icon: <Building className="h-6 w-6" /> },
         { title: 'Risk Management', years: '10+ years', icon: <Shield className="h-6 w-6" /> }
       ]
     }
