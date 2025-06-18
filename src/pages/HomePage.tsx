@@ -340,7 +340,7 @@ const HomePage: React.FC = () => {
               Our Core Services
             </h2>
             <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Comprehensive investment banking solutions tailored to your business needs
+              Comprehensive investment banking solutions tailored to empower your business 
             </p>
           </motion.div>
 
