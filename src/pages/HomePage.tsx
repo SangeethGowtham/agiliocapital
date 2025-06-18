@@ -58,13 +58,13 @@ const HomePage: React.FC = () => {
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
       description: 'Banking, Financial Services & Insurance sector expertise',
-      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and fintech startups. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate.',
+      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate.',
       image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Healthcare', 
       icon: <Heart className="h-12 w-12" />, 
-      description: 'Medical devices, pharmaceuticals, and health services',
+      description: 'Pharmaceuticals, health care and allied services',
       details: 'Our healthcare investment banking practice focuses on medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, licensing deals, and partnerships that drive innovation in patient care and medical advancement.',
       image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
@@ -85,7 +85,7 @@ const HomePage: React.FC = () => {
     { 
       name: 'Agriculture', 
       icon: <Tractor className="h-12 w-12" />, 
-      description: 'AgTech, sustainable farming, and food security solutions',
+      description: 'AgTech, sustainable farming ,renewable energy and food security solutions',
       details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices.',
       image: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
@@ -93,21 +93,21 @@ const HomePage: React.FC = () => {
 
   const deals = [
     {
-      title: 'Series A Funding Round',
+      title: 'Virutcham',
       company: 'TechCorp Solutions',
       amount: '$5.2M',
       sector: 'FinTech',
       description: 'Led successful Series A funding for B2B SaaS platform'
     },
     {
-      title: 'Debt Syndication',
+      title: 'Unnati',
       company: 'Healthcare Innovations',
       amount: '$12M',
       sector: 'Healthcare',
       description: 'Structured debt facility for medical device manufacturing'
     },
     {
-      title: 'Strategic Partnership',
+      title: 'shiksha',
       company: 'AgriTech Ventures',
       amount: '$3.8M',
       sector: 'Agriculture',
