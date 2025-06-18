@@ -180,7 +180,7 @@ const HomePage: React.FC = () => {
                 Investment Banking
                 <span className="block text-primary-300">
                   <TypewriterText 
-                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation,,Progress']}
+                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation','Progress']}
                     speed={120}
                   />
                 </span>
