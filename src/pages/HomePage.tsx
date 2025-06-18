@@ -57,7 +57,7 @@ const HomePage: React.FC = () => {
     { 
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
-      description: 'Banking, Financial Services & Insurance sector expertise',
+      description: 'Banking, Financial Services & Affordable Housing Finance',
       details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate.',
       image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
@@ -180,7 +180,7 @@ const HomePage: React.FC = () => {
                 Investment Banking
                 <span className="block text-primary-300">
                   <TypewriterText 
-                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation']}
+                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation,,Progress']}
                     speed={120}
                   />
                 </span>
