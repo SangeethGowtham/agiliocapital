@@ -520,7 +520,7 @@ const HomePage: React.FC = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
-              Let's discuss how our investment banking expertise can help you achieve your financial goals.
+              Let's discuss how our investment banking expertise can help you achieve your Organisational goals
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
