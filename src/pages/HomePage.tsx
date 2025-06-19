@@ -18,42 +18,30 @@ const HomePage: React.FC = () => {
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: 'Seed & Angel Funding',
-      description: 'Connect startups with the right investors and secure funding for sustainable growth and market expansion.',
+      description: 'We partner with early and concept stage enterprises, connect them to venture capital and seed, accelerator, HNI angel investors and unsecured loans to realize the capital.',
       link: '/services/seed-angel-funding'
     },
     {
       icon: <Target className="h-8 w-8" />,
-      title: 'Corporate Finance',
-      description: 'Strategic financial advisory for mergers, acquisitions, and comprehensive corporate restructuring.',
+      title: 'Private Equity & Venture Capital',
+      description: 'Equity and Growth capital can be arranged from large PE| VC funds, Family offices and Strategic Investors for mature and potential business.',
       link: '/services/corporate-finance'
     },
     {
-      icon: <Shield className="h-8 w-8" />,
-      title: 'Debt Syndication',
-      description: 'Optimize capital structure through strategic loan syndication and debt restructuring solutions.',
-      link: '/services/loan-debt-syndication'
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: 'Strategic Partnerships',
-      description: 'Facilitate strategic alliances and partnerships that drive sustainable business growth.',
-      link: '/services/strategic-partnerships'
-    },
-    {
-      icon: <DollarSign className="h-8 w-8" />,
-      title: 'Structured Finance',
-      description: 'Complex financial solutions including asset-backed securities and project finance advisory.',
-      link: '/services/structured-finance'
-    },
-    {
       icon: <Briefcase className="h-8 w-8" />,
-      title: 'CFO Services',
-      description: 'Comprehensive financial leadership and strategic planning for growing businesses.',
+      title: 'CFO & Support Services',
+      description: 'The entire financial and compliance related functions can be done by us. We operate either independently or in conjunction with your finance team.',
       link: '/services/cfo-services'
+    },
+    {
+      icon: <Shield className="h-8 w-8" />,
+      title: 'Debt Solutions & Working Capital',
+      description: 'Term loan and NCDs, Debt Restructuring, Project Financing, Unsecured business Loan, Line of Credit for Equipment Finance.',
+      link: '/services/loan-debt-syndication'
     }
   ];
 
-  const focusAreas = [
+  const focusSectors = [
     { 
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
@@ -85,7 +73,7 @@ const HomePage: React.FC = () => {
     { 
       name: 'Agriculture', 
       icon: <Tractor className="h-12 w-12" />, 
-      description: 'AgTech, sustainable farming ,renewable energy and food security solutions',
+      description: 'AgTech, sustainable farming, renewable energy and food security solutions',
       details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices.',
       image: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
@@ -107,7 +95,7 @@ const HomePage: React.FC = () => {
       description: 'Structured debt facility for medical device manufacturing'
     },
     {
-      title: 'shiksha',
+      title: 'Shiksha',
       company: 'AgriTech Ventures',
       amount: '$3.8M',
       sector: 'Agriculture',
@@ -180,7 +168,7 @@ const HomePage: React.FC = () => {
                 Investment Banking
                 <span className="block text-primary-300">
                   <TypewriterText 
-                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation','Progress']}
+                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
                     speed={120}
                   />
                 </span>
@@ -227,25 +215,23 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
+            {/* Business Animation */}
             <motion.div 
               className="relative"
               initial={{ opacity: 0, x: 50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <FloatingContainer delay={0.8}>
-                <div className="text-center">
-                  <div className="flex items-center space-x-4 justify-center">
-                    <Award className="h-8 w-8 text-primary-400" />
-                    <div>
-                      <div className="text-2xl font-poppins font-bold text-primary-300">
-                        <Counter end={25} duration={2000} suffix="+ Years" isActive={heroInView} />
-                      </div>
-                      <div className="text-sm font-inter text-dark-500">Experience</div>
-                    </div>
-                  </div>
-                </div>
-              </FloatingContainer>
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
+                <iframe 
+                  src='https://my.spline.design/perisoft3dphonesoftwaredevelopment-loaKbbubCNLNKYqcpSrQSvHr/' 
+                  frameBorder='0' 
+                  width='100%' 
+                  height='100%'
+                  className="rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -266,14 +252,21 @@ const HomePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Focus Areas Section */}
+      {/* Focus Sectors Section */}
       <motion.section 
         ref={sectorsRef} 
         className="py-20 bg-dark-100/50 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
+        <div className="absolute inset-0 bg-dark-50/90"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -282,7 +275,7 @@ const HomePage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
-              Our Focus Areas
+              Our Focus Sectors
             </h2>
             <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
               Specialized expertise across key industry verticals in investment banking
@@ -290,7 +283,7 @@ const HomePage: React.FC = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            {focusAreas.map((area, index) => (
+            {focusSectors.map((sector, index) => (
               <motion.div
                 key={index}
                 className="group cursor-pointer"
@@ -305,13 +298,13 @@ const HomePage: React.FC = () => {
                       className="text-primary-400 mb-4 flex justify-center group-hover:text-primary-300 transition-colors duration-500"
                       whileHover={{ scale: 1.2, rotate: 5 }}
                     >
-                      {area.icon}
+                      {sector.icon}
                     </motion.div>
                     <h3 className="font-poppins text-lg font-semibold text-primary-300 mb-2 group-hover:text-primary-200 transition-colors duration-500">
-                      {area.name}
+                      {sector.name}
                     </h3>
                     <p className="font-inter text-sm text-dark-500 leading-relaxed group-hover:text-dark-400 transition-colors duration-500">
-                      {area.description}
+                      {sector.description}
                     </p>
                   </div>
                 </FloatingContainer>
@@ -328,8 +321,15 @@ const HomePage: React.FC = () => {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -340,11 +340,11 @@ const HomePage: React.FC = () => {
               Our Core Services
             </h2>
             <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Comprehensive investment banking solutions tailored to empower your business 
+              Comprehensive investment banking solutions tailored to empower your business
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={index}
@@ -520,7 +520,7 @@ const HomePage: React.FC = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
-              Let's discuss how our investment banking expertise can help you achieve your Organisational goals
+              Let's discuss how our investment banking expertise can help you achieve your Organisational goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div

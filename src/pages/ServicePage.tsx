@@ -12,90 +12,135 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       case 'seed-angel':
         return {
           title: 'Seed & Angel Funding',
-          subtitle: 'Connecting Startups with the Right Investors',
+          subtitle: 'Connecting Early Stage Enterprises with Capital',
           icon: <TrendingUp className="h-12 w-12" />,
-          description: 'We specialize in helping early-stage startups secure seed and angel funding by connecting them with the right investors and structuring deals that maximize value for all parties.',
+          description: 'We partner with early and concept stage enterprises, connect them to venture capital and seed, accelerator, HNI angel investors and unsecured loans to realize the capital, and stay with the journey of building a maverick enterprise.',
           features: [
-            'Investor identification and matching',
-            'Pitch deck development and refinement',
-            'Due diligence coordination',
-            'Term sheet negotiation',
-            'Legal documentation support',
-            'Post-funding strategic advisory'
+            'Venture Capital and Seed Funding',
+            'Accelerator Program Connections',
+            'HNI Angel Investor Network',
+            'Unsecured Business Loans',
+            'Venture Debt Solutions',
+            'Revenue Based Working Capital',
+            'CCD and Structured Investments'
           ],
           process: [
             { step: '1', title: 'Initial Assessment', description: 'Comprehensive evaluation of your business model, market opportunity, and funding requirements.' },
-            { step: '2', title: 'Investor Targeting', description: 'Identification and approach to suitable angel investors and seed funds.' },
+            { step: '2', title: 'Investor Targeting', description: 'Identification and approach to suitable angel investors and seed funds from our extensive network.' },
             { step: '3', title: 'Preparation', description: 'Development of compelling pitch materials and due diligence preparation.' },
             { step: '4', title: 'Negotiation', description: 'Term sheet negotiation and deal structuring to optimize outcomes.' },
-            { step: '5', title: 'Closing', description: 'Legal documentation and transaction closure support.' }
+            { step: '5', title: 'Ongoing Support', description: 'Legal, risk, market entry, government support, compliance and governance guidance.' }
           ],
           benefits: [
             'Access to extensive investor network',
             'Professional pitch deck development',
-            'Optimized deal terms and valuation',
-            'Reduced fundraising timeline',
-            'Strategic investor matching'
+            'Legal and compliance guidance',
+            'Market entry strategy support',
+            'Government support navigation',
+            'Ongoing mentorship and advisory'
           ]
         };
 
       case 'corporate-finance':
         return {
-          title: 'Corporate Finance & Debt Advisory',
-          subtitle: 'Strategic Financial Solutions for Growth',
+          title: 'Private Equity & Venture Capital',
+          subtitle: 'Growth Capital for Mature Enterprises',
           icon: <Target className="h-12 w-12" />,
-          description: 'Comprehensive corporate finance advisory services including M&A, restructuring, and debt advisory to help businesses optimize their capital structure and achieve strategic objectives.',
+          description: 'Equity and Growth capital can be arranged from large PE| VC funds, Family offices and Strategic Investors for mature and potential business. OCPS and CCPS for short to long term maturities from large domestic and international investors.',
           features: [
-            'Mergers & Acquisitions advisory',
-            'Corporate restructuring',
-            'Valuation and financial modeling',
-            'Capital structure optimization',
-            'Strategic planning and execution',
-            'Financial due diligence'
+            'Private Equity Fund Connections',
+            'Venture Capital Arrangements',
+            'Family Office Networks',
+            'Strategic Investor Partnerships',
+            'OCPS and CCPS Structuring',
+            'Pre-IPO and IPO Funding',
+            'International Capital Markets Access',
+            'SME Exchange Listings'
           ],
           process: [
-            { step: '1', title: 'Strategic Analysis', description: 'Comprehensive analysis of your business and strategic objectives.' },
-            { step: '2', title: 'Options Evaluation', description: 'Evaluation of various corporate finance alternatives and strategies.' },
-            { step: '3', title: 'Structure Design', description: 'Design of optimal transaction structure and financing arrangements.' },
-            { step: '4', title: 'Execution', description: 'Professional execution of the chosen strategy with expert guidance.' },
-            { step: '5', title: 'Integration', description: 'Post-transaction integration and performance monitoring support.' }
+            { step: '1', title: 'Strategic Analysis', description: 'Comprehensive analysis of your business and growth capital requirements.' },
+            { step: '2', title: 'Capital Structure Design', description: 'Design optimal equity structure with OCPS/CCPS for various maturities.' },
+            { step: '3', title: 'Investor Matching', description: 'Connect with suitable PE/VC funds, family offices, and strategic investors.' },
+            { step: '4', title: 'International Access', description: 'Facilitate access to international stock exchanges and foreign capital.' },
+            { step: '5', title: 'IPO Preparation', description: 'Support pre-IPO readiness and eventual main board listing.' }
           ],
           benefits: [
-            'Optimized capital structure',
-            'Enhanced business valuation',
-            'Strategic growth opportunities',
-            'Risk mitigation strategies',
-            'Professional deal execution'
+            'Access to large PE/VC funds',
+            'International capital markets',
+            'Pre-IPO preparation support',
+            'Strategic investor connections',
+            'FDI and ECB facilitation',
+            'SME to main board progression'
           ]
         };
 
-      case 'loan-debt':
+      case 'cfo-services':
         return {
-          title: 'Loan & Debt Syndication',
-          subtitle: 'Optimizing Capital Structure Through Strategic Debt',
-          icon: <Shield className="h-12 w-12" />,
-          description: 'Expert debt syndication services to help businesses secure optimal financing terms through strategic loan structuring and lender relationships.',
+          title: 'CFO & Support Services',
+          subtitle: 'Comprehensive Financial Leadership Solutions',
+          icon: <FileText className="h-12 w-12" />,
+          description: 'The entire financial and compliance related functions can be done by us. We operate either independently or in conjunction with your finance team and provide adequate support for comprehensive business operations.',
           features: [
-            'Debt syndication and structuring',
-            'Lender identification and approach',
-            'Term sheet negotiation',
-            'Covenant structuring',
-            'Refinancing strategies',
-            'Working capital optimization'
+            'Business Plan Preparation',
+            'Internal and External Audit Support',
+            'Product, Credit and Process Manual Preparation',
+            'ROC, MCA, Secretarial Services',
+            'IT and LMS, LOS Services',
+            'Rating Assistance',
+            'NCD Private Placement',
+            'NBFC License and Acquisitions',
+            'Strategic Partnerships and Alliances'
           ],
           process: [
-            { step: '1', title: 'Requirement Analysis', description: 'Detailed analysis of your debt requirements and financing objectives.' },
-            { step: '2', title: 'Market Research', description: 'Comprehensive lender market research and selection.' },
-            { step: '3', title: 'Proposal Development', description: 'Development of compelling credit proposals and documentation.' },
+            { step: '1', title: 'Assessment', description: 'Comprehensive assessment of your financial management and compliance needs.' },
+            { step: '2', title: 'System Setup', description: 'Implementation of financial systems, processes, and compliance frameworks.' },
+            { step: '3', title: 'Documentation', description: 'Preparation of business plans, manuals, and regulatory documentation.' },
+            { step: '4', title: 'Compliance Management', description: 'Ongoing ROC, MCA, and secretarial services management.' },
+            { step: '5', title: 'Strategic Support', description: 'Rating assistance, licensing support, and strategic partnership facilitation.' }
+          ],
+          benefits: [
+            'Complete financial function outsourcing',
+            'Regulatory compliance management',
+            'Professional documentation support',
+            'NBFC licensing expertise',
+            'Strategic partnership facilitation',
+            'Cost-effective financial leadership'
+          ]
+        };
+
+      case 'loan-debt-syndication':
+        return {
+          title: 'Debt Solutions & Working Capital',
+          subtitle: 'Comprehensive Debt and Working Capital Solutions',
+          icon: <Shield className="h-12 w-12" />,
+          description: 'Comprehensive debt solutions including term loans, NCDs, debt restructuring, project financing, and various working capital facilities to meet your business financing needs.',
+          features: [
+            'Term Loans and NCDs',
+            'Debt Restructuring',
+            'Project Financing',
+            'Unsecured Business Loans',
+            'Line of Credit for Equipment Finance',
+            'Loan Against Property | LRD Facility',
+            'Export Credit and Factoring',
+            'Buyers Credit',
+            'Working Capital Finance | Bill Discounting',
+            'Mezzanine | Quasi-equity Funding',
+            'Subordinated Debt | Commercial Paper'
+          ],
+          process: [
+            { step: '1', title: 'Requirement Analysis', description: 'Detailed analysis of your debt and working capital requirements.' },
+            { step: '2', title: 'Structure Design', description: 'Design optimal debt structure including hybrid instruments.' },
+            { step: '3', title: 'Lender Approach', description: 'Approach suitable lenders and financial institutions.' },
             { step: '4', title: 'Negotiation', description: 'Professional negotiation of terms, covenants, and pricing.' },
             { step: '5', title: 'Documentation', description: 'Legal documentation review and transaction closure.' }
           ],
           benefits: [
+            'Comprehensive debt solutions',
             'Competitive interest rates',
-            'Flexible loan terms',
-            'Diversified lender base',
-            'Optimal covenant structure',
-            'Reduced financing costs'
+            'Flexible repayment terms',
+            'Working capital optimization',
+            'Export finance facilities',
+            'Hybrid debt instruments'
           ]
         };
 
@@ -159,36 +204,6 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
           ]
         };
 
-      case 'cfo-services':
-        return {
-          title: 'CFO Services',
-          subtitle: 'Comprehensive Financial Leadership Solutions',
-          icon: <FileText className="h-12 w-12" />,
-          description: 'Professional CFO services providing strategic financial leadership, planning, and management for businesses seeking expert financial guidance.',
-          features: [
-            'Strategic financial planning',
-            'Financial reporting and analysis',
-            'Cash flow management',
-            'Budget preparation and monitoring',
-            'Investor relations support',
-            'Risk management frameworks'
-          ],
-          process: [
-            { step: '1', title: 'Assessment', description: 'Comprehensive assessment of your financial management needs.' },
-            { step: '2', title: 'Planning', description: 'Development of strategic financial plans and frameworks.' },
-            { step: '3', title: 'Implementation', description: 'Implementation of financial systems and processes.' },
-            { step: '4', title: 'Monitoring', description: 'Ongoing monitoring and performance management.' },
-            { step: '5', title: 'Optimization', description: 'Continuous optimization of financial operations.' }
-          ],
-          benefits: [
-            'Professional financial leadership',
-            'Strategic decision support',
-            'Improved financial controls',
-            'Enhanced reporting capabilities',
-            'Cost-effective expertise'
-          ]
-        };
-
       default:
         return {
           title: 'Service',
@@ -205,20 +220,29 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
   const service = getServiceData(serviceType);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-dark-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-900 to-blue-700 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-primary-900/80"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="text-blue-200 mb-4">
+              <div className="text-primary-200 mb-4">
                 {service.icon}
               </div>
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6">{service.title}</h1>
-              <p className="text-xl lg:text-2xl text-blue-100 mb-8">{service.subtitle}</p>
+              <h1 className="text-4xl lg:text-5xl font-poppins font-bold mb-6">{service.title}</h1>
+              <p className="text-xl lg:text-2xl text-primary-100 mb-8">{service.subtitle}</p>
               <Link
                 to="/contact"
-                className="bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center"
+                className="bg-white text-primary-900 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-colors inline-flex items-center shadow-glow"
               >
                 Get Started
                 <ArrowRight className="h-5 w-5 ml-2" />
@@ -236,13 +260,13 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       </section>
 
       {/* Service Description */}
-      <section className="py-20">
+      <section className="py-20 bg-dark-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-6">
               Service Overview
             </h2>
-            <p className="text-xl text-gray-700 leading-relaxed">
+            <p className="text-xl text-dark-500 leading-relaxed font-inter">
               {service.description}
             </p>
           </div>
@@ -250,23 +274,32 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-4">
               Key Features
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-dark-500 font-inter">
               Comprehensive solutions tailored to your specific needs
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {service.features.map((feature, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
+              <div key={index} className="bg-dark-100/80 backdrop-blur-md p-6 rounded-xl shadow-neumorphic border border-primary-600/20">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                  <span className="text-gray-900 font-medium">{feature}</span>
+                  <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
+                  <span className="text-primary-300 font-medium font-inter">{feature}</span>
                 </div>
               </div>
             ))}
@@ -275,13 +308,13 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       </section>
 
       {/* Process */}
-      <section className="py-20">
+      <section className="py-20 bg-dark-100/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-4">
               Our Process
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-dark-500 font-inter">
               A structured approach to delivering exceptional results
             </p>
           </div>
@@ -289,12 +322,12 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
           <div className="space-y-8">
             {service.process.map((step, index) => (
               <div key={index} className="flex items-start space-x-6">
-                <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0">
+                <div className="bg-primary-600 text-white w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-glow">
                   {step.step}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
-                  <p className="text-gray-700 leading-relaxed">{step.description}</p>
+                  <h3 className="text-xl font-semibold text-primary-300 mb-2 font-poppins">{step.title}</h3>
+                  <p className="text-dark-500 leading-relaxed font-inter">{step.description}</p>
                 </div>
               </div>
             ))}
@@ -303,18 +336,27 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-6">
                 Why Choose Our Service?
               </h2>
               <div className="space-y-4">
                 {service.benefits.map((benefit, index) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{benefit}</span>
+                    <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
+                    <span className="text-dark-500 font-medium font-inter">{benefit}</span>
                   </div>
                 ))}
               </div>
@@ -331,25 +373,25 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-900 text-white">
+      <section className="py-20 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+          <h2 className="text-3xl lg:text-4xl font-poppins font-bold mb-6">
             Ready to Get Started?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+          <p className="text-xl text-primary-100 mb-8 leading-relaxed font-inter">
             Contact us today to discuss how our {service.title.toLowerCase()} services can help your business achieve its financial objectives.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center"
+              className="bg-white text-primary-900 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-colors inline-flex items-center justify-center shadow-glow"
             >
               Schedule Consultation
               <ArrowRight className="h-5 w-5 ml-2" />
             </Link>
             <a
               href="mailto:agiliocap@gmail.com"
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors inline-flex items-center justify-center"
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-colors inline-flex items-center justify-center"
             >
               Email Us Directly
             </a>
