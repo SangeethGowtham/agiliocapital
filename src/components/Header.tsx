@@ -101,7 +101,7 @@ const Header: React.FC = () => {
           >
             <Link
               to="/"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
                 isActiveLink('/') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
               }`}
               style={{ fontSize: '16px' }}
@@ -110,7 +110,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/about"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
                 isActiveLink('/about') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
               }`}
               style={{ fontSize: '16px' }}
@@ -124,7 +124,7 @@ const Header: React.FC = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center font-inter text-dark-600 hover:text-primary-400 transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1" style={{ fontSize: '16px' }}>
+              <button className="flex items-center font-inter text-dark-600 hover:text-primary-400 transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4" style={{ fontSize: '16px' }}>
                 Services
                 <ChevronDown className="h-4 w-4 ml-1" />
               </button>
@@ -154,7 +154,7 @@ const Header: React.FC = () => {
 
             <Link
               to="/deals"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
                 isActiveLink('/deals') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
               }`}
               style={{ fontSize: '16px' }}
@@ -163,7 +163,7 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/contact"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
                 isActiveLink('/contact') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
               }`}
               style={{ fontSize: '16px' }}
@@ -174,6 +174,7 @@ const Header: React.FC = () => {
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              className="ml-4"
             >
               <Link
                 to="/contact"
@@ -208,17 +209,17 @@ const Header: React.FC = () => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 px-4">
                 <Link
                   to="/"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About Us
@@ -240,14 +241,14 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/deals"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Deals
                 </Link>
                 <Link
                   to="/contact"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
@@ -255,7 +256,7 @@ const Header: React.FC = () => {
                 
                 <Link
                   to="/contact"
-                  className="bg-primary-600 text-white px-6 py-2 rounded-full font-inter font-medium hover:bg-primary-700 transition-colors duration-300 w-fit shadow-glow"
+                  className="bg-primary-600 text-white px-6 py-2 rounded-full font-inter font-medium hover:bg-primary-700 transition-colors duration-300 w-fit shadow-glow mt-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
