@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
         {/* 3D Spline Background */}
         <div className="absolute inset-0 z-0">
           <SplineViewer 
-            url="https://prod.spline.design/Qgh9sL2R30wruHJRVzqFaCXN/scene.splinecode"
+            url="https://prod.spline.design/6Wq5GiW7CRJZgKua/scene.splinecode"
             className="w-full h-full"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
@@ -223,12 +223,9 @@ const HomePage: React.FC = () => {
               transition={{ duration: 1, delay: 0.4 }}
             >
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <iframe 
-                  src='https://my.spline.design/perisoft3dphonesoftwaredevelopment-loaKbbubCNLNKYqcpSrQSvHr/' 
-                  frameBorder='0' 
-                  width='100%' 
-                  height='100%'
-                  className="rounded-2xl"
+                <SplineViewer 
+                  url="https://prod.spline.design/llK92eVgKBtPcjjv/scene.splinecode"
+                  className="w-full h-full"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
               </div>
