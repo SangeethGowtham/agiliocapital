@@ -58,7 +58,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
   ];
 
   const stats = [
-    { number: 50, label: 'Successful Deals', suffix: '+' },
+    { number: 75, label: 'Successful Deals', suffix: '+' },
     { number: 1500, label: 'Funds Mobilized (₹Cr)', suffix: '+' },
     { number: 25, label: 'Years Experience', suffix: '+' },
     { number: 30, label: 'Active Clients', suffix: '+' }
@@ -67,7 +67,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
   const metrics = [
     { value: 95, label: 'Success Rate', suffix: '%' },
     { value: 24, label: 'Avg Response Time', suffix: 'hrs' },
-    { value: 8, label: 'Industry Sectors', suffix: '+' }
+    { value: 12, label: 'Industry Sectors', suffix: '+' }
   ];
 
   return (
@@ -75,17 +75,29 @@ Proven expertise in capturing strategic business / market opportunities, Product
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20"
+        className="relative text-white py-20"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, rgba(37, 70, 101, 0.9), rgba(37, 70, 101, 0.8))`
+          }}
+        ></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-poppins text-4xl lg:text-5xl font-bold mb-6">About Agilio Capital Partners</h1>
-            <p className="font-inter text-xl lg:text-2xl text-primary-100 max-w-4xl mx-auto leading-relaxed">
+            <h1 className="font-poppins text-4xl lg:text-5xl font-bold mb-6">About Agilio Capital</h1>
+            <p className="font-inter text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed">
               Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives.
             </p>
           </motion.div>
@@ -105,7 +117,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
                 Our Story & Mission
               </h2>
               <p className="font-inter text-lg text-dark-500 leading-relaxed mb-6">
-                Agilio Capital Partners was founded with a clear vision: to provide world-class investment banking services 
+                Agilio Capital was founded with a clear vision: to provide world-class investment banking services 
                 that drive meaningful business transformation. Based in Bangalore, we combine global financial expertise 
                 with deep local market knowledge.
               </p>
@@ -156,7 +168,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
               Leadership Team
             </h2>
             <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Meet the experienced professionals leading Agilio Capital Partners
+              Meet the experienced professionals leading Agilio Capital
             </p>
           </motion.div>
 
@@ -222,7 +234,11 @@ Proven expertise in capturing strategic business / market opportunities, Product
                         {member.credentials.map((credential, credIndex) => (
                           <span
                             key={credIndex}
-                            className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-inter font-medium border border-primary-600/30"
+                            className="px-3 py-1 rounded-full text-sm font-inter font-medium text-white border"
+                            style={{
+                              backgroundColor: 'rgba(37, 70, 101, 0.2)',
+                              borderColor: 'rgba(37, 70, 101, 0.3)'
+                            }}
                           >
                             {credential}
                           </span>
@@ -244,7 +260,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
                         href="https://www.linkedin.com/in/t-m-durai-b913356/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-white px-6 py-3 rounded-full font-inter font-medium transition-colors duration-300 shadow-glow"
+                        className="inline-flex items-center text-white px-6 py-3 rounded-full font-inter font-medium transition-colors duration-300 shadow-lg"
                         style={{ backgroundColor: '#0077b5' }}
                         whileHover={{ scale: 1.05, backgroundColor: '#005885' }}
                         whileTap={{ scale: 0.95 }}
@@ -303,7 +319,12 @@ Proven expertise in capturing strategic business / market opportunities, Product
       </section>
 
       {/* Professional Background */}
-      <section className="py-20 bg-primary-900 text-white">
+      <section 
+        className="py-20 text-white"
+        style={{
+          background: `linear-gradient(135deg, rgba(37, 70, 101, 0.9), rgba(37, 70, 101, 0.8))`
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -314,7 +335,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
               <h2 className="font-poppins text-3xl lg:text-4xl font-bold mb-6">
                 Professional Excellence
               </h2>
-              <p className="font-inter text-xl text-primary-100 leading-relaxed mb-8">
+              <p className="font-inter text-xl text-gray-200 leading-relaxed mb-8">
                 Our team comprises seasoned professionals with extensive experience in investment banking, 
                 corporate finance, and strategic advisory services.
               </p>
@@ -334,7 +355,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
                     <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
-                    <span className="font-inter text-primary-100">{item}</span>
+                    <span className="font-inter text-gray-200">{item}</span>
                   </motion.div>
                 ))}
               </div>

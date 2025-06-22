@@ -11,6 +11,7 @@ const ContactPage: React.FC = () => {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,23 +21,69 @@ const ContactPage: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
-    console.log('Form submitted:', formData);
-    setIsSubmitted(true);
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        service: '',
-        message: ''
+    setIsSubmitting(true);
+
+    try {
+      // Track form submission with Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          event_category: 'Contact',
+          event_label: 'Contact Form Submission',
+          value: 1
+        });
+      }
+
+      // Send form data to backend endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: 'website_contact_form'
+        }),
       });
-    }, 3000);
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        
+        // Send automated email notification
+        await fetch('/api/notify', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            type: 'new_contact_submission',
+            data: formData
+          }),
+        });
+
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: '',
+            email: '',
+            company: '',
+            phone: '',
+            service: '',
+            message: ''
+          });
+        }, 5000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('There was an error submitting your form. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const services = [
@@ -53,7 +100,7 @@ const ContactPage: React.FC = () => {
     <div className="min-h-screen bg-dark-50">
       {/* Hero Section */}
       <section 
-        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20 relative overflow-hidden"
+        className="relative text-white py-20 overflow-hidden"
         style={{
           backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
           backgroundSize: 'cover',
@@ -61,12 +108,17 @@ const ContactPage: React.FC = () => {
           backgroundAttachment: 'fixed'
         }}
       >
-        <div className="absolute inset-0 bg-primary-900/80"></div>
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: `linear-gradient(135deg, rgba(37, 70, 101, 0.8), rgba(37, 70, 101, 0.75))`
+          }}
+        ></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
             <h1 className="text-4xl lg:text-5xl font-poppins font-bold mb-6">Get in Touch</h1>
-            <p className="text-xl lg:text-2xl text-primary-100 max-w-4xl mx-auto leading-relaxed font-inter">
-              Ready to explore how Agilio Capital Partners can help transform your business? 
+            <p className="text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed font-inter">
+              Ready to explore how Agilio Capital can help transform your business? 
               We'd love to hear from you.
             </p>
           </div>
@@ -105,6 +157,7 @@ const ContactPage: React.FC = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors font-inter"
                         placeholder="Your full name"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -120,6 +173,7 @@ const ContactPage: React.FC = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors font-inter"
                         placeholder="your@email.com"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -137,6 +191,7 @@ const ContactPage: React.FC = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors font-inter"
                         placeholder="Your company name"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -151,6 +206,7 @@ const ContactPage: React.FC = () => {
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors font-inter"
                         placeholder="+91 98765 43210"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -165,6 +221,7 @@ const ContactPage: React.FC = () => {
                       value={formData.service}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors font-inter"
+                      disabled={isSubmitting}
                     >
                       <option value="">Select a service</option>
                       {services.map((service, index) => (
@@ -186,15 +243,30 @@ const ContactPage: React.FC = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-lg border border-primary-600/30 bg-dark-200/50 text-primary-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors resize-none font-inter"
                       placeholder="Tell us about your requirements and how we can help..."
+                      disabled={isSubmitting}
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full bg-primary-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors flex items-center justify-center shadow-glow font-poppins"
+                    disabled={isSubmitting}
+                    className="w-full px-8 py-4 rounded-lg font-semibold transition-colors flex items-center justify-center shadow-lg font-poppins text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                    style={{
+                      backgroundColor: '#254665',
+                      '&:hover': { backgroundColor: 'rgba(37, 70, 101, 0.9)' }
+                    }}
                   >
-                    <Send className="h-5 w-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5 mr-2" />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               )}
@@ -207,7 +279,13 @@ const ContactPage: React.FC = () => {
                 
                 <div className="space-y-6">
                   <div className="flex items-start space-x-4">
-                    <div className="bg-primary-600/20 p-3 rounded-lg border border-primary-600/30">
+                    <div 
+                      className="p-3 rounded-lg border"
+                      style={{
+                        backgroundColor: 'rgba(37, 70, 101, 0.2)',
+                        borderColor: 'rgba(37, 70, 101, 0.3)'
+                      }}
+                    >
                       <MapPin className="h-6 w-6 text-primary-400" />
                     </div>
                     <div>
@@ -222,7 +300,13 @@ const ContactPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="bg-primary-600/20 p-3 rounded-lg border border-primary-600/30">
+                    <div 
+                      className="p-3 rounded-lg border"
+                      style={{
+                        backgroundColor: 'rgba(37, 70, 101, 0.2)',
+                        borderColor: 'rgba(37, 70, 101, 0.3)'
+                      }}
+                    >
                       <Mail className="h-6 w-6 text-primary-400" />
                     </div>
                     <div>
@@ -237,25 +321,37 @@ const ContactPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-start space-x-4">
-                    <div className="bg-primary-600/20 p-3 rounded-lg border border-primary-600/30">
+                    <div 
+                      className="p-3 rounded-lg border"
+                      style={{
+                        backgroundColor: 'rgba(37, 70, 101, 0.2)',
+                        borderColor: 'rgba(37, 70, 101, 0.3)'
+                      }}
+                    >
                       <Linkedin className="h-6 w-6 text-primary-400" />
                     </div>
                     <div>
                       <h3 className="font-semibold text-primary-300 mb-1 font-poppins">LinkedIn</h3>
                       <a 
-                        href="https://www.linkedin.com/company/agilio-capital-partners"
+                        href="https://www.linkedin.com/in/t-m-durai-b913356/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary-400 hover:text-primary-300 transition-colors font-inter"
                       >
-                        Agilio Capital Partners
+                        Professional Profile
                       </a>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-primary-600/10 backdrop-blur-md rounded-2xl p-8 border border-primary-600/30">
+              <div 
+                className="backdrop-blur-md rounded-2xl p-8 border"
+                style={{
+                  backgroundColor: 'rgba(37, 70, 101, 0.1)',
+                  borderColor: 'rgba(37, 70, 101, 0.3)'
+                }}
+              >
                 <h3 className="text-xl font-poppins font-bold text-primary-300 mb-4">Office Hours</h3>
                 <div className="space-y-2 text-dark-500 font-inter">
                   <div className="flex justify-between">
@@ -273,9 +369,14 @@ const ContactPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-primary-600 to-primary-700 rounded-2xl p-8 text-white">
+              <div 
+                className="rounded-2xl p-8 text-white"
+                style={{
+                  background: `linear-gradient(135deg, rgba(37, 70, 101, 0.6), rgba(37, 70, 101, 0.7))`
+                }}
+              >
                 <h3 className="text-xl font-poppins font-bold mb-4">Quick Response Guarantee</h3>
-                <p className="text-primary-100 leading-relaxed font-inter">
+                <p className="text-gray-200 leading-relaxed font-inter">
                   We understand that time is critical in financial matters. 
                   That's why we guarantee a response to all inquiries within 24 hours.
                 </p>

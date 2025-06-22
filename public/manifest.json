@@ -1,11 +1,11 @@
 {
-  "name": "Agilio Capital Partners",
+  "name": "Agilio Capital",
   "short_name": "Agilio Capital",
-  "description": "Premier Investment Banking Services - Funds Progrez",
+  "description": "Premier Investment Banking Services",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1a4b8c",
-  "theme_color": "#1a4b8c",
+  "background_color": "#254665",
+  "theme_color": "#254665",
   "icons": [
     {
       "src": "/favicon.ico",

@@ -15,10 +15,10 @@ export default {
           300: '#c4b5fd',
           400: '#a78bfa',
           500: '#8b5cf6',
-          600: '#642c62',
-          700: '#5b2c87',
-          800: '#4c1d95',
-          900: '#3c1361',
+          600: '#254665', // Updated to requested color
+          700: '#1e3a52',
+          800: '#172e3f',
+          900: '#10222c',
         },
         secondary: {
           50: '#f8fafc',
@@ -82,37 +82,37 @@ export default {
         },
         glow: {
           '0%': { 
-            textShadow: '0 0 5px #642c62, 0 0 10px #642c62, 0 0 15px #642c62, 0 0 20px #642c62',
+            textShadow: '0 0 5px #254665, 0 0 10px #254665, 0 0 15px #254665, 0 0 20px #254665',
             filter: 'brightness(1)'
           },
           '100%': { 
-            textShadow: '0 0 10px #8b5cf6, 0 0 20px #8b5cf6, 0 0 30px #8b5cf6, 0 0 40px #8b5cf6',
+            textShadow: '0 0 10px #254665, 0 0 20px #254665, 0 0 30px #254665, 0 0 40px #254665',
             filter: 'brightness(1.2)'
           },
         },
         pulseGlow: {
           '0%, 100%': { 
-            boxShadow: '0 0 20px rgba(139, 92, 246, 0.3), 0 0 40px rgba(139, 92, 246, 0.1)',
+            boxShadow: '0 0 20px rgba(37, 70, 101, 0.3), 0 0 40px rgba(37, 70, 101, 0.1)',
           },
           '50%': { 
-            boxShadow: '0 0 30px rgba(139, 92, 246, 0.5), 0 0 60px rgba(139, 92, 246, 0.2)',
+            boxShadow: '0 0 30px rgba(37, 70, 101, 0.5), 0 0 60px rgba(37, 70, 101, 0.2)',
           },
         },
         candle: {
           '0%, 100%': { 
-            textShadow: '0 0 5px #642c62, 0 0 10px #8b5cf6, 0 0 15px #a78bfa',
+            textShadow: '0 0 5px #254665, 0 0 10px #254665, 0 0 15px #254665',
             transform: 'scale(1)'
           },
           '25%': { 
-            textShadow: '0 0 8px #642c62, 0 0 15px #8b5cf6, 0 0 25px #a78bfa',
+            textShadow: '0 0 8px #254665, 0 0 15px #254665, 0 0 25px #254665',
             transform: 'scale(1.02)'
           },
           '50%': { 
-            textShadow: '0 0 12px #642c62, 0 0 20px #8b5cf6, 0 0 35px #a78bfa',
+            textShadow: '0 0 12px #254665, 0 0 20px #254665, 0 0 35px #254665',
             transform: 'scale(1.05)'
           },
           '75%': { 
-            textShadow: '0 0 8px #642c62, 0 0 15px #8b5cf6, 0 0 25px #a78bfa',
+            textShadow: '0 0 8px #254665, 0 0 15px #254665, 0 0 25px #254665',
             transform: 'scale(1.02)'
           },
         },
@@ -134,8 +134,8 @@ export default {
       boxShadow: {
         'neumorphic': '20px 20px 60px #1a1a1a, -20px -20px 60px #2a2a2a',
         'neumorphic-inset': 'inset 20px 20px 60px #1a1a1a, inset -20px -20px 60px #2a2a2a',
-        'glow': '0 0 20px rgba(139, 92, 246, 0.3)',
-        'glow-lg': '0 0 40px rgba(139, 92, 246, 0.4)',
+        'glow': '0 0 20px rgba(37, 70, 101, 0.3)',
+        'glow-lg': '0 0 40px rgba(37, 70, 101, 0.4)',
       },
     },
   },
