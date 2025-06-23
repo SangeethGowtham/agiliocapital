@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, TrendingUp } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header: React.FC = () => {
@@ -37,8 +37,8 @@ const Header: React.FC = () => {
 
   const services = [
     { name: 'Seed & Angel Funding', path: '/services/seed-angel-funding' },
-    { name: 'Corporate Finance & Debt Advisory', path: '/services/corporate-finance' },
-    { name: 'Loan & Debt Syndication', path: '/services/loan-debt-syndication' },
+    { name: 'Private Equity & Venture Capital', path: '/services/corporate-finance' },
+    { name: 'Debt Solutions & Working Capital', path: '/services/loan-debt-syndication' },
     { name: 'Structured Finance', path: '/services/structured-finance' },
     { name: 'Strategic Partnerships', path: '/services/strategic-partnerships' },
     { name: 'CFO Services', path: '/services/cfo-services' }
@@ -48,12 +48,11 @@ const Header: React.FC = () => {
     <motion.header 
       className={`fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out ${
         isScrolled 
-          ? 'backdrop-blur-[10px] shadow-[0_4px_6px_rgba(0,0,0,0.1)]' 
-          : 'backdrop-blur-sm'
+          ? 'backdrop-blur-[10px] shadow-lg bg-white/95' 
+          : 'backdrop-blur-sm bg-white/90'
       }`}
       style={{ 
         height: '80px',
-        backgroundColor: isScrolled ? 'rgba(37, 70, 101, 0.85)' : 'rgba(37, 70, 101, 0.75)',
         zIndex: 1000
       }}
       initial={{ y: 0 }}
@@ -74,25 +73,22 @@ const Header: React.FC = () => {
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Link to="/" className="flex items-center space-x-3">
+              <div className="bg-gradient-to-br from-primary-500 to-primary-700 p-2 rounded-lg">
+                <TrendingUp className="h-8 w-8 text-white" />
+              </div>
               <div className="flex flex-col">
                 <motion.span 
-                  className="text-xl font-bold font-poppins text-white animate-candle"
-                  style={{
-                    background: 'linear-gradient(45deg, #ffffff, #e2e8f0, #cbd5e1)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
+                  className="text-xl font-bold font-poppins text-gray-800"
                 >
-                  Agilio Capital
+                  Funds Progrez^
                 </motion.span>
                 <motion.span 
-                  className="text-sm text-gray-200 -mt-1 font-inter"
+                  className="text-sm text-primary-600 -mt-1 font-inter"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 1, ease: 'easeInOut' }}
                 >
-                  Investment Banking
+                  Investment Management
                 </motion.span>
               </div>
             </Link>
@@ -106,8 +102,8 @@ const Header: React.FC = () => {
           >
             <Link
               to="/"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white pb-1 px-4 ${
-                isActiveLink('/') ? 'text-white font-semibold border-b-2 border-white' : 'text-gray-200 hover:text-white'
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
+                isActiveLink('/') ? 'text-primary-700 font-semibold border-b-2 border-primary-600' : 'text-gray-700 hover:text-primary-600'
               }`}
               style={{ fontSize: '16px' }}
             >
@@ -115,8 +111,8 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/about"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white pb-1 px-4 ${
-                isActiveLink('/about') ? 'text-white font-semibold border-b-2 border-white' : 'text-gray-200 hover:text-white'
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
+                isActiveLink('/about') ? 'text-primary-700 font-semibold border-b-2 border-primary-600' : 'text-gray-700 hover:text-primary-600'
               }`}
               style={{ fontSize: '16px' }}
             >
@@ -129,7 +125,7 @@ const Header: React.FC = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center font-inter text-gray-200 hover:text-white transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white pb-1 px-4" style={{ fontSize: '16px' }}>
+              <button className="flex items-center font-inter text-gray-700 hover:text-primary-600 transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4" style={{ fontSize: '16px' }}>
                 Services
                 <ChevronDown className="h-4 w-4 ml-1" />
               </button>
@@ -137,8 +133,7 @@ const Header: React.FC = () => {
               <AnimatePresence>
                 {isServicesOpen && (
                   <motion.div 
-                    className="absolute top-full left-0 mt-2 w-72 backdrop-blur-[10px] rounded-lg shadow-xl border border-white/20 py-2"
-                    style={{ backgroundColor: 'rgba(37, 70, 101, 0.95)' }}
+                    className="absolute top-full left-0 mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 py-2"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
@@ -148,7 +143,7 @@ const Header: React.FC = () => {
                       <Link
                         key={service.path}
                         to={service.path}
-                        className="block px-4 py-3 text-sm font-inter text-gray-200 hover:bg-white/10 hover:text-white transition-colors duration-300"
+                        className="block px-4 py-3 text-sm font-inter text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors duration-300"
                       >
                         {service.name}
                       </Link>
@@ -160,8 +155,8 @@ const Header: React.FC = () => {
 
             <Link
               to="/deals"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white pb-1 px-4 ${
-                isActiveLink('/deals') ? 'text-white font-semibold border-b-2 border-white' : 'text-gray-200 hover:text-white'
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
+                isActiveLink('/deals') ? 'text-primary-700 font-semibold border-b-2 border-primary-600' : 'text-gray-700 hover:text-primary-600'
               }`}
               style={{ fontSize: '16px' }}
             >
@@ -169,8 +164,8 @@ const Header: React.FC = () => {
             </Link>
             <Link
               to="/contact"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white pb-1 px-4 ${
-                isActiveLink('/contact') ? 'text-white font-semibold border-b-2 border-white' : 'text-gray-200 hover:text-white'
+              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 px-4 ${
+                isActiveLink('/contact') ? 'text-primary-700 font-semibold border-b-2 border-primary-600' : 'text-gray-700 hover:text-primary-600'
               }`}
               style={{ fontSize: '16px' }}
             >
@@ -184,7 +179,7 @@ const Header: React.FC = () => {
             >
               <Link
                 to="/contact"
-                className="bg-white text-[#254665] px-6 py-2 rounded-full font-inter font-medium hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+                className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-2 rounded-full font-inter font-medium hover:from-primary-700 hover:to-primary-800 transition-all duration-300 shadow-lg"
               >
                 Get Started
               </Link>
@@ -193,7 +188,7 @@ const Header: React.FC = () => {
 
           {/* Mobile menu button */}
           <button
-            className="desktop:hidden text-white p-4"
+            className="desktop:hidden text-gray-700 p-4"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -209,8 +204,7 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              className="desktop:hidden py-4 border-t border-white/20 backdrop-blur-[10px]"
-              style={{ backgroundColor: 'rgba(37, 70, 101, 0.95)' }}
+              className="desktop:hidden py-4 border-t border-gray-200 bg-white"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -219,26 +213,26 @@ const Header: React.FC = () => {
               <div className="flex flex-col space-y-4 px-4">
                 <Link
                   to="/"
-                  className="font-inter text-gray-200 hover:text-white transition-colors duration-300 py-2"
+                  className="font-inter text-gray-700 hover:text-primary-600 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="font-inter text-gray-200 hover:text-white transition-colors duration-300 py-2"
+                  className="font-inter text-gray-700 hover:text-primary-600 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About Us
                 </Link>
                 
                 <div className="pl-4">
-                  <div className="font-poppins text-white font-semibold mb-2">Services</div>
+                  <div className="font-poppins text-primary-700 font-semibold mb-2">Services</div>
                   {services.map((service) => (
                     <Link
                       key={service.path}
                       to={service.path}
-                      className="block py-2 text-sm font-inter text-gray-200 hover:text-white transition-colors duration-300"
+                      className="block py-2 text-sm font-inter text-gray-600 hover:text-primary-600 transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {service.name}
@@ -248,14 +242,14 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/deals"
-                  className="font-inter text-gray-200 hover:text-white transition-colors duration-300 py-2"
+                  className="font-inter text-gray-700 hover:text-primary-600 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Deals
                 </Link>
                 <Link
                   to="/contact"
-                  className="font-inter text-gray-200 hover:text-white transition-colors duration-300 py-2"
+                  className="font-inter text-gray-700 hover:text-primary-600 transition-colors duration-300 py-2"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
@@ -263,7 +257,7 @@ const Header: React.FC = () => {
                 
                 <Link
                   to="/contact"
-                  className="bg-white text-[#254665] px-6 py-2 rounded-full font-inter font-medium hover:bg-gray-100 transition-colors duration-300 w-fit shadow-lg mt-4"
+                  className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-2 rounded-full font-inter font-medium hover:from-primary-700 hover:to-primary-800 transition-all duration-300 w-fit shadow-lg mt-4"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started
