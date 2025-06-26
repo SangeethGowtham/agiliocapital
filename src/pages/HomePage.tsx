@@ -12,31 +12,30 @@ const HomePage: React.FC = () => {
   const { ref: servicesRef, isIntersecting: servicesInView } = useIntersectionObserver();
   const { ref: sectorsRef, isIntersecting: sectorsInView } = useIntersectionObserver();
   const { ref: statsRef, isIntersecting: statsInView } = useIntersectionObserver();
-  const { ref: clientsRef, isIntersecting: clientsInView } = useIntersectionObserver();
 
   const services = [
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: 'Seed & Angel Funding',
-      description: 'We partner with early and concept stage enterprises, connecting them to venture capital, seed funds, accelerators, and angel investors to realize capital growth.',
+      description: 'We partner with early and concept stage enterprises, connect them to venture capital and seed, accelerator, HNI angel investors and unsecured loans to realize the capital.',
       link: '/services/seed-angel-funding'
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: 'Private Equity & Venture Capital',
-      description: 'Equity and growth capital arrangements from large PE/VC funds, family offices, and strategic investors for mature and high-potential businesses.',
+      description: 'Equity and Growth capital can be arranged from large PE| VC funds, Family offices and Strategic Investors for mature and potential business.',
       link: '/services/corporate-finance'
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
       title: 'CFO & Support Services',
-      description: 'Comprehensive financial and compliance functions operated independently or in conjunction with your finance team for optimal business operations.',
+      description: 'The entire financial and compliance related functions can be done by us. We operate either independently or in conjunction with your finance team.',
       link: '/services/cfo-services'
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: 'Debt Solutions & Working Capital',
-      description: 'Term loans, NCDs, debt restructuring, project financing, unsecured business loans, and line of credit for equipment finance solutions.',
+      description: 'Term loan and NCDs, Debt Restructuring, Project Financing, Unsecured business Loan, Line of Credit for Equipment Finance.',
       link: '/services/loan-debt-syndication'
     }
   ];
@@ -45,126 +44,114 @@ const HomePage: React.FC = () => {
     { 
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
-      description: 'Banking, Financial Services & Insurance',
-      details: 'Comprehensive investment solutions for banks, NBFCs, insurance companies, and fintech. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships.',
+      description: 'Banking, Financial Services & Affordable Housing Finance',
+      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate.',
       image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Healthcare', 
       icon: <Heart className="h-12 w-12" />, 
-      description: 'Medical Technology & Healthcare Services',
-      details: 'Investment banking for medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, and partnerships.',
+      description: 'Pharmaceuticals, health care and allied services',
+      details: 'Our healthcare investment banking practice focuses on medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, licensing deals, and partnerships that drive innovation in patient care and medical advancement.',
       image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
-      name: 'Technology', 
+      name: 'Social Enterprises', 
+      icon: <Users className="h-12 w-12" />, 
+      description: 'Impact-driven organizations creating social value',
+      details: 'We specialize in supporting social enterprises and impact-driven organizations through impact investing, blended finance solutions, and strategic partnerships. Our expertise helps organizations balance social impact with financial sustainability.',
+      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
+    { 
+      name: 'FinTech', 
       icon: <Smartphone className="h-12 w-12" />, 
-      description: 'Digital Innovation & Software Solutions',
-      details: 'Supporting technology companies through growth capital, strategic partnerships, and market expansion initiatives in the digital transformation space.',
+      description: 'Digital financial services and payment solutions',
+      details: 'Our fintech practice covers digital payments, lending platforms, wealth management technology, and blockchain solutions. We help fintech companies secure growth capital, navigate regulatory requirements, and establish strategic partnerships with traditional financial institutions.',
       image: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
-      name: 'Clean Energy', 
-      icon: <Sprout className="h-12 w-12" />, 
-      description: 'Renewable Energy & Sustainability',
-      details: 'Investment solutions for renewable energy projects, sustainable technology, and environmental impact initiatives driving the green economy.',
+      name: 'Agriculture', 
+      icon: <Tractor className="h-12 w-12" />, 
+      description: 'AgTech, sustainable farming, renewable energy and food security solutions',
+      details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices.',
       image: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    { 
-      name: 'Manufacturing', 
-      icon: <Building2 className="h-12 w-12" />, 
-      description: 'Industrial & Manufacturing Excellence',
-      details: 'Capital solutions for manufacturing companies, industrial automation, and supply chain optimization across various manufacturing sectors.',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
   const deals = [
     {
-      title: 'Meridian Technologies Acquisition',
-      company: 'Apex Global Solutions',
-      amount: '$18.5M',
-      sector: 'Technology',
-      description: 'Successfully advised on strategic acquisition of Meridian Technologies by Apex Global Solutions'
+      title: 'Virutcham',
+      company: 'TechCorp Solutions',
+      amount: '$5.2M',
+      sector: 'FinTech',
+      description: 'Led successful Series A funding for B2B SaaS platform'
     },
     {
-      title: 'Pinnacle Healthcare Merger',
-      company: 'Summit Medical Group',
-      amount: '$32M',
+      title: 'Unnati',
+      company: 'Healthcare Innovations',
+      amount: '$12M',
       sector: 'Healthcare',
-      description: 'Facilitated merger between Pinnacle Healthcare and Summit Medical Group'
+      description: 'Structured debt facility for medical device manufacturing'
     },
     {
-      title: 'Vertex Energy Series B',
-      company: 'Vertex Energy Solutions',
-      amount: '$15.2M',
-      sector: 'Clean Energy',
-      description: 'Led Series B funding round for renewable energy technology platform'
-    },
-    {
-      title: 'Quantum Analytics IPO',
-      company: 'Quantum Analytics Corp',
-      amount: '$52M',
-      sector: 'Data Analytics',
-      description: 'Provided IPO advisory services for data analytics company'
-    },
-    {
-      title: 'Nexus Logistics Buyout',
-      company: 'Nexus Logistics Inc.',
-      amount: '$28M',
-      sector: 'Logistics',
-      description: 'Advised on management buyout of logistics technology company'
+      title: 'Shiksha',
+      company: 'AgriTech Ventures',
+      amount: '$3.8M',
+      sector: 'Agriculture',
+      description: 'Facilitated partnership with leading agricultural cooperative'
     }
   ];
 
   const stats = [
-    { number: 85, label: 'Successful Investments', suffix: '+' },
-    { number: 2200, label: 'Assets Under Management (M)', suffix: '+' },
+    { number: 50, label: 'Successful Deals', suffix: '+' },
+    { number: 1000, label: 'Transaction Value (M)', suffix: '+' },
     { number: 15, label: 'Years Experience', suffix: '+' },
-    { number: 98, label: 'Client Satisfaction', suffix: '%' }
-  ];
-
-  const clients = [
-    {
-      name: 'TechCorp Solutions',
-      logo: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'Technology'
-    },
-    {
-      name: 'Global Healthcare Partners',
-      logo: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'Healthcare'
-    },
-    {
-      name: 'Renewable Energy Corp',
-      logo: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'Clean Energy'
-    },
-    {
-      name: 'Financial Services Group',
-      logo: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'BFSI'
-    },
-    {
-      name: 'Manufacturing Excellence',
-      logo: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'Manufacturing'
-    },
-    {
-      name: 'Digital Innovation Labs',
-      logo: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=200',
-      sector: 'Technology'
-    }
+    { number: 100, label: 'Client Satisfaction', suffix: '%' }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-dark-50">
+      {/* Hero Section with Professional Business Visual */}
       <section 
         ref={heroRef}
-        className="relative text-gray-800 overflow-hidden bg-gradient-to-br from-purple-50 to-white"
+        className="relative text-white overflow-hidden"
         style={{ height: '100vh', minHeight: '700px' }}
       >
+        {/* Professional Business Background */}
+        <div className="absolute inset-0 z-0">
+          <div 
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920")`,
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/85 via-primary-900/75 to-dark-50/85"></div>
+        </div>
+
+        {/* Floating Particles Animation */}
+        <div className="absolute inset-0 overflow-hidden z-10">
+          {[...Array(15)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-2 h-2 bg-primary-400/30 rounded-full"
+              style={{
+                left: `${Math.random() * 100}%`,
+                top: `${Math.random() * 100}%`,
+              }}
+              animate={{
+                y: [-20, -100],
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0],
+              }}
+              transition={{
+                duration: Math.random() * 3 + 2,
+                repeat: Infinity,
+                delay: Math.random() * 2,
+              }}
+            />
+          ))}
+        </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20 pt-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             <motion.div
@@ -173,14 +160,14 @@ const HomePage: React.FC = () => {
               transition={{ duration: 1, ease: 'easeOut' }}
             >
               <motion.h1 
-                className="font-poppins font-bold leading-tight mb-6 text-gray-800"
+                className="font-poppins font-bold leading-tight mb-6 text-white"
                 style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
-                Investment Management
-                <span className="block text-primary-600">
+                Investment Banking
+                <span className="block text-primary-300">
                   <TypewriterText 
                     texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
                     speed={120}
@@ -189,12 +176,12 @@ const HomePage: React.FC = () => {
               </motion.h1>
               
               <motion.p 
-                className="font-inter text-xl lg:text-2xl text-gray-600 mb-8 leading-relaxed"
+                className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                Empowering businesses with strategic investment solutions, from seed funding to complex structured finance.
+                Empowering businesses with strategic financial solutions, from seed funding to complex structured finance.
               </motion.p>
               
               <motion.div 
@@ -209,7 +196,7 @@ const HomePage: React.FC = () => {
                 >
                   <Link
                     to="/contact"
-                    className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
+                    className="bg-primary-600 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-700 transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
                   >
                     Get Started
                     <ArrowRight className="h-5 w-5 ml-2" />
@@ -221,7 +208,7 @@ const HomePage: React.FC = () => {
                 >
                   <Link
                     to="/about"
-                    className="border-2 border-primary-600 text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center"
+                    className="border-2 border-primary-400/80 text-primary-300 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-600/20 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
                   >
                     Learn More
                   </Link>
@@ -239,27 +226,27 @@ const HomePage: React.FC = () => {
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
                 <img
                   src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional investment management"
+                  alt="Professional business growth and success"
                   className="w-full h-full object-cover rounded-2xl"
                   loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent"></div>
                 
                 {/* Overlay Growth Metrics */}
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/90 backdrop-blur-md rounded-lg p-4 border border-purple-200">
-                    <div className="flex items-center justify-between text-gray-800">
+                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
+                    <div className="flex items-center justify-between text-white">
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-green-600">↗ 28%</div>
-                        <div className="text-xs text-gray-600">Growth Rate</div>
+                        <div className="text-2xl font-bold text-green-400">↗ 25%</div>
+                        <div className="text-xs opacity-80">Growth Rate</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-primary-600">₹2200M+</div>
-                        <div className="text-xs text-gray-600">AUM</div>
+                        <div className="text-2xl font-bold text-blue-400">₹500Cr+</div>
+                        <div className="text-xs opacity-80">Deals Closed</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-600">98%</div>
-                        <div className="text-xs text-gray-600">Success Rate</div>
+                        <div className="text-2xl font-bold text-purple-400">95%</div>
+                        <div className="text-xs opacity-80">Success Rate</div>
                       </div>
                     </div>
                   </div>
@@ -268,16 +255,38 @@ const HomePage: React.FC = () => {
             </motion.div>
           </div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        >
+          <div className="w-6 h-10 border-2 border-primary-400/50 rounded-full flex justify-center">
+            <motion.div 
+              className="w-1 h-3 bg-primary-400/70 rounded-full mt-2"
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+          </div>
+        </motion.div>
       </section>
 
       {/* Focus Sectors Section */}
       <motion.section 
         ref={sectorsRef} 
-        className="py-20 bg-gray-50 relative overflow-hidden"
+        className="py-20 bg-dark-100/50 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
+        <div className="absolute inset-0 bg-dark-50/90"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -285,11 +294,11 @@ const HomePage: React.FC = () => {
             animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
               Our Focus Sectors
             </h2>
-            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
-              Specialized expertise across key industry verticals in investment management
+            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+              Specialized expertise across key industry verticals in investment banking
             </p>
           </motion.div>
 
@@ -303,20 +312,22 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -10 }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100 text-center hover:shadow-xl transition-all duration-300">
-                  <motion.div 
-                    className="text-primary-600 mb-4 flex justify-center group-hover:text-primary-700 transition-colors duration-500"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
-                  >
-                    {sector.icon}
-                  </motion.div>
-                  <h3 className="font-poppins text-lg font-semibold text-gray-800 mb-2 group-hover:text-primary-700 transition-colors duration-500">
-                    {sector.name}
-                  </h3>
-                  <p className="font-inter text-sm text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-500">
-                    {sector.description}
-                  </p>
-                </div>
+                <FloatingContainer delay={index * 0.2}>
+                  <div className="text-center p-4">
+                    <motion.div 
+                      className="text-primary-400 mb-4 flex justify-center group-hover:text-primary-300 transition-colors duration-500"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      {sector.icon}
+                    </motion.div>
+                    <h3 className="font-poppins text-lg font-semibold text-primary-300 mb-2 group-hover:text-primary-200 transition-colors duration-500">
+                      {sector.name}
+                    </h3>
+                    <p className="font-inter text-sm text-dark-500 leading-relaxed group-hover:text-dark-400 transition-colors duration-500">
+                      {sector.description}
+                    </p>
+                  </div>
+                </FloatingContainer>
               </motion.div>
             ))}
           </div>
@@ -326,11 +337,18 @@ const HomePage: React.FC = () => {
       {/* Services Section */}
       <motion.section 
         ref={servicesRef} 
-        className="py-20 bg-white relative overflow-hidden"
+        className="py-20 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
+        <div className="absolute inset-0 bg-dark-50/90"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -338,11 +356,11 @@ const HomePage: React.FC = () => {
             animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
               Our Core Services
             </h2>
-            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive investment management solutions tailored to empower your business
+            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+              Comprehensive investment banking solutions tailored to empower your business
             </p>
           </motion.div>
 
@@ -357,24 +375,24 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to={service.link}
-                  className="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-500 group relative overflow-hidden border border-purple-100"
+                  className="block bg-dark-100/80 backdrop-blur-md p-8 rounded-xl shadow-neumorphic hover:shadow-glow-lg transition-all duration-500 group relative overflow-hidden border border-primary-600/20"
                   style={{ height: '280px' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-primary-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <motion.div 
-                      className="text-primary-600 mb-4 group-hover:text-primary-700 transition-colors duration-500"
+                      className="text-primary-400 mb-4 group-hover:text-primary-300 transition-colors duration-500"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       {service.icon}
                     </motion.div>
-                    <h3 className="font-poppins text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary-700 transition-colors duration-500">
+                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-3 group-hover:text-primary-200 transition-colors duration-500">
                       {service.title}
                     </h3>
-                    <p className="font-inter text-gray-600 leading-relaxed mb-4 line-clamp-3 group-hover:text-gray-700 transition-colors duration-500">
+                    <p className="font-inter text-dark-500 leading-relaxed mb-4 line-clamp-3 group-hover:text-dark-400 transition-colors duration-500">
                       {service.description}
                     </p>
-                    <div className="font-inter text-primary-600 font-semibold group-hover:text-primary-700 transition-colors duration-500">
+                    <div className="font-inter text-primary-400 font-semibold group-hover:text-primary-300 transition-colors duration-500">
                       Learn More →
                     </div>
                   </div>
@@ -388,11 +406,26 @@ const HomePage: React.FC = () => {
       {/* Stats Section */}
       <motion.section 
         ref={statsRef} 
-        className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute inset-0 opacity-20"
+            animate={{
+              background: [
+                'radial-gradient(circle at 20% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)'
+              ]
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
@@ -405,12 +438,12 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
               >
                 <motion.div 
-                  className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-white"
+                  className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-primary-200"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Counter end={stat.number} suffix={stat.suffix} isActive={statsInView} />
                 </motion.div>
-                <div className="font-inter text-purple-100 font-medium">{stat.label}</div>
+                <div className="font-inter text-primary-100 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -418,7 +451,7 @@ const HomePage: React.FC = () => {
       </motion.section>
 
       {/* Recent Deals Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -426,16 +459,16 @@ const HomePage: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-              Recent Investments
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+              Recent Transactions
             </h2>
-            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
-              Showcasing our successful investments across various sectors
+            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+              Showcasing our successful deals across various sectors
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {deals.slice(0, 3).map((deal, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {deals.map((deal, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
@@ -443,21 +476,23 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-sm font-poppins font-semibold bg-purple-100 text-primary-700">
-                      {deal.sector}
-                    </span>
-                    <span className="text-2xl font-poppins font-bold text-green-600">{deal.amount}</span>
+                <FloatingContainer delay={index * 0.2}>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-poppins font-semibold border border-primary-600/30">
+                        {deal.sector}
+                      </span>
+                      <span className="text-2xl font-poppins font-bold text-green-400">{deal.amount}</span>
+                    </div>
+                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-2">{deal.title}</h3>
+                    <p className="font-inter text-dark-500 mb-4">{deal.company}</p>
+                    <p className="font-inter text-dark-400 leading-relaxed mb-4">{deal.description}</p>
+                    <div className="flex items-center text-green-400">
+                      <CheckCircle className="h-5 w-5 mr-2" />
+                      <span className="font-inter font-semibold">Successfully Completed</span>
+                    </div>
                   </div>
-                  <h3 className="font-poppins text-xl font-semibold text-gray-800 mb-2">{deal.title}</h3>
-                  <p className="font-inter text-gray-600 mb-4">{deal.company}</p>
-                  <p className="font-inter text-gray-500 leading-relaxed mb-4">{deal.description}</p>
-                  <div className="flex items-center text-green-600">
-                    <CheckCircle className="h-5 w-5 mr-2" />
-                    <span className="font-inter font-semibold">Successfully Completed</span>
-                  </div>
-                </div>
+                </FloatingContainer>
               </motion.div>
             ))}
           </div>
@@ -469,9 +504,9 @@ const HomePage: React.FC = () => {
             >
               <Link
                 to="/deals"
-                className="bg-gradient-to-r from-primary-600 to-primary-700 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:from-primary-700 hover:to-primary-800 transition-all duration-300 inline-flex items-center shadow-lg"
+                className="bg-primary-600 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-700 transition-colors duration-300 inline-flex items-center shadow-glow hover:shadow-glow-lg"
               >
-                View All Investments
+                View All Deals
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </motion.div>
@@ -479,53 +514,22 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Valuable Clients Section */}
-      <section ref={clientsRef} className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={clientsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
-              Our Valuable Clients
-            </h2>
-            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
-              Trusted by leading companies across diverse industries
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {clients.map((client, index) => (
-              <motion.div
-                key={index}
-                className="group"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={clientsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <div className="bg-white rounded-xl p-6 shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300 text-center">
-                  <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
-                    <img
-                      src={client.logo}
-                      alt={client.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <h3 className="font-poppins text-sm font-semibold text-gray-800 mb-1">{client.name}</h3>
-                  <p className="font-inter text-xs text-gray-500">{client.sector}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute inset-0 opacity-20"
+            animate={{
+              scale: [1, 1.1, 1],
+              rotate: [0, 5, 0],
+            }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-16.569-13.431-30-30-30s-30 13.431-30 30 13.431 30 30 30 30-13.431 30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          />
+        </div>
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -533,10 +537,10 @@ const HomePage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-6">
-              Ready to Transform Your Investment Strategy?
+              Ready to Transform Your Business?
             </h2>
-            <p className="font-inter text-xl text-purple-100 mb-8 leading-relaxed">
-              Let's discuss how our investment management expertise can help you achieve your financial goals.
+            <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
+              Let's discuss how our investment banking expertise can help you achieve your Organisational goals.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
@@ -545,7 +549,7 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to="/contact"
-                  className="bg-white text-primary-700 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
+                  className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center shadow-glow"
                 >
                   Schedule Consultation
                   <ArrowRight className="h-5 w-5 ml-2" />

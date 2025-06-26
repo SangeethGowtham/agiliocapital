@@ -8,7 +8,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-dark-50">
       <Header />
       <main className="pt-20" style={{ minHeight: 'calc(100vh - 80px)' }}>
         <div style={{ paddingTop: '60px' }}>

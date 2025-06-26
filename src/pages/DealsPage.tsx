@@ -4,136 +4,143 @@ import { TrendingUp, CheckCircle, Award, Users, Globe, DollarSign } from 'lucide
 const DealsPage: React.FC = () => {
   const deals = [
     {
-      title: 'Meridian Technologies Acquisition',
-      company: 'Apex Global Solutions',
-      amount: '$18.5M',
+      title: 'Series A Funding Round',
+      company: 'TechCorp Solutions',
+      amount: '$5.2M',
       sector: 'Technology',
-      type: 'M&A Advisory',
+      type: 'Seed & Angel Funding',
       year: '2024',
-      description: 'Successfully advised on strategic acquisition of Meridian Technologies by Apex Global Solutions, creating synergies in AI and machine learning capabilities.',
+      description: 'Successfully led Series A funding round for B2B SaaS platform specializing in enterprise automation solutions.',
       highlights: [
-        'Strategic buyer identification and approach',
-        'Comprehensive due diligence coordination',
-        'Valuation optimization and deal structuring',
-        'Successful integration planning and execution'
+        'Connected with 3 strategic investors',
+        'Achieved 2.5x valuation increase',
+        'Structured preferred stock with board seats',
+        'Post-funding strategic advisory ongoing'
       ]
     },
     {
-      title: 'Pinnacle Healthcare Merger',
-      company: 'Summit Medical Group',
-      amount: '$32M',
+      title: 'Debt Syndication Facility',
+      company: 'Manufacturing Inc.',
+      amount: '$12M',
+      sector: 'Manufacturing',
+      type: 'Loan & Debt Syndication',
+      year: '2024',
+      description: 'Structured comprehensive debt facility for equipment financing and working capital expansion.',
+      highlights: [
+        'Syndicated across 4 leading banks',
+        'Secured competitive interest rates',
+        'Flexible covenant structure',
+        '7-year term with step-down pricing'
+      ]
+    },
+    {
+      title: 'Strategic Partnership Deal',
+      company: 'HealthTech Ventures',
+      amount: '$3.8M',
       sector: 'Healthcare',
-      type: 'Merger Advisory',
-      year: '2024',
-      description: 'Facilitated strategic merger between Pinnacle Healthcare and Summit Medical Group, creating a leading healthcare services provider.',
-      highlights: [
-        'Merger structure design and optimization',
-        'Regulatory approval coordination',
-        'Stakeholder alignment and communication',
-        'Post-merger integration support'
-      ]
-    },
-    {
-      title: 'Vertex Energy Series B',
-      company: 'Vertex Energy Solutions',
-      amount: '$15.2M',
-      sector: 'Clean Energy',
-      type: 'Venture Capital',
-      year: '2024',
-      description: 'Led Series B funding round for renewable energy technology platform specializing in solar and wind energy solutions.',
-      highlights: [
-        'Investor targeting and engagement',
-        'Growth strategy development',
-        'Term sheet negotiation and structuring',
-        'Board composition and governance setup'
-      ]
-    },
-    {
-      title: 'Quantum Analytics IPO',
-      company: 'Quantum Analytics Corp',
-      amount: '$52M',
-      sector: 'Data Analytics',
-      type: 'IPO Advisory',
+      type: 'Strategic Partnerships',
       year: '2023',
-      description: 'Provided comprehensive IPO advisory services for data analytics company, achieving successful public listing.',
+      description: 'Facilitated strategic partnership with leading pharmaceutical company for joint product development.',
       highlights: [
-        'IPO readiness assessment and preparation',
-        'Regulatory compliance and documentation',
-        'Investor roadshow coordination',
-        'Successful public market debut'
+        'Revenue sharing agreement structured',
+        'IP licensing terms negotiated',
+        'Market expansion facilitated',
+        'Joint R&D program established'
       ]
     },
     {
-      title: 'Nexus Logistics Buyout',
-      company: 'Nexus Logistics Inc.',
-      amount: '$28M',
-      sector: 'Logistics',
-      type: 'Management Buyout',
+      title: 'Corporate Acquisition',
+      company: 'RetailTech Solutions',
+      amount: '$8.5M',
+      sector: 'Retail Technology',
+      type: 'Corporate Finance',
       year: '2023',
-      description: 'Advised on management buyout of logistics technology company, enabling management team to acquire controlling stake.',
+      description: 'Advised on strategic acquisition of e-commerce technology platform by retail conglomerate.',
       highlights: [
-        'Management team financing structure',
-        'Seller negotiation and deal terms',
-        'Debt and equity optimization',
-        'Transition planning and execution'
+        'Buy-side advisory services',
+        'Due diligence coordination',
+        'Valuation and deal structuring',
+        'Successful integration planning'
       ]
     },
     {
-      title: 'Catalyst Innovations Series A',
-      company: 'Catalyst Innovations',
-      amount: '$12.8M',
-      sector: 'Financial Technology',
+      title: 'Structured Finance Solution',
+      company: 'Infrastructure Projects Ltd.',
+      amount: '$15M',
+      sector: 'Infrastructure',
+      type: 'Structured Finance',
+      year: '2023',
+      description: 'Developed innovative structured finance solution for renewable energy infrastructure project.',
+      highlights: [
+        'Asset-backed securities structure',
+        'Risk mitigation mechanisms',
+        'Tax-efficient structuring',
+        'Long-term financing secured'
+      ]
+    },
+    {
+      title: 'Growth Capital Funding',
+      company: 'EdTech Innovations',
+      amount: '$4.2M',
+      sector: 'Education Technology',
       type: 'Seed & Angel Funding',
       year: '2023',
-      description: 'Raised Series A funding for digital payment platform targeting emerging markets with innovative mobile solutions.',
+      description: 'Raised growth capital for online education platform targeting professional skill development.',
       highlights: [
-        'Product-market fit validation',
+        'Pre-Series A funding round',
         'Strategic investor participation',
-        'Regulatory compliance framework',
-        'Market expansion strategy'
+        'Mentorship program inclusion',
+        'Board advisory arrangements'
       ]
     }
   ];
 
   const sectors = [
-    { name: 'Technology', deals: 22, icon: <Globe className="h-6 w-6" /> },
-    { name: 'Healthcare', deals: 18, icon: <Users className="h-6 w-6" /> },
-    { name: 'Financial Services', deals: 15, icon: <DollarSign className="h-6 w-6" /> },
-    { name: 'Clean Energy', deals: 12, icon: <TrendingUp className="h-6 w-6" /> },
-    { name: 'Manufacturing', deals: 10, icon: <Award className="h-6 w-6" /> }
+    { name: 'Technology', deals: 15, icon: <Globe className="h-6 w-6" /> },
+    { name: 'Healthcare', deals: 12, icon: <Users className="h-6 w-6" /> },
+    { name: 'Manufacturing', deals: 10, icon: <Award className="h-6 w-6" /> },
+    { name: 'Financial Services', deals: 8, icon: <DollarSign className="h-6 w-6" /> },
+    { name: 'Infrastructure', deals: 6, icon: <TrendingUp className="h-6 w-6" /> }
   ];
 
   const stats = [
-    { number: '85+', label: 'Total Investments Closed' },
-    { number: '₹2200M+', label: 'Transaction Value' },
-    { number: '98%', label: 'Success Rate' },
-    { number: '15', label: 'Industry Sectors' }
+    { number: '50+', label: 'Total Deals Closed' },
+    { number: '₹500Cr+', label: 'Transaction Value' },
+    { number: '95%', label: 'Success Rate' },
+    { number: '8', label: 'Industry Sectors' }
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-dark-50">
       {/* Hero Section */}
       <section 
-        className="relative text-gray-800 py-20 overflow-hidden bg-gradient-to-br from-purple-50 to-white"
+        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
+        <div className="absolute inset-0 bg-primary-900/80"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-poppins font-bold mb-6 text-gray-800">Our Investment Portfolio</h1>
-            <p className="text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-inter">
-              Showcasing our track record of successful investments across multiple sectors and financial instruments.
+            <h1 className="text-4xl lg:text-5xl font-poppins font-bold mb-6">Our Successful Deals</h1>
+            <p className="text-xl lg:text-2xl text-primary-100 max-w-4xl mx-auto leading-relaxed font-inter">
+              Showcasing our track record of successful transactions across multiple sectors and financial instruments.
             </p>
           </div>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center bg-white p-8 rounded-xl shadow-lg border border-purple-100">
-                <div className="text-4xl font-poppins font-bold text-primary-600 mb-2">{stat.number}</div>
-                <div className="text-gray-600 font-medium font-inter">{stat.label}</div>
+              <div key={index} className="text-center bg-dark-100/80 backdrop-blur-md p-8 rounded-xl shadow-neumorphic border border-primary-600/20">
+                <div className="text-4xl font-poppins font-bold text-primary-400 mb-2">{stat.number}</div>
+                <div className="text-dark-500 font-medium font-inter">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -141,54 +148,52 @@ const DealsPage: React.FC = () => {
       </section>
 
       {/* Featured Deals */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-4">
               Recent Transactions
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-              Explore our recent successful investments across various sectors and transaction types
+            <p className="text-xl text-dark-500 max-w-3xl mx-auto font-inter">
+              Explore our recent successful deals across various sectors and transaction types
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {deals.map((deal, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg border border-purple-100 overflow-hidden hover:shadow-xl transition-all duration-300">
+              <div key={index} className="bg-dark-100/80 backdrop-blur-md rounded-2xl shadow-neumorphic border border-primary-600/20 overflow-hidden">
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 rounded-full text-sm font-semibold font-poppins bg-purple-100 text-primary-700">
+                    <span className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-semibold font-poppins border border-primary-600/30">
                       {deal.sector}
                     </span>
                     <div className="text-right">
-                      <div className="text-2xl font-poppins font-bold text-green-600">{deal.amount}</div>
-                      <div className="text-sm text-gray-500 font-inter">{deal.year}</div>
+                      <div className="text-2xl font-poppins font-bold text-green-400">{deal.amount}</div>
+                      <div className="text-sm text-dark-500 font-inter">{deal.year}</div>
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-poppins font-bold text-gray-800 mb-2">{deal.title}</h3>
-                  <p className="text-lg text-gray-600 mb-1 font-inter">{deal.company}</p>
-                  <p className="text-sm font-semibold mb-4 font-inter text-primary-600">
-                    {deal.type}
-                  </p>
+                  <h3 className="text-2xl font-poppins font-bold text-primary-300 mb-2">{deal.title}</h3>
+                  <p className="text-lg text-dark-500 mb-1 font-inter">{deal.company}</p>
+                  <p className="text-sm text-primary-400 font-semibold mb-4 font-inter">{deal.type}</p>
                   
-                  <p className="text-gray-600 leading-relaxed mb-6 font-inter">{deal.description}</p>
+                  <p className="text-dark-500 leading-relaxed mb-6 font-inter">{deal.description}</p>
 
                   <div className="space-y-2">
-                    <h4 className="font-semibold text-gray-800 mb-3 font-poppins">Key Highlights:</h4>
+                    <h4 className="font-semibold text-primary-300 mb-3 font-poppins">Key Highlights:</h4>
                     {deal.highlights.map((highlight, highlightIndex) => (
                       <div key={highlightIndex} className="flex items-start space-x-2">
-                        <CheckCircle className="h-5 w-5 text-green-600 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-600 text-sm font-inter">{highlight}</span>
+                        <CheckCircle className="h-5 w-5 text-green-400 mt-0.5 flex-shrink-0" />
+                        <span className="text-dark-500 text-sm font-inter">{highlight}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <div className="bg-gray-50 px-8 py-4">
+                <div className="bg-dark-200/50 px-8 py-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500 font-inter">Investment Status</span>
-                    <div className="flex items-center text-green-600">
+                    <span className="text-sm text-dark-500 font-inter">Transaction Status</span>
+                    <div className="flex items-center text-green-400">
                       <CheckCircle className="h-5 w-5 mr-2" />
                       <span className="font-semibold font-inter">Successfully Completed</span>
                     </div>
@@ -201,26 +206,26 @@ const DealsPage: React.FC = () => {
       </section>
 
       {/* Sector Expertise */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-dark-100/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-gray-800 mb-4">
+            <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-primary-300 mb-4">
               Sector Expertise
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
-              Our investments span across multiple industry sectors, demonstrating our broad expertise
+            <p className="text-xl text-dark-500 max-w-3xl mx-auto font-inter">
+              Our deals span across multiple industry sectors, demonstrating our broad expertise
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {sectors.map((sector, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-lg text-center border border-purple-100 hover:shadow-xl transition-all duration-300">
-                <div className="text-primary-600 mb-3 flex justify-center">
+              <div key={index} className="bg-dark-100/80 backdrop-blur-md p-6 rounded-xl shadow-neumorphic text-center border border-primary-600/20">
+                <div className="text-primary-400 mb-3 flex justify-center">
                   {sector.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2 font-poppins">{sector.name}</h3>
-                <p className="text-2xl font-poppins font-bold text-primary-600">{sector.deals}</p>
-                <p className="text-sm text-gray-500 font-inter">Investments</p>
+                <h3 className="text-lg font-semibold text-primary-300 mb-2 font-poppins">{sector.name}</h3>
+                <p className="text-2xl font-poppins font-bold text-primary-400">{sector.deals}</p>
+                <p className="text-sm text-dark-500 font-inter">Deals Closed</p>
               </div>
             ))}
           </div>
@@ -228,23 +233,23 @@ const DealsPage: React.FC = () => {
       </section>
 
       {/* Case Study CTA */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800">
+      <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-poppins font-bold text-white mb-6">
-            Want to Learn More About Our Investments?
+            Want to Learn More About Our Deals?
           </h2>
-          <p className="text-xl text-purple-100 mb-8 leading-relaxed font-inter">
+          <p className="text-xl text-primary-100 mb-8 leading-relaxed font-inter">
             Contact us to discuss detailed case studies and how our expertise can benefit your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="mailto:agiliocap@gmail.com"
-              className="bg-white text-primary-700 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-gray-100 transition-colors shadow-lg"
+              className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-colors shadow-glow"
             >
               Request Case Studies
             </a>
             <a
-              href="https://www.linkedin.com/in/t-m-durai-b913356/"
+              href="https://www.linkedin.com/company/agilio-capital-partners"
               target="_blank"
               rel="noopener noreferrer"
               className="border-2 border-white text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-colors"
