@@ -5,6 +5,7 @@ import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Buil
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
+import SplineViewer from '../components/SplineViewer';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HomePage: React.FC = () => {
@@ -111,21 +112,19 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark-50">
-      {/* Hero Section with Professional Business Visual */}
+      {/* Hero Section with 3D Background */}
       <section 
         ref={heroRef}
         className="relative text-white overflow-hidden"
-        style={{ height: '100vh', minHeight: '700px' }}
+        style={{ height: '100vh' }}
       >
-        {/* Professional Business Background */}
+        {/* 3D Spline Background */}
         <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{
-              backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1920")`,
-            }}
+          <SplineViewer 
+            url="https://prod.spline.design/6Wq5GiW7CRJZgKua/scene.splinecode"
+            className="w-full h-full"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/85 via-primary-900/75 to-dark-50/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
         </div>
 
         {/* Floating Particles Animation */}
@@ -152,7 +151,7 @@ const HomePage: React.FC = () => {
           ))}
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20 pt-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -176,7 +175,7 @@ const HomePage: React.FC = () => {
               </motion.h1>
               
               <motion.p 
-                className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed"
+                className="font-inter text-xl lg:text-2xl text-dark-600 mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -216,7 +215,7 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Professional Growth Visual */}
+            {/* Business Animation */}
             <motion.div 
               className="relative"
               initial={{ opacity: 0, x: 50 }}
@@ -224,33 +223,11 @@ const HomePage: React.FC = () => {
               transition={{ duration: 1, delay: 0.4 }}
             >
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional business growth and success"
-                  className="w-full h-full object-cover rounded-2xl"
-                  loading="eager"
+                <SplineViewer 
+                  url="https://prod.spline.design/llK92eVgKBtPcjjv/scene.splinecode"
+                  className="w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/30 to-transparent"></div>
-                
-                {/* Overlay Growth Metrics */}
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-                    <div className="flex items-center justify-between text-white">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-green-400">↗ 25%</div>
-                        <div className="text-xs opacity-80">Growth Rate</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-blue-400">₹500Cr+</div>
-                        <div className="text-xs opacity-80">Deals Closed</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-purple-400">95%</div>
-                        <div className="text-xs opacity-80">Success Rate</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
               </div>
             </motion.div>
           </div>
