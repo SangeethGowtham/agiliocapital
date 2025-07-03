@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Linkedin, MapPin, Phone } from 'lucide-react';
+import { Mail, Linkedin, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="flex flex-col">
-                <span className="text-lg font-bold text-primary-400 animate-glow">Agilio Capital</span>
+                <span className="text-lg font-bold text-primary-400">Agilio Capital</span>
                 <span className="text-sm text-primary-300 -mt-1">Partners</span>
               </div>
             </div>
@@ -40,8 +40,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/deals" className="text-dark-500 hover:text-primary-400 transition-colors">
-                  Deals & Transactions
+                <Link to="/contact" className="text-dark-500 hover:text-primary-400 transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>

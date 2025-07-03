@@ -4,7 +4,6 @@ import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ServicePage from './pages/ServicePage';
-import DealsPage from './pages/DealsPage';
 import ContactPage from './pages/ContactPage';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
           <Route path="/services/structured-finance" element={<ServicePage serviceType="structured-finance" />} />
           <Route path="/services/strategic-partnerships" element={<ServicePage serviceType="strategic-partnerships" />} />
           <Route path="/services/cfo-services" element={<ServicePage serviceType="cfo-services" />} />
-          <Route path="/deals" element={<DealsPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
       </Layout>
