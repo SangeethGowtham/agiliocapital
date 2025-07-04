@@ -48,7 +48,6 @@ As a founder of Agilio Capital - am working with 30+ clients on capital raising 
 Arranging BC / Co lending and strategic partnerships for NBFC, MFI clients and need based support services to scale the AUM and increase the profitability.
 
 Proven expertise in capturing strategic business / market opportunities, Product incubation, Promotional activities, Business development, revenue maximisation, to scale business volumes and achieve substantial growth`,
-      credentials: ['Investment Banking Expert', 'Strategic Finance Specialist', 'M&A Advisor'],
       experience: [
         { title: 'Investment Banking', years: '25+ years', icon: <TrendingUp className="h-6 w-6" /> },
         { title: 'Corporate Finance', years: '20+ years', icon: <Building className="h-6 w-6" /> },
@@ -71,13 +70,20 @@ Proven expertise in capturing strategic business / market opportunities, Product
   ];
 
   return (
-    <div className="min-h-screen bg-dark-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20"
+        className="bg-gradient-to-br from-primary-900 to-primary-700 text-white py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-primary-900/80"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
@@ -93,23 +99,32 @@ Proven expertise in capturing strategic business / market opportunities, Product
       </section>
 
       {/* Company Overview */}
-      <section className="py-20 bg-dark-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-6">
+              <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
                 Our Story & Mission
               </h2>
-              <p className="font-inter text-lg text-dark-500 leading-relaxed mb-6">
+              <p className="font-inter text-lg text-gray-600 leading-relaxed mb-6">
                 Agilio Capital Partners was founded with a clear vision: to provide world-class investment banking services 
                 that drive meaningful business transformation. Based in Bangalore, we combine global financial expertise 
                 with deep local market knowledge.
               </p>
-              <p className="font-inter text-lg text-dark-500 leading-relaxed mb-8">
+              <p className="font-inter text-lg text-gray-600 leading-relaxed mb-8">
                 Our mission is to empower businesses across various sectors by providing strategic financial advisory, 
                 facilitating capital raising, and creating value through innovative financial solutions.
               </p>
@@ -118,10 +133,10 @@ Proven expertise in capturing strategic business / market opportunities, Product
                 {stats.map((stat, index) => (
                   <FloatingContainer key={index} delay={index * 0.1}>
                     <div className="text-center p-4">
-                      <div className="text-3xl font-poppins font-bold text-primary-400">
+                      <div className="text-3xl font-poppins font-bold text-primary-600">
                         <Counter end={stat.number} suffix={stat.suffix} isActive={statsInView} />
                       </div>
-                      <div className="font-inter text-dark-500 font-medium">{stat.label}</div>
+                      <div className="font-inter text-gray-600 font-medium">{stat.label}</div>
                     </div>
                   </FloatingContainer>
                 ))}
@@ -144,7 +159,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
       </section>
 
       {/* Leadership Team */}
-      <section ref={teamRef} className="py-20 bg-dark-50">
+      <section ref={teamRef} className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-16"
@@ -152,10 +167,10 @@ Proven expertise in capturing strategic business / market opportunities, Product
             animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Leadership Team
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the experienced professionals leading Agilio Capital Partners
             </p>
           </motion.div>
@@ -164,87 +179,73 @@ Proven expertise in capturing strategic business / market opportunities, Product
             {team.map((member, index) => (
               <motion.div 
                 key={index} 
-                className="bg-dark-100/80 backdrop-blur-md rounded-2xl shadow-neumorphic p-8 lg:p-12 border border-primary-600/20"
+                className="bg-white rounded-2xl shadow-lg p-8 lg:p-12 border border-gray-200"
                 initial={{ opacity: 0, y: 30 }}
                 animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-                  {/* Profile Image - 40% */}
+                  {/* Profile Image - Circular */}
                   <div className="lg:col-span-2">
                     <div className="relative">
                       <img
                         src="/files_5286024-1749798839350-WhatsApp_Image_2025-06-12_at_22.40.32_83de4719-removebg-preview (1).png"
                         alt={member.name}
-                        className="w-full max-w-sm mx-auto rounded-2xl shadow-lg"
-                        style={{ width: '400px', height: '400px', objectFit: 'cover' }}
+                        className="w-full max-w-sm mx-auto rounded-full shadow-lg"
+                        style={{ width: '300px', height: '300px', objectFit: 'cover' }}
                         loading="lazy"
                       />
                     </div>
                   </div>
                   
-                  {/* Content - 60% */}
+                  {/* Content */}
                   <div className="lg:col-span-3">
-                    <h3 className="font-poppins text-2xl font-bold text-primary-300 mb-2">{member.name}</h3>
-                    <p className="font-inter text-lg text-primary-400 font-semibold mb-4">{member.role}</p>
-                    <p className="font-inter text-dark-500 leading-relaxed mb-6">{member.description}</p>
+                    <h3 className="font-poppins text-2xl font-bold text-gray-800 mb-2">{member.name}</h3>
+                    <p className="font-inter text-lg text-primary-600 font-semibold mb-4">{member.role}</p>
+                    <p className="font-inter text-gray-600 leading-relaxed mb-6">{member.description}</p>
                     
-                    {/* Experience Cards - 3 columns */}
+                    {/* Experience Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                       {member.experience.map((exp, expIndex) => (
                         <FloatingContainer key={expIndex} delay={expIndex * 0.1}>
                           <div className="text-center p-4">
-                            <div className="text-primary-400 mb-2 flex justify-center">
+                            <div className="text-primary-600 mb-2 flex justify-center">
                               {exp.icon}
                             </div>
-                            <div className="font-poppins font-bold text-primary-400 text-lg">{exp.years}</div>
-                            <div className="font-inter text-sm text-dark-500">{exp.title}</div>
+                            <div className="font-poppins font-bold text-primary-600 text-lg">{exp.years}</div>
+                            <div className="font-inter text-sm text-gray-600">{exp.title}</div>
                           </div>
                         </FloatingContainer>
                       ))}
                     </div>
 
-                    {/* Metrics with Counter Animations */}
+                    {/* Metrics */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       {metrics.map((metric, metricIndex) => (
                         <div key={metricIndex} className="text-center">
-                          <div className="font-poppins font-bold text-2xl text-primary-400">
+                          <div className="font-poppins font-bold text-2xl text-primary-600">
                             <Counter end={metric.value} suffix={metric.suffix} isActive={teamInView} />
                           </div>
-                          <div className="font-inter text-sm text-dark-500">{metric.label}</div>
+                          <div className="font-inter text-sm text-gray-600">{metric.label}</div>
                         </div>
                       ))}
-                    </div>
-                    
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-poppins font-semibold text-primary-300">Professional Credentials:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {member.credentials.map((credential, credIndex) => (
-                          <span
-                            key={credIndex}
-                            className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-inter font-medium border border-primary-600/30"
-                          >
-                            {credential}
-                          </span>
-                        ))}
-                      </div>
                     </div>
 
                     {/* Full Bio */}
                     <div className="mb-6">
-                      <h4 className="font-poppins font-semibold text-primary-300 mb-3">Professional Background:</h4>
-                      <div className="font-inter text-dark-500 leading-relaxed whitespace-pre-line">
+                      <h4 className="font-poppins font-semibold text-gray-800 mb-3">Professional Background:</h4>
+                      <div className="font-inter text-gray-600 leading-relaxed whitespace-pre-line">
                         {member.fullBio}
                       </div>
                     </div>
 
-                    {/* LinkedIn Button with Brand Colors */}
+                    {/* LinkedIn Button */}
                     <div className="mt-6">
                       <motion.a
                         href="https://www.linkedin.com/in/t-m-durai-b913356/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-white px-6 py-3 rounded-full font-inter font-medium transition-colors duration-300 shadow-glow"
+                        className="inline-flex items-center text-white px-6 py-3 rounded-full font-inter font-medium transition-colors duration-300 shadow-lg"
                         style={{ backgroundColor: '#0077b5' }}
                         whileHover={{ scale: 1.05, backgroundColor: '#005885' }}
                         whileTap={{ scale: 0.95 }}
@@ -262,18 +263,28 @@ Proven expertise in capturing strategic business / market opportunities, Product
       </section>
 
       {/* Values Section */}
-      <section ref={valuesRef} className="py-20 bg-dark-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        ref={valuesRef} 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
             animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Our Core Values
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
               The principles that guide our approach to investment banking and client relationships
             </p>
           </motion.div>
@@ -289,11 +300,11 @@ Proven expertise in capturing strategic business / market opportunities, Product
               >
                 <FloatingContainer delay={index * 0.1}>
                   <div className="text-center p-6">
-                    <div className="text-primary-400 mb-4 flex justify-center">
+                    <div className="text-primary-600 mb-4 flex justify-center">
                       {value.icon}
                     </div>
-                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-3">{value.title}</h3>
-                    <p className="font-inter text-dark-500 leading-relaxed">{value.description}</p>
+                    <h3 className="font-poppins text-xl font-semibold text-gray-800 mb-3">{value.title}</h3>
+                    <p className="font-inter text-gray-600 leading-relaxed">{value.description}</p>
                   </div>
                 </FloatingContainer>
               </motion.div>
@@ -302,61 +313,8 @@ Proven expertise in capturing strategic business / market opportunities, Product
         </div>
       </section>
 
-      {/* Professional Background */}
-      <section className="py-20 bg-primary-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-poppins text-3xl lg:text-4xl font-bold mb-6">
-                Professional Excellence
-              </h2>
-              <p className="font-inter text-xl text-primary-100 leading-relaxed mb-8">
-                Our team comprises seasoned professionals with extensive experience in investment banking, 
-                corporate finance, and strategic advisory services.
-              </p>
-              
-              <div className="space-y-4">
-                {[
-                  'Investment Banking professionals with 25+ years experience',
-                  'Corporate finance experts specializing in M&A and fundraising',
-                  'Strategic advisors across BFSI, Healthcare, and Social enterprises',
-                  'Proven track record in scaling businesses from startup to 1000+ Cr AUM'
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center space-x-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
-                    <span className="font-inter text-primary-100">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <img
-                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Professional team meeting"
-                className="rounded-2xl shadow-2xl"
-                loading="lazy"
-              />
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Location */}
-      <section className="py-20 bg-dark-100/50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             className="text-center mb-12"
@@ -364,10 +322,10 @@ Proven expertise in capturing strategic business / market opportunities, Product
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Our Location
             </h2>
-            <p className="font-inter text-xl text-dark-500">
+            <p className="font-inter text-xl text-gray-600">
               Strategically located in the heart of Bangalore's business district
             </p>
           </motion.div>
@@ -381,22 +339,22 @@ Proven expertise in capturing strategic business / market opportunities, Product
               <div className="p-8 lg:p-12 max-w-4xl mx-auto">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                   <div>
-                    <h3 className="font-poppins text-2xl font-bold text-primary-300 mb-4">Bangalore Office</h3>
-                    <div className="space-y-3 font-inter text-dark-500">
+                    <h3 className="font-poppins text-2xl font-bold text-gray-800 mb-4">Bangalore Office</h3>
+                    <div className="space-y-3 font-inter text-gray-600">
                       <p className="text-lg">
-                        <strong className="text-primary-400">Address:</strong><br />
+                        <strong className="text-primary-600">Address:</strong><br />
                         14-1, BTS Main Road<br />
                         Wilson Garden<br />
                         Bangalore, Karnataka 560030
                       </p>
                       <p className="text-lg">
-                        <strong className="text-primary-400">Email:</strong><br />
-                        <a href="mailto:agiliocap@gmail.com" className="text-primary-400 hover:text-primary-300 transition-colors duration-300">
+                        <strong className="text-primary-600">Email:</strong><br />
+                        <a href="mailto:agiliocap@gmail.com" className="text-primary-600 hover:text-primary-700 transition-colors duration-300">
                           agiliocap@gmail.com
                         </a>
                       </p>
                       <p className="text-lg">
-                        <strong className="text-primary-400">LinkedIn:</strong><br />
+                        <strong className="text-primary-600">LinkedIn:</strong><br />
                         <a
                           href="https://www.linkedin.com/in/t-m-durai-b913356/"
                           target="_blank"

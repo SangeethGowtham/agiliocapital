@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TrendingUp, Users, Target, Shield, CheckCircle, Banknote, Heart, Smartphone, Tractor } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, Shield, Banknote, Heart, Smartphone, Tractor } from 'lucide-react';
+import TypewriterText from '../components/TypewriterText';
+import SplineViewer from '../components/SplineViewer';
 
 const HomePage: React.FC = () => {
   const services = [
@@ -79,41 +81,41 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-50">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
+      {/* Hero Section with 3D Background */}
       <section className="relative text-white overflow-hidden" style={{ height: '100vh' }}>
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-          }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
+        {/* 3D Spline Background */}
+        <div className="absolute inset-0 z-0">
+          <SplineViewer 
+            url="https://prod.spline.design/6Wq5GiW7CRJZgKua/scene.splinecode"
+            className="w-full h-full"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-primary-900/70 via-transparent to-primary-800/60"></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20">
           <div className="text-center w-full">
             <h1 className="font-poppins font-bold leading-tight mb-6 text-white text-4xl lg:text-6xl">
-              Investment Banking Excellence
+              Investment Banking
+              <span className="block text-primary-300 mt-2">
+                <TypewriterText 
+                  texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
+                  speed={120}
+                />
+              </span>
             </h1>
             
-            <p className="font-inter text-xl lg:text-2xl text-primary-100 mb-8 leading-relaxed max-w-4xl mx-auto">
+            <p className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed max-w-4xl mx-auto">
               Empowering businesses with strategic financial solutions, from seed funding to complex structured finance.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/contact"
-                className="bg-primary-600 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-700 transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
-              >
-                Get Started
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
-              <Link
                 to="/about"
-                className="border-2 border-primary-400/80 text-primary-300 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-600/20 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
+                className="border-2 border-white/80 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
               >
                 Learn More
+                <ArrowRight className="h-5 w-5 ml-2" />
               </Link>
             </div>
           </div>
@@ -121,13 +123,22 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Focus Sectors Section */}
-      <section className="py-20 bg-dark-100/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Our Focus Sectors
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
               Specialized expertise across key industry verticals in investment banking
             </p>
           </div>
@@ -136,15 +147,15 @@ const HomePage: React.FC = () => {
             {focusSectors.map((sector, index) => (
               <div
                 key={index}
-                className="bg-dark-100/80 backdrop-blur-md rounded-2xl shadow-neumorphic border border-primary-600/20 p-6 text-center hover:shadow-glow-lg transition-all duration-300"
+                className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg border border-gray-200/50 p-6 text-center hover:shadow-xl hover:scale-105 transition-all duration-300"
               >
-                <div className="text-primary-400 mb-4 flex justify-center">
+                <div className="text-primary-600 mb-4 flex justify-center">
                   {sector.icon}
                 </div>
-                <h3 className="font-poppins text-lg font-semibold text-primary-300 mb-2">
+                <h3 className="font-poppins text-lg font-semibold text-gray-800 mb-2">
                   {sector.name}
                 </h3>
-                <p className="font-inter text-sm text-dark-500 leading-relaxed">
+                <p className="font-inter text-sm text-gray-600 leading-relaxed">
                   {sector.description}
                 </p>
               </div>
@@ -154,13 +165,22 @@ const HomePage: React.FC = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-dark-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/85"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
               Our Core Services
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive investment banking solutions tailored to empower your business
             </p>
           </div>
@@ -170,30 +190,68 @@ const HomePage: React.FC = () => {
               <Link
                 key={index}
                 to={service.link}
-                className="block bg-dark-100/80 backdrop-blur-md rounded-2xl shadow-neumorphic hover:shadow-glow-lg transition-all duration-300 group border border-primary-600/20 overflow-hidden"
+                className="block bg-white/90 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group border border-gray-200/50 overflow-hidden hover:scale-105"
               >
                 <div className="aspect-w-16 aspect-h-9 h-48">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-8">
-                  <div className="text-primary-400 mb-4 group-hover:text-primary-300 transition-colors duration-300">
+                  <div className="text-primary-600 mb-4 group-hover:text-primary-700 transition-colors duration-300">
                     {service.icon}
                   </div>
-                  <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-3 group-hover:text-primary-200 transition-colors duration-300">
+                  <h3 className="font-poppins text-xl font-semibold text-gray-800 mb-3 group-hover:text-primary-700 transition-colors duration-300">
                     {service.title}
                   </h3>
-                  <p className="font-inter text-dark-500 leading-relaxed mb-4 group-hover:text-dark-400 transition-colors duration-300">
+                  <p className="font-inter text-gray-600 leading-relaxed mb-4 group-hover:text-gray-700 transition-colors duration-300">
                     {service.description}
                   </p>
-                  <div className="font-inter text-primary-400 font-semibold group-hover:text-primary-300 transition-colors duration-300">
+                  <div className="font-inter text-primary-600 font-semibold group-hover:text-primary-700 transition-colors duration-300">
                     Learn More →
                   </div>
                 </div>
               </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Clients Section */}
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/90"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+              Our Clients
+            </h2>
+            <p className="font-inter text-xl text-gray-600 max-w-3xl mx-auto">
+              Trusted by leading organizations across various sectors
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className="bg-white/95 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200/50 group"
+              >
+                <img
+                  src={client.logo}
+                  alt={client.name}
+                  className="w-full h-16 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
             ))}
           </div>
         </div>
@@ -204,7 +262,7 @@ const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
             {stats.map((stat, index) => (
-              <div key={index}>
+              <div key={index} className="hover:scale-110 transition-transform duration-300">
                 <div className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-primary-200">
                   {stat.number}
                 </div>
@@ -215,38 +273,18 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Our Clients Section */}
-      <section className="py-20 bg-dark-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
-              Our Clients
-            </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Trusted by leading organizations across various sectors
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-200/50"
-              >
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  className="w-full h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section 
+        className="py-20 relative overflow-hidden"
+        style={{
+          backgroundImage: `url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        <div className="absolute inset-0 bg-primary-900/80"></div>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-6">
             Ready to Transform Your Business?
           </h2>
@@ -256,14 +294,14 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/contact"
-              className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center shadow-glow"
+              className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105"
             >
               Schedule Consultation
               <ArrowRight className="h-5 w-5 ml-2" />
             </Link>
             <a
               href="mailto:agiliocap@gmail.com"
-              className="border-2 border-white text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
+              className="border-2 border-white text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center hover:scale-105"
             >
               Email Us Directly
             </a>
