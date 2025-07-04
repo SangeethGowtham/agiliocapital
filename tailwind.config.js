@@ -56,7 +56,6 @@ export default {
         'glow': 'glow 2s ease-in-out infinite alternate',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'candle': 'candle 4s ease-in-out infinite',
-        'shimmer': 'shimmer 2s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -117,10 +116,6 @@ export default {
             transform: 'scale(1.02)'
           },
         },
-        shimmer: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(100%)' },
-        },
       },
       transitionDuration: {
         '300': '300ms',
@@ -137,8 +132,8 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        'neumorphic': '20px 20px 60px #e0e0e0, -20px -20px 60px #ffffff',
-        'neumorphic-inset': 'inset 20px 20px 60px #e0e0e0, inset -20px -20px 60px #ffffff',
+        'neumorphic': '20px 20px 60px #1a1a1a, -20px -20px 60px #2a2a2a',
+        'neumorphic-inset': 'inset 20px 20px 60px #1a1a1a, inset -20px -20px 60px #2a2a2a',
         'glow': '0 0 20px rgba(139, 92, 246, 0.3)',
         'glow-lg': '0 0 40px rgba(139, 92, 246, 0.4)',
       },
