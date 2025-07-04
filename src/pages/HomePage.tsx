@@ -6,6 +6,7 @@ import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
 import SplineViewer from '../components/SplineViewer';
+import ClientsSection from '../components/ClientsSection';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HomePage: React.FC = () => {
@@ -18,25 +19,25 @@ const HomePage: React.FC = () => {
     {
       icon: <TrendingUp className="h-8 w-8" />,
       title: 'Seed & Angel Funding',
-      description: 'We partner with early and concept stage enterprises, connect them to venture capital and seed, accelerator, HNI angel investors and unsecured loans to realize the capital.',
+      description: 'We partner with early and concept stage enterprises, connect them to venture capital and seed, accelerator, HNI angel investors and unsecured loans to realize the capital',
       link: '/services/seed-angel-funding'
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: 'Private Equity & Venture Capital',
-      description: 'Equity and Growth capital can be arranged from large PE| VC funds, Family offices and Strategic Investors for mature and potential business.',
+      description: 'Equity and Growth capital can be arranged from large PE| VC funds, Family offices and Strategic Investors for mature and potential business',
       link: '/services/corporate-finance'
     },
     {
       icon: <Briefcase className="h-8 w-8" />,
       title: 'CFO & Support Services',
-      description: 'The entire financial and compliance related functions can be done by us. We operate either independently or in conjunction with your finance team.',
+      description: 'The entire financial and compliance related functions can be done by us. We operate either independently or in conjunction with your finance team',
       link: '/services/cfo-services'
     },
     {
       icon: <Shield className="h-8 w-8" />,
       title: 'Debt Solutions & Working Capital',
-      description: 'Term loan and NCDs, Debt Restructuring, Project Financing, Unsecured business Loan, Line of Credit for Equipment Finance.',
+      description: 'Term loan and NCDs, Debt Restructuring, Project Financing, Unsecured business Loan, Line of Credit for Equipment Finance',
       link: '/services/loan-debt-syndication'
     }
   ];
@@ -46,35 +47,35 @@ const HomePage: React.FC = () => {
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
       description: 'Banking, Financial Services & Affordable Housing Finance',
-      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate.',
+      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate',
       image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Healthcare', 
       icon: <Heart className="h-12 w-12" />, 
       description: 'Pharmaceuticals, health care and allied services',
-      details: 'Our healthcare investment banking practice focuses on medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, licensing deals, and partnerships that drive innovation in patient care and medical advancement.',
+      details: 'Our healthcare investment banking practice focuses on medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, licensing deals, and partnerships that drive innovation in patient care and medical advancement',
       image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Social Enterprises', 
       icon: <Users className="h-12 w-12" />, 
       description: 'Impact-driven organizations creating social value',
-      details: 'We specialize in supporting social enterprises and impact-driven organizations through impact investing, blended finance solutions, and strategic partnerships. Our expertise helps organizations balance social impact with financial sustainability.',
+      details: 'We specialize in supporting social enterprises and impact-driven organizations through impact investing, blended finance solutions, and strategic partnerships. Our expertise helps organizations balance social impact with financial sustainability',
       image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'FinTech', 
       icon: <Smartphone className="h-12 w-12" />, 
       description: 'Digital financial services and payment solutions',
-      details: 'Our fintech practice covers digital payments, lending platforms, wealth management technology, and blockchain solutions. We help fintech companies secure growth capital, navigate regulatory requirements, and establish strategic partnerships with traditional financial institutions.',
+      details: 'Our fintech practice covers digital payments, lending platforms, wealth management technology, and blockchain solutions. We help fintech companies secure growth capital, navigate regulatory requirements, and establish strategic partnerships with traditional financial institutions',
       image: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Agriculture', 
       icon: <Tractor className="h-12 w-12" />, 
       description: 'AgTech, sustainable farming, renewable energy and food security solutions',
-      details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices.',
+      details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices',
       image: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
@@ -180,7 +181,7 @@ const HomePage: React.FC = () => {
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                Empowering businesses with strategic financial solutions, from seed funding to complex structured finance.
+                Empowering businesses with strategic financial solutions, from seed funding to complex structured finance
               </motion.p>
               
               <motion.div 
@@ -189,18 +190,6 @@ const HomePage: React.FC = () => {
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to="/contact"
-                    className="bg-primary-600 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-700 transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
-                  >
-                    Get Started
-                    <ArrowRight className="h-5 w-5 ml-2" />
-                  </Link>
-                </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -473,23 +462,11 @@ const HomePage: React.FC = () => {
               </motion.div>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to="/deals"
-                className="bg-primary-600 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-700 transition-colors duration-300 inline-flex items-center shadow-glow hover:shadow-glow-lg"
-              >
-                View All Deals
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Link>
-            </motion.div>
-          </div>
         </div>
       </section>
+
+      {/* Clients Section */}
+      <ClientsSection />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden">
@@ -517,7 +494,7 @@ const HomePage: React.FC = () => {
               Ready to Transform Your Business?
             </h2>
             <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
-              Let's discuss how our investment banking expertise can help you achieve your Organisational goals.
+              Let's discuss how our investment banking expertise can help you achieve your Organisational goals
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div

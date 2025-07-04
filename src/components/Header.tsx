@@ -46,17 +46,17 @@ const Header: React.FC = () => {
 
   return (
     <motion.header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ease-in-out ${
         isScrolled 
-          ? 'bg-dark-50/95 backdrop-blur-md shadow-lg border-b border-primary-600/20' 
-          : 'bg-dark-50/90 backdrop-blur-sm'
-      }`}
-      style={{ height: '80px' }}
+          ? 'bg-dark-100/90 backdrop-blur-xl shadow-2xl border border-primary-600/30' 
+          : 'bg-dark-100/70 backdrop-blur-lg border border-primary-600/20'
+      } rounded-2xl`}
+      style={{ height: '72px' }}
       initial={{ y: 0 }}
       animate={{ y: hideHeader ? -80 : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <div className="max-w-7xl mx-auto px-6 h-full">
         <div className="flex justify-between items-center h-full">
           {/* Logo with Candle Glow Effect */}
           <motion.div
@@ -68,7 +68,7 @@ const Header: React.FC = () => {
             }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
-            <Link to="/" className="flex items-center space-x-3" style={{ marginLeft: '24px' }}>
+            <Link to="/" className="flex items-center space-x-3">
               <div className="flex flex-col">
                 <motion.span 
                   className="text-xl font-bold font-poppins text-primary-600 animate-candle"
@@ -95,7 +95,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <motion.nav 
-            className="hidden desktop:flex items-center space-x-8"
+            className="hidden desktop:flex items-center space-x-10"
             animate={{ x: hideHeader ? -100 : 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
@@ -153,15 +153,6 @@ const Header: React.FC = () => {
             </div>
 
             <Link
-              to="/deals"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
-                isActiveLink('/deals') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
-              }`}
-              style={{ fontSize: '16px' }}
-            >
-              Deals
-            </Link>
-            <Link
               to="/contact"
               className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
                 isActiveLink('/contact') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
@@ -170,18 +161,6 @@ const Header: React.FC = () => {
             >
               Contact
             </Link>
-            
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                to="/contact"
-                className="bg-primary-600 text-white px-6 py-2 rounded-full font-inter font-medium hover:bg-primary-700 transition-colors duration-300 shadow-glow hover:shadow-glow-lg"
-              >
-                Get Started
-              </Link>
-            </motion.div>
           </motion.nav>
 
           {/* Mobile menu button */}
@@ -202,13 +181,13 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              className="desktop:hidden py-4 border-t border-primary-600/20 bg-dark-100/95 backdrop-blur-md"
+              className="desktop:hidden py-4 border-t border-primary-600/20 bg-dark-100/95 backdrop-blur-md rounded-b-2xl mt-4"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 px-4">
                 <Link
                   to="/"
                   className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
@@ -239,26 +218,11 @@ const Header: React.FC = () => {
                 </div>
 
                 <Link
-                  to="/deals"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Deals
-                </Link>
-                <Link
                   to="/contact"
                   className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
-                </Link>
-                
-                <Link
-                  to="/contact"
-                  className="bg-primary-600 text-white px-6 py-2 rounded-full font-inter font-medium hover:bg-primary-700 transition-colors duration-300 w-fit shadow-glow"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Get Started
                 </Link>
               </div>
             </motion.div>

@@ -15,40 +15,39 @@ const AboutPage: React.FC = () => {
     {
       icon: <Target className="h-8 w-8" />,
       title: 'Excellence',
-      description: 'We strive for excellence in every transaction and client relationship, delivering superior results.'
+      description: 'We strive for excellence in every transaction and client relationship, delivering superior results'
     },
     {
       icon: <Users className="h-8 w-8" />,
       title: 'Integrity',
-      description: 'Transparent and ethical practices form the foundation of our business operations.'
+      description: 'Transparent and ethical practices form the foundation of our business operations'
     },
     {
       icon: <Globe className="h-8 w-8" />,
       title: 'Innovation',
-      description: 'We leverage cutting-edge financial strategies and technologies for optimal outcomes.'
+      description: 'We leverage cutting-edge financial strategies and technologies for optimal outcomes'
     },
     {
       icon: <Award className="h-8 w-8" />,
       title: 'Progress',
-      description: 'Deep industry knowledge across multiple sectors and financial instruments.'
+      description: 'Deep industry knowledge across multiple sectors and financial instruments'
     }
   ];
 
   const team = [
     {
       name: 'T M Durai',
-      role: 'Investment Banker | Strategic Advisor | Partnerships & Growth Enabler | Managing Director - Agilio Capital Private Limited',
-      description: 'T M Durai an investment banker and growth strategy professional with 25+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships.',
-      fullBio: `Was part of founding team of NBFC - MFI - Samasta Micro Finance and instrumental in scaling the AUM to 1000 Cr, Having expertise in resource mobilization, strategic partnerships, new initiatives. Executed a strategic M&A deal with large financial group.
+      role: 'Managing Director - Agilio Capital Private Limited',
+      description: 'T M Durai an investment banker and growth strategy professional with 25+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships',
+      fullBio: `Was part of founding team of NBFC - MFI - Samasta Micro Finance and instrumental in scaling the AUM to 1000 Cr, Having expertise in resource mobilization, strategic partnerships, new initiatives. Executed a strategic M&A deal with large financial group
 
-Sphere Headed the treasury and mobilized funds more than 1500 Crore as Equity, Term loans, CP, NCD and securitization and DA. transactions.
+Sphere Headed the treasury and mobilized funds more than 1500 Crore as Equity, Term loans, CP, NCD and securitization and DA. transactions
 
-As a founder of Agilio Capital - am working with 30+ clients on capital raising for the growth plans. Advising on PE /Venture Capital / Debt and structured finance. Mentoring start ups and projects from conceptualization to implementation and scale.
+As a founder of Agilio Capital - am working with 30+ clients on capital raising for the growth plans. Advising on PE /Venture Capital / Debt and structured finance. Mentoring start ups and projects from conceptualization to implementation and scale
 
-Arranging BC / Co lending and strategic partnerships for NBFC, MFI clients and need based support services to scale the AUM and increase the profitability.
+Arranging BC / Co lending and strategic partnerships for NBFC, MFI clients and need based support services to scale the AUM and increase the profitability
 
 Proven expertise in capturing strategic business / market opportunities, Product incubation, Promotional activities, Business development, revenue maximisation, to scale business volumes and achieve substantial growth`,
-      credentials: ['Investment Banking Expert', 'Strategic Finance Specialist', 'M&A Advisor'],
       experience: [
         { title: 'Investment Banking', years: '25+ years', icon: <TrendingUp className="h-6 w-6" /> },
         { title: 'Corporate Finance', years: '20+ years', icon: <Building className="h-6 w-6" /> },
@@ -86,7 +85,7 @@ Proven expertise in capturing strategic business / market opportunities, Product
           >
             <h1 className="font-poppins text-4xl lg:text-5xl font-bold mb-6">About Agilio Capital Partners</h1>
             <p className="font-inter text-xl lg:text-2xl text-primary-100 max-w-4xl mx-auto leading-relaxed">
-              Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives.
+              Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives
             </p>
           </motion.div>
         </div>
@@ -107,11 +106,11 @@ Proven expertise in capturing strategic business / market opportunities, Product
               <p className="font-inter text-lg text-dark-500 leading-relaxed mb-6">
                 Agilio Capital Partners was founded with a clear vision: to provide world-class investment banking services 
                 that drive meaningful business transformation. Based in Bangalore, we combine global financial expertise 
-                with deep local market knowledge.
+                with deep local market knowledge
               </p>
               <p className="font-inter text-lg text-dark-500 leading-relaxed mb-8">
                 Our mission is to empower businesses across various sectors by providing strategic financial advisory, 
-                facilitating capital raising, and creating value through innovative financial solutions.
+                facilitating capital raising, and creating value through innovative financial solutions
               </p>
               
               <div ref={statsRef} className="grid grid-cols-2 gap-6">
@@ -215,20 +214,6 @@ Proven expertise in capturing strategic business / market opportunities, Product
                         </div>
                       ))}
                     </div>
-                    
-                    <div className="space-y-2 mb-6">
-                      <h4 className="font-poppins font-semibold text-primary-300">Professional Credentials:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {member.credentials.map((credential, credIndex) => (
-                          <span
-                            key={credIndex}
-                            className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-inter font-medium border border-primary-600/30"
-                          >
-                            {credential}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
 
                     {/* Full Bio */}
                     <div className="mb-6">
@@ -298,59 +283,6 @@ Proven expertise in capturing strategic business / market opportunities, Product
                 </FloatingContainer>
               </motion.div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Professional Background */}
-      <section className="py-20 bg-primary-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-poppins text-3xl lg:text-4xl font-bold mb-6">
-                Professional Excellence
-              </h2>
-              <p className="font-inter text-xl text-primary-100 leading-relaxed mb-8">
-                Our team comprises seasoned professionals with extensive experience in investment banking, 
-                corporate finance, and strategic advisory services.
-              </p>
-              
-              <div className="space-y-4">
-                {[
-                  'Investment Banking professionals with 25+ years experience',
-                  'Corporate finance experts specializing in M&A and fundraising',
-                  'Strategic advisors across BFSI, Healthcare, and Social enterprises',
-                  'Proven track record in scaling businesses from startup to 1000+ Cr AUM'
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-center space-x-3"
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6, delay: index * 0.1 }}
-                  >
-                    <CheckCircle className="h-6 w-6 text-green-400 flex-shrink-0" />
-                    <span className="font-inter text-primary-100">{item}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <img
-                src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="Professional team meeting"
-                className="rounded-2xl shadow-2xl"
-                loading="lazy"
-              />
-            </motion.div>
           </div>
         </div>
       </section>

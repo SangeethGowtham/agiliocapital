@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-dark-500 text-sm leading-relaxed">
-              Premier investment banking services with expertise in seed funding, corporate finance, and strategic partnerships.
+              Premier investment banking services with expertise in seed funding, corporate finance, and strategic partnerships
             </p>
           </div>
 
@@ -40,8 +40,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/deals" className="text-dark-500 hover:text-primary-400 transition-colors">
-                  Deals & Transactions
+                <Link to="/contact" className="text-dark-500 hover:text-primary-400 transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-primary-600/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-dark-400 text-sm">
-              © 2024 Agilio Capital Partners. All rights reserved.
+              © 2024 Agilio Capital Partners. All rights reserved
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/contact" className="text-dark-400 hover:text-primary-400 text-sm transition-colors">
