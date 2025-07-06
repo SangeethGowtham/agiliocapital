@@ -5,7 +5,6 @@ import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Buil
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
-import SplineViewer from '../components/SplineViewer';
 import ClientsSection from '../components/ClientsSection';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -80,30 +79,6 @@ const HomePage: React.FC = () => {
     }
   ];
 
-  const deals = [
-    {
-      title: 'Virutcham',
-      company: 'TechCorp Solutions',
-      amount: '$5.2M',
-      sector: 'FinTech',
-      description: 'Led successful Series A funding for B2B SaaS platform'
-    },
-    {
-      title: 'Unnati',
-      company: 'Healthcare Innovations',
-      amount: '$12M',
-      sector: 'Healthcare',
-      description: 'Structured debt facility for medical device manufacturing'
-    },
-    {
-      title: 'Shiksha',
-      company: 'AgriTech Ventures',
-      amount: '$3.8M',
-      sector: 'Agriculture',
-      description: 'Facilitated partnership with leading agricultural cooperative'
-    }
-  ];
-
   const stats = [
     { number: 50, label: 'Successful Deals', suffix: '+' },
     { number: 1000, label: 'Transaction Value (M)', suffix: '+' },
@@ -112,28 +87,21 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-50">
-      {/* Hero Section with 3D Background */}
+    <div className="min-h-screen">
+      {/* Hero Section with Centered Content */}
       <section 
         ref={heroRef}
-        className="relative text-white overflow-hidden"
-        style={{ height: '100vh' }}
+        className="relative text-white overflow-hidden min-h-screen flex items-center justify-center"
+        style={{
+          background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 25%, #3730a3 50%, #7c3aed 75%, #a855f7 100%)'
+        }}
       >
-        {/* 3D Spline Background */}
-        <div className="absolute inset-0 z-0">
-          <SplineViewer 
-            url="https://prod.spline.design/6Wq5GiW7CRJZgKua/scene.splinecode"
-            className="w-full h-full"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
-        </div>
-
-        {/* Floating Particles Animation */}
-        <div className="absolute inset-0 overflow-hidden z-10">
-          {[...Array(15)].map((_, i) => (
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-primary-400/30 rounded-full"
+              className="absolute w-2 h-2 bg-white/20 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -152,74 +120,97 @@ const HomePage: React.FC = () => {
           ))}
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
+        {/* Floating Geometric Shapes */}
+        <div className="absolute inset-0">
+          <motion.div
+            className="absolute top-20 left-20 w-32 h-32 border border-white/10 rounded-full"
+            animate={{
+              rotate: 360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-20 right-20 w-24 h-24 border border-white/10 rounded-lg"
+            animate={{
+              rotate: -360,
+              y: [-10, 10, -10],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+          <motion.div
+            className="absolute top-1/2 left-10 w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full"
+            animate={{
+              x: [0, 30, 0],
+              y: [0, -20, 0],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-20">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="max-w-4xl mx-auto"
+          >
+            <motion.h1 
+              className="font-poppins font-bold leading-tight mb-6 text-white"
+              style={{ fontSize: 'clamp(36px, 6vw, 64px)' }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 1, delay: 0.2 }}
             >
-              <motion.h1 
-                className="font-poppins font-bold leading-tight mb-6 text-white"
-                style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
-                initial={{ opacity: 0, y: 30 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 1, delay: 0.2 }}
-              >
-                Investment Banking
-                <span className="block text-primary-300">
-                  <TypewriterText 
-                    texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
-                    speed={120}
-                  />
-                </span>
-              </motion.h1>
-              
-              <motion.p 
-                className="font-inter text-xl lg:text-2xl text-dark-600 mb-8 leading-relaxed"
-                initial={{ opacity: 0, y: 30 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 1, delay: 0.4 }}
-              >
-                Empowering businesses with strategic financial solutions, from seed funding to complex structured finance
-              </motion.p>
-              
-              <motion.div 
-                className="flex flex-col sm:flex-row gap-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 1, delay: 0.6 }}
-              >
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    to="/about"
-                    className="border-2 border-primary-400/80 text-primary-300 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-600/20 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
-                  >
-                    Learn More
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+              Investment Banking
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">
+                <TypewriterText 
+                  texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
+                  speed={120}
+                />
+              </span>
+            </motion.h1>
             
-            {/* Business Animation */}
-            <motion.div 
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            <motion.p 
+              className="font-inter text-xl lg:text-2xl text-blue-100 mb-8 leading-relaxed max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 30 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <SplineViewer 
-                  url="https://prod.spline.design/llK92eVgKBtPcjjv/scene.splinecode"
-                  className="w-full h-full"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
-              </div>
+              Empowering businesses with strategic financial solutions, from seed funding to complex structured finance
+            </motion.p>
+            
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 30 }}
+              animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link
+                  to="/about"
+                  className="border-2 border-white/50 text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
+                >
+                  Learn More
+                </Link>
+              </motion.div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
@@ -228,9 +219,9 @@ const HomePage: React.FC = () => {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 border-2 border-primary-400/50 rounded-full flex justify-center">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
             <motion.div 
-              className="w-1 h-3 bg-primary-400/70 rounded-full mt-2"
+              className="w-1 h-3 bg-white/70 rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -241,18 +232,12 @@ const HomePage: React.FC = () => {
       {/* Focus Sectors Section */}
       <motion.section 
         ref={sectorsRef} 
-        className="py-20 bg-dark-100/50 relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-slate-800/80 via-blue-800/60 to-purple-800/80 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        style={{
-          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
       >
-        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 to-purple-900/50"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -260,10 +245,10 @@ const HomePage: React.FC = () => {
             animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-4">
               Our Focus Sectors
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-blue-100 max-w-3xl mx-auto">
               Specialized expertise across key industry verticals in investment banking
             </p>
           </motion.div>
@@ -281,15 +266,15 @@ const HomePage: React.FC = () => {
                 <FloatingContainer delay={index * 0.2}>
                   <div className="text-center p-4">
                     <motion.div 
-                      className="text-primary-400 mb-4 flex justify-center group-hover:text-primary-300 transition-colors duration-500"
+                      className="text-blue-300 mb-4 flex justify-center group-hover:text-blue-200 transition-colors duration-500"
                       whileHover={{ scale: 1.2, rotate: 5 }}
                     >
                       {sector.icon}
                     </motion.div>
-                    <h3 className="font-poppins text-lg font-semibold text-primary-300 mb-2 group-hover:text-primary-200 transition-colors duration-500">
+                    <h3 className="font-poppins text-lg font-semibold text-white mb-2 group-hover:text-blue-100 transition-colors duration-500">
                       {sector.name}
                     </h3>
-                    <p className="font-inter text-sm text-dark-500 leading-relaxed group-hover:text-dark-400 transition-colors duration-500">
+                    <p className="font-inter text-sm text-blue-200 leading-relaxed group-hover:text-blue-100 transition-colors duration-500">
                       {sector.description}
                     </p>
                   </div>
@@ -303,18 +288,12 @@ const HomePage: React.FC = () => {
       {/* Services Section */}
       <motion.section 
         ref={servicesRef} 
-        className="py-20 relative overflow-hidden"
+        className="py-20 bg-gradient-to-br from-blue-900/80 via-purple-800/60 to-slate-800/80 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
-        style={{
-          backgroundImage: `url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
       >
-        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -322,10 +301,10 @@ const HomePage: React.FC = () => {
             animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-4">
               Our Core Services
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-blue-100 max-w-3xl mx-auto">
               Comprehensive investment banking solutions tailored to empower your business
             </p>
           </motion.div>
@@ -341,24 +320,24 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to={service.link}
-                  className="block bg-dark-100/80 backdrop-blur-md p-8 rounded-xl shadow-neumorphic hover:shadow-glow-lg transition-all duration-500 group relative overflow-hidden border border-primary-600/20"
+                  className="block bg-white/10 backdrop-blur-md p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 group relative overflow-hidden border border-white/20"
                   style={{ height: '280px' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-primary-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <motion.div 
-                      className="text-primary-400 mb-4 group-hover:text-primary-300 transition-colors duration-500"
+                      className="text-blue-300 mb-4 group-hover:text-blue-200 transition-colors duration-500"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       {service.icon}
                     </motion.div>
-                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-3 group-hover:text-primary-200 transition-colors duration-500">
+                    <h3 className="font-poppins text-xl font-semibold text-white mb-3 group-hover:text-blue-100 transition-colors duration-500">
                       {service.title}
                     </h3>
-                    <p className="font-inter text-dark-500 leading-relaxed mb-4 line-clamp-3 group-hover:text-dark-400 transition-colors duration-500">
+                    <p className="font-inter text-blue-200 leading-relaxed mb-4 line-clamp-3 group-hover:text-blue-100 transition-colors duration-500">
                       {service.description}
                     </p>
-                    <div className="font-inter text-primary-400 font-semibold group-hover:text-primary-300 transition-colors duration-500">
+                    <div className="font-inter text-blue-300 font-semibold group-hover:text-blue-200 transition-colors duration-500">
                       Learn More →
                     </div>
                   </div>
@@ -372,7 +351,7 @@ const HomePage: React.FC = () => {
       {/* Stats Section */}
       <motion.section 
         ref={statsRef} 
-        className="py-20 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 relative overflow-hidden"
+        className="py-20 bg-gradient-to-r from-purple-900 via-blue-800 to-slate-700 relative overflow-hidden"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -404,72 +383,23 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
               >
                 <motion.div 
-                  className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-primary-200"
+                  className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-blue-200"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Counter end={stat.number} suffix={stat.suffix} isActive={statsInView} />
                 </motion.div>
-                <div className="font-inter text-primary-100 font-medium">{stat.label}</div>
+                <div className="font-inter text-blue-100 font-medium">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* Recent Deals Section */}
-      <section className="py-20 bg-dark-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
-              Recent Transactions
-            </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Showcasing our successful deals across various sectors
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {deals.map((deal, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <FloatingContainer delay={index * 0.2}>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-poppins font-semibold border border-primary-600/30">
-                        {deal.sector}
-                      </span>
-                      <span className="text-2xl font-poppins font-bold text-green-400">{deal.amount}</span>
-                    </div>
-                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-2">{deal.title}</h3>
-                    <p className="font-inter text-dark-500 mb-4">{deal.company}</p>
-                    <p className="font-inter text-dark-400 leading-relaxed mb-4">{deal.description}</p>
-                    <div className="flex items-center text-green-400">
-                      <CheckCircle className="h-5 w-5 mr-2" />
-                      <span className="font-inter font-semibold">Successfully Completed</span>
-                    </div>
-                  </div>
-                </FloatingContainer>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Clients Section */}
       <ClientsSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-r from-blue-800 via-purple-700 to-slate-600 relative overflow-hidden">
         <div className="absolute inset-0">
           <motion.div
             className="absolute inset-0 opacity-20"
@@ -493,8 +423,8 @@ const HomePage: React.FC = () => {
             <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
-              Let's discuss how our investment banking expertise can help you achieve your Organisational goals
+            <p className="font-inter text-xl text-blue-100 mb-8 leading-relaxed">
+              Let's discuss how our investment banking expertise can help you achieve your organizational goals
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
@@ -503,7 +433,7 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to="/contact"
-                  className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center shadow-glow"
+                  className="bg-white text-blue-900 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-blue-50 transition-all duration-300 inline-flex items-center justify-center shadow-lg"
                 >
                   Schedule Consultation
                   <ArrowRight className="h-5 w-5 ml-2" />

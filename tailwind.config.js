@@ -56,6 +56,7 @@ export default {
         'glow': 'glow 2s ease-in-out infinite alternate',
         'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
         'candle': 'candle 4s ease-in-out infinite',
+        'slide-left': 'slideLeft 30s linear infinite',
       },
       keyframes: {
         fadeIn: {
@@ -65,6 +66,10 @@ export default {
         slideIn: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(0)' },
+        },
+        slideLeft: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
         },
         typewriter: {
           '0%': { width: '0' },
