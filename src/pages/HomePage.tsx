@@ -5,7 +5,6 @@ import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Buil
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
-import SplineViewer from '../components/SplineViewer';
 import ClientsSection from '../components/ClientsSection';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -80,30 +79,6 @@ const HomePage: React.FC = () => {
     }
   ];
 
-  const deals = [
-    {
-      title: 'Virutcham',
-      company: 'TechCorp Solutions',
-      amount: '$5.2M',
-      sector: 'FinTech',
-      description: 'Led successful Series A funding for B2B SaaS platform'
-    },
-    {
-      title: 'Unnati',
-      company: 'Healthcare Innovations',
-      amount: '$12M',
-      sector: 'Healthcare',
-      description: 'Structured debt facility for medical device manufacturing'
-    },
-    {
-      title: 'Shiksha',
-      company: 'AgriTech Ventures',
-      amount: '$3.8M',
-      sector: 'Agriculture',
-      description: 'Facilitated partnership with leading agricultural cooperative'
-    }
-  ];
-
   const stats = [
     { number: 50, label: 'Successful Deals', suffix: '+' },
     { number: 1000, label: 'Transaction Value (M)', suffix: '+' },
@@ -113,17 +88,22 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-dark-50">
-      {/* Hero Section with 3D Background */}
+      {/* Hero Section */}
       <section 
         ref={heroRef}
         className="relative text-white overflow-hidden"
         style={{ height: '100vh' }}
       >
-        {/* 3D Spline Background */}
+        {/* Background with gradient overlay */}
         <div className="absolute inset-0 z-0">
-          <SplineViewer 
-            url="https://prod.spline.design/6Wq5GiW7CRJZgKua/scene.splinecode"
+          <div 
             className="w-full h-full"
+            style={{
+              backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundAttachment: 'fixed'
+            }}
           />
           <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
         </div>
@@ -167,7 +147,7 @@ const HomePage: React.FC = () => {
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 Investment Banking
-                <span className="block text-primary-300">
+                <span className="block" style={{ color: '#221161' }}>
                   <TypewriterText 
                     texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
                     speed={120}
@@ -204,7 +184,7 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Business Animation */}
+            {/* Business Image */}
             <motion.div 
               className="relative"
               initial={{ opacity: 0, x: 50 }}
@@ -212,9 +192,10 @@ const HomePage: React.FC = () => {
               transition={{ duration: 1, delay: 0.4 }}
             >
               <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
-                <SplineViewer 
-                  url="https://prod.spline.design/llK92eVgKBtPcjjv/scene.splinecode"
-                  className="w-full h-full"
+                <img
+                  src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="Professional business meeting"
+                  className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
               </div>
@@ -415,55 +396,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </motion.section>
-
-      {/* Recent Deals Section */}
-      <section className="py-20 bg-dark-100/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
-              Recent Transactions
-            </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Showcasing our successful deals across various sectors
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {deals.map((deal, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ y: -10, scale: 1.02 }}
-              >
-                <FloatingContainer delay={index * 0.2}>
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="bg-primary-600/20 text-primary-300 px-3 py-1 rounded-full text-sm font-poppins font-semibold border border-primary-600/30">
-                        {deal.sector}
-                      </span>
-                      <span className="text-2xl font-poppins font-bold text-green-400">{deal.amount}</span>
-                    </div>
-                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-2">{deal.title}</h3>
-                    <p className="font-inter text-dark-500 mb-4">{deal.company}</p>
-                    <p className="font-inter text-dark-400 leading-relaxed mb-4">{deal.description}</p>
-                    <div className="flex items-center text-green-400">
-                      <CheckCircle className="h-5 w-5 mr-2" />
-                      <span className="font-inter font-semibold">Successfully Completed</span>
-                    </div>
-                  </div>
-                </FloatingContainer>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Clients Section */}
       <ClientsSection />

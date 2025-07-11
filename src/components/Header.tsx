@@ -7,29 +7,17 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hideHeader, setHideHeader] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
-      // Hide/show header based on scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setHideHeader(true);
-      } else {
-        setHideHeader(false);
-      }
-      
-      // Background change on scroll
       setIsScrolled(currentScrollY > 50);
-      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const isActiveLink = (path: string) => {
     return location.pathname === path;
@@ -50,55 +38,34 @@ const Header: React.FC = () => {
         isScrolled 
           ? 'bg-dark-100/90 backdrop-blur-xl shadow-2xl border border-primary-600/30' 
           : 'bg-dark-100/70 backdrop-blur-lg border border-primary-600/20'
-      } rounded-2xl`}
+      } rounded-2xl hover:backdrop-blur-xl hover:bg-dark-100/95`}
       style={{ height: '72px' }}
-      initial={{ y: 0 }}
-      animate={{ y: hideHeader ? -80 : 0 }}
-      transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <div className="max-w-7xl mx-auto px-6 h-full">
         <div className="flex justify-between items-center h-full">
-          {/* Logo with Candle Glow Effect */}
-          <motion.div
-            initial={{ opacity: 1, scale: 1 }}
-            animate={{ 
-              opacity: hideHeader ? 0 : 1,
-              scale: hideHeader ? 0.8 : 1,
-              x: hideHeader ? -20 : 0
-            }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
-            <Link to="/" className="flex items-center space-x-3">
-              <div className="flex flex-col">
-                <motion.span 
-                  className="text-xl font-bold font-poppins text-primary-600 animate-candle"
-                  style={{
-                    background: 'linear-gradient(45deg, #642c62, #8b5cf6, #a78bfa)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    WebkitTextFillColor: 'transparent',
-                  }}
-                >
-                  Agilio Capital
-                </motion.span>
-                <motion.span 
-                  className="text-sm text-primary-400 -mt-1 font-inter"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, ease: 'easeInOut' }}
-                >
-                  Funds Progrez
-                </motion.span>
-              </div>
-            </Link>
-          </motion.div>
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-3">
+            <div className="flex flex-col">
+              <motion.span 
+                className="text-xl font-bold font-poppins animate-candle"
+                style={{ color: '#221161' }}
+              >
+                Agilio Capital
+              </motion.span>
+              <motion.span 
+                className="text-sm -mt-1 font-inter"
+                style={{ color: '#221161' }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, ease: 'easeInOut' }}
+              >
+                Funds Progrez
+              </motion.span>
+            </div>
+          </Link>
 
           {/* Desktop Navigation */}
-          <motion.nav 
-            className="hidden desktop:flex items-center space-x-10"
-            animate={{ x: hideHeader ? -100 : 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-          >
+          <nav className="hidden desktop:flex items-center space-x-10">
             <Link
               to="/"
               className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
@@ -161,7 +128,21 @@ const Header: React.FC = () => {
             >
               Contact
             </Link>
-          </motion.nav>
+
+            {/* Get Started Button */}
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Link
+                to="/contact"
+                className="px-6 py-2 rounded-full font-poppins font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl"
+                style={{ backgroundColor: '#221161' }}
+              >
+                Get Started
+              </Link>
+            </motion.div>
+          </nav>
 
           {/* Mobile menu button */}
           <button
@@ -223,6 +204,15 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
+                </Link>
+
+                <Link
+                  to="/contact"
+                  className="px-6 py-2 rounded-full font-poppins font-semibold text-white transition-all duration-300 shadow-lg text-center"
+                  style={{ backgroundColor: '#221161' }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Get Started
                 </Link>
               </div>
             </motion.div>

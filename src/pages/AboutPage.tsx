@@ -39,15 +39,6 @@ const AboutPage: React.FC = () => {
       name: 'T M Durai',
       role: 'Managing Director - Agilio Capital Private Limited',
       description: 'T M Durai an investment banker and growth strategy professional with 25+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships',
-      fullBio: `Was part of founding team of NBFC - MFI - Samasta Micro Finance and instrumental in scaling the AUM to 1000 Cr, Having expertise in resource mobilization, strategic partnerships, new initiatives. Executed a strategic M&A deal with large financial group
-
-Sphere Headed the treasury and mobilized funds more than 1500 Crore as Equity, Term loans, CP, NCD and securitization and DA. transactions
-
-As a founder of Agilio Capital - am working with 30+ clients on capital raising for the growth plans. Advising on PE /Venture Capital / Debt and structured finance. Mentoring start ups and projects from conceptualization to implementation and scale
-
-Arranging BC / Co lending and strategic partnerships for NBFC, MFI clients and need based support services to scale the AUM and increase the profitability
-
-Proven expertise in capturing strategic business / market opportunities, Product incubation, Promotional activities, Business development, revenue maximisation, to scale business volumes and achieve substantial growth`,
       experience: [
         { title: 'Investment Banking', years: '25+ years', icon: <TrendingUp className="h-6 w-6" /> },
         { title: 'Corporate Finance', years: '20+ years', icon: <Building className="h-6 w-6" /> },
@@ -213,14 +204,6 @@ Proven expertise in capturing strategic business / market opportunities, Product
                           <div className="font-inter text-sm text-dark-500">{metric.label}</div>
                         </div>
                       ))}
-                    </div>
-
-                    {/* Full Bio */}
-                    <div className="mb-6">
-                      <h4 className="font-poppins font-semibold text-primary-300 mb-3">Professional Background:</h4>
-                      <div className="font-inter text-dark-500 leading-relaxed whitespace-pre-line">
-                        {member.fullBio}
-                      </div>
                     </div>
 
                     {/* LinkedIn Button with Brand Colors */}
