@@ -34,12 +34,12 @@ const Header: React.FC = () => {
 
   return (
     <motion.header 
-      className={`fixed top-4 left-4 right-4 z-50 transition-all duration-300 ease-in-out ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-dark-100/90 backdrop-blur-xl shadow-2xl border border-primary-600/30' 
-          : 'bg-dark-100/70 backdrop-blur-lg border border-primary-600/20'
-      } rounded-2xl hover:backdrop-blur-xl hover:bg-dark-100/95`}
-      style={{ height: '72px' }}
+          ? 'bg-navy-950/95 backdrop-blur-xl shadow-2xl border-b border-purple-600/20' 
+          : 'bg-navy-950/80 backdrop-blur-lg'
+      }`}
+      style={{ height: '80px' }}
     >
       <div className="max-w-7xl mx-auto px-6 h-full">
         <div className="flex justify-between items-center h-full">
@@ -47,14 +47,13 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-3">
             <div className="flex flex-col">
               <motion.span 
-                className="text-xl font-bold font-poppins animate-candle"
-                style={{ color: '#221161' }}
+                className="text-2xl font-bold font-poppins text-white"
+                whileHover={{ scale: 1.05 }}
               >
                 Agilio Capital
               </motion.span>
               <motion.span 
-                className="text-sm -mt-1 font-inter"
-                style={{ color: '#221161' }}
+                className="text-sm -mt-1 font-inter text-purple-400"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
@@ -65,22 +64,20 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden desktop:flex items-center space-x-10">
+          <nav className="hidden lg:flex items-center space-x-8">
             <Link
               to="/"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
-                isActiveLink('/') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
+              className={`font-inter font-medium transition-all duration-300 hover:text-purple-400 pb-1 ${
+                isActiveLink('/') ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-200 hover:border-b-2 hover:border-purple-400'
               }`}
-              style={{ fontSize: '16px' }}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
-                isActiveLink('/about') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
+              className={`font-inter font-medium transition-all duration-300 hover:text-purple-400 pb-1 ${
+                isActiveLink('/about') ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-200 hover:border-b-2 hover:border-purple-400'
               }`}
-              style={{ fontSize: '16px' }}
             >
               About Us
             </Link>
@@ -91,7 +88,7 @@ const Header: React.FC = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center font-inter text-dark-600 hover:text-primary-400 transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1" style={{ fontSize: '16px' }}>
+              <button className="flex items-center font-inter font-medium text-gray-200 hover:text-purple-400 transition-all duration-300 pb-1">
                 Services
                 <ChevronDown className="h-4 w-4 ml-1" />
               </button>
@@ -99,7 +96,7 @@ const Header: React.FC = () => {
               <AnimatePresence>
                 {isServicesOpen && (
                   <motion.div 
-                    className="absolute top-full left-0 mt-2 w-72 bg-dark-100/95 backdrop-blur-md rounded-lg shadow-xl border border-primary-600/20 py-2"
+                    className="absolute top-full left-0 mt-2 w-80 bg-navy-900/95 backdrop-blur-md rounded-xl shadow-glow border border-purple-600/20 py-2"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
@@ -109,7 +106,7 @@ const Header: React.FC = () => {
                       <Link
                         key={service.path}
                         to={service.path}
-                        className="block px-4 py-3 text-sm font-inter text-dark-600 hover:bg-primary-600/10 hover:text-primary-400 transition-colors duration-300"
+                        className="block px-6 py-3 text-sm font-inter text-gray-200 hover:bg-purple-600/10 hover:text-purple-400 transition-colors duration-300"
                       >
                         {service.name}
                       </Link>
@@ -121,10 +118,9 @@ const Header: React.FC = () => {
 
             <Link
               to="/contact"
-              className={`font-inter transition-all duration-300 ease-in-out hover:border-b-2 hover:border-primary-600 pb-1 ${
-                isActiveLink('/contact') ? 'text-primary-400 font-semibold border-b-2 border-primary-600' : 'text-dark-600 hover:text-primary-400'
+              className={`font-inter font-medium transition-all duration-300 hover:text-purple-400 pb-1 ${
+                isActiveLink('/contact') ? 'text-purple-400 border-b-2 border-purple-400' : 'text-gray-200 hover:border-b-2 hover:border-purple-400'
               }`}
-              style={{ fontSize: '16px' }}
             >
               Contact
             </Link>
@@ -136,8 +132,7 @@ const Header: React.FC = () => {
             >
               <Link
                 to="/contact"
-                className="px-6 py-2 rounded-full font-poppins font-semibold text-white transition-all duration-300 shadow-lg hover:shadow-xl"
-                style={{ backgroundColor: '#221161' }}
+                className="bg-gradient-purple text-white px-6 py-3 rounded-full font-poppins font-semibold transition-all duration-300 shadow-glow hover:shadow-glow-lg"
               >
                 Get Started
               </Link>
@@ -146,7 +141,7 @@ const Header: React.FC = () => {
 
           {/* Mobile menu button */}
           <button
-            className="desktop:hidden text-dark-600"
+            className="lg:hidden text-gray-200"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle mobile menu"
           >
@@ -162,35 +157,35 @@ const Header: React.FC = () => {
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div 
-              className="desktop:hidden py-4 border-t border-primary-600/20 bg-dark-100/95 backdrop-blur-md rounded-b-2xl mt-4"
+              className="lg:hidden absolute top-full left-0 right-0 bg-navy-950/95 backdrop-blur-md border-t border-purple-600/20"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
             >
-              <div className="flex flex-col space-y-4 px-4">
+              <div className="flex flex-col space-y-4 px-6 py-6">
                 <Link
                   to="/"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-gray-200 hover:text-purple-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Home
                 </Link>
                 <Link
                   to="/about"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-gray-200 hover:text-purple-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   About Us
                 </Link>
                 
                 <div className="pl-4">
-                  <div className="font-poppins text-dark-700 font-semibold mb-2">Services</div>
+                  <div className="font-poppins text-purple-400 font-semibold mb-2">Services</div>
                   {services.map((service) => (
                     <Link
                       key={service.path}
                       to={service.path}
-                      className="block py-2 text-sm font-inter text-dark-500 hover:text-primary-400 transition-colors duration-300"
+                      className="block py-2 text-sm font-inter text-gray-300 hover:text-purple-400 transition-colors duration-300"
                       onClick={() => setIsMenuOpen(false)}
                     >
                       {service.name}
@@ -200,7 +195,7 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/contact"
-                  className="font-inter text-dark-600 hover:text-primary-400 transition-colors duration-300"
+                  className="font-inter text-gray-200 hover:text-purple-400 transition-colors duration-300"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Contact
@@ -208,8 +203,7 @@ const Header: React.FC = () => {
 
                 <Link
                   to="/contact"
-                  className="px-6 py-2 rounded-full font-poppins font-semibold text-white transition-all duration-300 shadow-lg text-center"
-                  style={{ backgroundColor: '#221161' }}
+                  className="bg-gradient-purple text-white px-6 py-3 rounded-full font-poppins font-semibold transition-all duration-300 shadow-glow text-center"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Get Started

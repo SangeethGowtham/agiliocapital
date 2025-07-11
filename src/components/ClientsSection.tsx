@@ -17,8 +17,8 @@ const ClientsSection: React.FC = () => {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-20 bg-dark-100/30 backdrop-blur-md relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-primary-900/10 via-transparent to-primary-900/10"></div>
+    <section className="py-20 bg-navy-900 relative overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-900/10 via-transparent to-magenta-900/10"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div 
@@ -27,10 +27,10 @@ const ClientsSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+          <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
             Trusted by Leading Financial Institutions
           </h2>
-          <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+          <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
             We're proud to partner with innovative companies across the financial services sector
           </p>
         </motion.div>
@@ -55,16 +55,16 @@ const ClientsSection: React.FC = () => {
             {duplicatedClients.map((client, index) => (
               <motion.div
                 key={`${client.name}-${index}`}
-                className="flex-shrink-0 w-48 h-24 bg-white/10 backdrop-blur-sm rounded-xl border border-primary-600/20 flex items-center justify-center group hover:bg-white/20 transition-all duration-300"
+                className="flex-shrink-0 w-48 h-24 bg-navy-800/60 backdrop-blur-sm rounded-xl border border-purple-600/20 flex items-center justify-center group hover:bg-navy-700/60 hover:border-purple-400/40 transition-all duration-300"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
                 <div className="text-center p-4">
-                  <div className="w-12 h-12 bg-primary-600/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-primary-400 font-bold text-lg">
+                  <div className="w-12 h-12 bg-purple-600/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
+                    <span className="text-purple-400 font-bold text-lg">
                       {client.name.charAt(0)}
                     </span>
                   </div>
-                  <span className="text-primary-300 font-inter font-medium text-sm group-hover:text-primary-200 transition-colors">
+                  <span className="text-white font-inter font-medium text-sm group-hover:text-purple-200 transition-colors">
                     {client.name}
                   </span>
                 </div>
@@ -73,8 +73,8 @@ const ClientsSection: React.FC = () => {
           </motion.div>
           
           {/* Gradient overlays for smooth edges */}
-          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-dark-50 to-transparent pointer-events-none"></div>
-          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-dark-50 to-transparent pointer-events-none"></div>
+          <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-navy-900 to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 w-20 h-full bg-gradient-to-l from-navy-900 to-transparent pointer-events-none"></div>
         </div>
 
         {/* Stats below clients */}
@@ -90,9 +90,9 @@ const ClientsSection: React.FC = () => {
             { number: '25+', label: 'Years Experience' },
             { number: '100%', label: 'Client Satisfaction' }
           ].map((stat, index) => (
-            <div key={index} className="text-center bg-dark-100/50 backdrop-blur-sm p-6 rounded-xl border border-primary-600/20">
-              <div className="text-3xl font-poppins font-bold text-primary-400 mb-2">{stat.number}</div>
-              <div className="text-dark-500 font-medium font-inter">{stat.label}</div>
+            <div key={index} className="text-center bg-navy-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-600/20">
+              <div className="text-3xl font-poppins font-bold text-purple-400 mb-2">{stat.number}</div>
+              <div className="text-gray-300 font-medium font-inter">{stat.label}</div>
             </div>
           ))}
         </motion.div>

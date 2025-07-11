@@ -15,9 +15,9 @@ const FloatingContainer: React.FC<FloatingContainerProps> = ({
   return (
     <motion.div
       className={`
-        relative bg-dark-100/80 backdrop-blur-md rounded-full px-8 py-6
-        shadow-neumorphic border border-primary-600/20
-        animate-float animate-pulse-glow
+        relative bg-navy-800/60 backdrop-blur-md rounded-2xl px-8 py-6
+        shadow-glow border border-purple-600/20 hover:border-purple-400/40
+        transition-all duration-500 hover:shadow-glow-lg
         ${className}
       `}
       initial={{ opacity: 0, y: 50, scale: 0.9 }}
@@ -29,10 +29,10 @@ const FloatingContainer: React.FC<FloatingContainerProps> = ({
       }}
       whileHover={{ 
         scale: 1.05,
-        boxShadow: '0 0 40px rgba(139, 92, 246, 0.4), 0 0 80px rgba(139, 92, 246, 0.2)',
+        y: -5,
       }}
       style={{
-        background: 'linear-gradient(135deg, rgba(100, 44, 98, 0.1), rgba(139, 92, 246, 0.05))',
+        background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(236, 72, 153, 0.05))',
       }}
     >
       <div className="relative z-10">
@@ -40,11 +40,11 @@ const FloatingContainer: React.FC<FloatingContainerProps> = ({
       </div>
       
       {/* Floating particles effect */}
-      <div className="absolute inset-0 overflow-hidden rounded-full">
+      <div className="absolute inset-0 overflow-hidden rounded-2xl">
         {[...Array(6)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-primary-400/30 rounded-full"
+            className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
             style={{
               left: `${20 + (i * 12)}%`,
               top: `${30 + (i * 8)}%`,

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Tractor } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Tractor, Star } from 'lucide-react';
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
@@ -46,36 +46,26 @@ const HomePage: React.FC = () => {
       name: 'BFSI', 
       icon: <Banknote className="h-12 w-12" />, 
       description: 'Banking, Financial Services & Affordable Housing Finance',
-      details: 'We provide comprehensive investment banking solutions for banks, NBFCs, insurance companies, and affordable Housing Finance. Our services include capital raising, M&A advisory, regulatory compliance support, and strategic partnerships to help BFSI companies scale and innovate',
-      image: 'https://images.pexels.com/photos/259027/pexels-photo-259027.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Healthcare', 
       icon: <Heart className="h-12 w-12" />, 
       description: 'Pharmaceuticals, health care and allied services',
-      details: 'Our healthcare investment banking practice focuses on medical technology, pharmaceuticals, biotechnology, and healthcare services. We assist with funding rounds, strategic acquisitions, licensing deals, and partnerships that drive innovation in patient care and medical advancement',
-      image: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Social Enterprises', 
       icon: <Users className="h-12 w-12" />, 
       description: 'Impact-driven organizations creating social value',
-      details: 'We specialize in supporting social enterprises and impact-driven organizations through impact investing, blended finance solutions, and strategic partnerships. Our expertise helps organizations balance social impact with financial sustainability',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'FinTech', 
       icon: <Smartphone className="h-12 w-12" />, 
       description: 'Digital financial services and payment solutions',
-      details: 'Our fintech practice covers digital payments, lending platforms, wealth management technology, and blockchain solutions. We help fintech companies secure growth capital, navigate regulatory requirements, and establish strategic partnerships with traditional financial institutions',
-      image: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     { 
       name: 'Agriculture', 
       icon: <Tractor className="h-12 w-12" />, 
       description: 'AgTech, sustainable farming, renewable energy and food security solutions',
-      details: 'We support agricultural technology companies, sustainable farming initiatives, and food security solutions through specialized funding and strategic advisory services. Our focus includes precision agriculture, supply chain optimization, and sustainable farming practices',
-      image: 'https://images.pexels.com/photos/2132227/pexels-photo-2132227.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
 
@@ -87,33 +77,27 @@ const HomePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-dark-50">
+    <div className="min-h-screen bg-navy-950">
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative text-white overflow-hidden"
-        style={{ height: '100vh' }}
+        className="relative text-white overflow-hidden bg-gradient-navy"
+        style={{ minHeight: '100vh' }}
       >
-        {/* Background with gradient overlay */}
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full"
-            style={{
-              backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              backgroundAttachment: 'fixed'
-            }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-dark-50/80 via-primary-900/60 to-dark-50/80"></div>
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                             radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)`
+          }} />
         </div>
 
-        {/* Floating Particles Animation */}
-        <div className="absolute inset-0 overflow-hidden z-10">
-          {[...Array(15)].map((_, i) => (
+        {/* Floating Particles */}
+        <div className="absolute inset-0 overflow-hidden">
+          {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-2 h-2 bg-primary-400/30 rounded-full"
+              className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
@@ -132,7 +116,7 @@ const HomePage: React.FC = () => {
           ))}
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-screen">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -141,13 +125,13 @@ const HomePage: React.FC = () => {
             >
               <motion.h1 
                 className="font-poppins font-bold leading-tight mb-6 text-white"
-                style={{ fontSize: 'clamp(32px, 5vw, 56px)' }}
+                style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
                 Investment Banking
-                <span className="block" style={{ color: '#221161' }}>
+                <span className="block bg-gradient-purple bg-clip-text text-transparent">
                   <TypewriterText 
                     texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
                     speed={120}
@@ -156,7 +140,7 @@ const HomePage: React.FC = () => {
               </motion.h1>
               
               <motion.p 
-                className="font-inter text-xl lg:text-2xl text-dark-600 mb-8 leading-relaxed"
+                className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.4 }}
@@ -175,8 +159,20 @@ const HomePage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link
+                    to="/contact"
+                    className="bg-gradient-purple text-white px-8 py-4 rounded-full font-poppins font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
+                  >
+                    Get Started
+                    <ArrowRight className="h-5 w-5 ml-2" />
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
                     to="/about"
-                    className="border-2 border-primary-400/80 text-primary-300 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-600/20 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
+                    className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-purple-400/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
                   >
                     Learn More
                   </Link>
@@ -184,20 +180,20 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Business Image */}
+            {/* Hero Image */}
             <motion.div 
               className="relative"
               initial={{ opacity: 0, x: 50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-glow-lg">
                 <img
                   src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800"
                   alt="Professional business meeting"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent"></div>
               </div>
             </motion.div>
           </div>
@@ -205,13 +201,13 @@ const HomePage: React.FC = () => {
 
         {/* Scroll Indicator */}
         <motion.div 
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-30"
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 border-2 border-primary-400/50 rounded-full flex justify-center">
+          <div className="w-6 h-10 border-2 border-purple-400/50 rounded-full flex justify-center">
             <motion.div 
-              className="w-1 h-3 bg-primary-400/70 rounded-full mt-2"
+              className="w-1 h-3 bg-purple-400/70 rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -219,83 +215,12 @@ const HomePage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Focus Sectors Section */}
-      <motion.section 
-        ref={sectorsRef} 
-        className="py-20 bg-dark-100/50 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        style={{
-          backgroundImage: `url("https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
-      >
-        <div className="absolute inset-0 bg-dark-50/90"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <motion.div 
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
-              Our Focus Sectors
-            </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
-              Specialized expertise across key industry verticals in investment banking
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
-            {focusSectors.map((sector, index) => (
-              <motion.div
-                key={index}
-                className="group cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -10 }}
-              >
-                <FloatingContainer delay={index * 0.2}>
-                  <div className="text-center p-4">
-                    <motion.div 
-                      className="text-primary-400 mb-4 flex justify-center group-hover:text-primary-300 transition-colors duration-500"
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      {sector.icon}
-                    </motion.div>
-                    <h3 className="font-poppins text-lg font-semibold text-primary-300 mb-2 group-hover:text-primary-200 transition-colors duration-500">
-                      {sector.name}
-                    </h3>
-                    <p className="font-inter text-sm text-dark-500 leading-relaxed group-hover:text-dark-400 transition-colors duration-500">
-                      {sector.description}
-                    </p>
-                  </div>
-                </FloatingContainer>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
       {/* Services Section */}
-      <motion.section 
+      <section 
         ref={servicesRef} 
-        className="py-20 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        style={{
-          backgroundImage: `url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1600")`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
+        className="py-20 bg-navy-900 relative overflow-hidden"
       >
-        <div className="absolute inset-0 bg-dark-50/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/10 to-magenta-900/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <motion.div 
             className="text-center mb-16"
@@ -303,10 +228,10 @@ const HomePage: React.FC = () => {
             animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-primary-300 mb-4">
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
               Our Core Services
             </h2>
-            <p className="font-inter text-xl text-dark-500 max-w-3xl mx-auto">
+            <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
               Comprehensive investment banking solutions tailored to empower your business
             </p>
           </motion.div>
@@ -322,25 +247,26 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to={service.link}
-                  className="block bg-dark-100/80 backdrop-blur-md p-8 rounded-xl shadow-neumorphic hover:shadow-glow-lg transition-all duration-500 group relative overflow-hidden border border-primary-600/20"
-                  style={{ height: '280px' }}
+                  className="block bg-navy-800/80 backdrop-blur-md p-8 rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-500 group relative overflow-hidden border border-purple-600/20 hover:border-purple-400/40"
+                  style={{ height: '300px' }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600/5 to-primary-800/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600/5 to-magenta-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <div className="relative z-10">
                     <motion.div 
-                      className="text-primary-400 mb-4 group-hover:text-primary-300 transition-colors duration-500"
+                      className="text-purple-400 mb-6 group-hover:text-purple-300 transition-colors duration-500"
                       whileHover={{ scale: 1.1, rotate: 5 }}
                     >
                       {service.icon}
                     </motion.div>
-                    <h3 className="font-poppins text-xl font-semibold text-primary-300 mb-3 group-hover:text-primary-200 transition-colors duration-500">
+                    <h3 className="font-poppins text-xl font-bold text-white mb-4 group-hover:text-purple-100 transition-colors duration-500">
                       {service.title}
                     </h3>
-                    <p className="font-inter text-dark-500 leading-relaxed mb-4 line-clamp-3 group-hover:text-dark-400 transition-colors duration-500">
+                    <p className="font-inter text-gray-300 leading-relaxed mb-6 line-clamp-3 group-hover:text-gray-200 transition-colors duration-500">
                       {service.description}
                     </p>
-                    <div className="font-inter text-primary-400 font-semibold group-hover:text-primary-300 transition-colors duration-500">
-                      Learn More →
+                    <div className="font-inter text-purple-400 font-semibold group-hover:text-purple-300 transition-colors duration-500 flex items-center">
+                      Learn More 
+                      <ArrowRight className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
                 </Link>
@@ -348,25 +274,73 @@ const HomePage: React.FC = () => {
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
+
+      {/* Focus Sectors Section */}
+      <section 
+        ref={sectorsRef} 
+        className="py-20 bg-gradient-dark relative overflow-hidden"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
+              Our Focus Sectors
+            </h2>
+            <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
+              Specialized expertise across key industry verticals in investment banking
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+            {focusSectors.map((sector, index) => (
+              <motion.div
+                key={index}
+                className="group cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                animate={sectorsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -10 }}
+              >
+                <div className="bg-navy-800/60 backdrop-blur-md rounded-2xl p-6 border border-purple-600/20 hover:border-purple-400/40 transition-all duration-500 group-hover:shadow-glow">
+                  <div className="text-center">
+                    <motion.div 
+                      className="text-purple-400 mb-4 flex justify-center group-hover:text-purple-300 transition-colors duration-500"
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                    >
+                      {sector.icon}
+                    </motion.div>
+                    <h3 className="font-poppins text-lg font-bold text-white mb-3 group-hover:text-purple-100 transition-colors duration-500">
+                      {sector.name}
+                    </h3>
+                    <p className="font-inter text-sm text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-500">
+                      {sector.description}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Stats Section */}
-      <motion.section 
+      <section 
         ref={statsRef} 
-        className="py-20 bg-gradient-to-r from-primary-900 via-primary-800 to-primary-700 relative overflow-hidden"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        className="py-20 bg-gradient-purple relative overflow-hidden"
       >
-        {/* Animated Background */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 opacity-20">
           <motion.div
-            className="absolute inset-0 opacity-20"
+            className="absolute inset-0"
             animate={{
               background: [
-                'radial-gradient(circle at 20% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                'radial-gradient(circle at 80% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                'radial-gradient(circle at 20% 50%, rgba(139,92,246,0.1) 0%, transparent 50%)'
+                'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)'
               ]
             }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -385,48 +359,36 @@ const HomePage: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
               >
                 <motion.div 
-                  className="text-4xl lg:text-5xl font-poppins font-bold mb-2 text-primary-200"
+                  className="text-4xl lg:text-6xl font-poppins font-bold mb-2"
                   whileHover={{ scale: 1.2 }}
                 >
                   <Counter end={stat.number} suffix={stat.suffix} isActive={statsInView} />
                 </motion.div>
-                <div className="font-inter text-primary-100 font-medium">{stat.label}</div>
+                <div className="font-inter text-white/90 font-medium text-lg">{stat.label}</div>
               </motion.div>
             ))}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Clients Section */}
       <ClientsSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-800 via-primary-700 to-primary-600 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <motion.div
-            className="absolute inset-0 opacity-20"
-            animate={{
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, 0],
-            }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-16.569-13.431-30-30-30s-30 13.431-30 30 13.431 30 30 30 30-13.431 30-30z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-            }}
-          />
-        </div>
-
+      <section className="py-20 bg-navy-900 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 via-magenta-900/20 to-purple-900/20"></div>
+        
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-poppins text-3xl lg:text-4xl font-bold text-white mb-6">
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
               Ready to Transform Your Business?
             </h2>
-            <p className="font-inter text-xl text-primary-100 mb-8 leading-relaxed">
-              Let's discuss how our investment banking expertise can help you achieve your Organisational goals
+            <p className="font-inter text-xl text-gray-300 mb-8 leading-relaxed">
+              Let's discuss how our investment banking expertise can help you achieve your organizational goals
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.div
@@ -435,7 +397,7 @@ const HomePage: React.FC = () => {
               >
                 <Link
                   to="/contact"
-                  className="bg-white text-primary-600 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-primary-50 transition-all duration-300 inline-flex items-center justify-center shadow-glow"
+                  className="bg-gradient-purple text-white px-8 py-4 rounded-full font-poppins font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
                 >
                   Schedule Consultation
                   <ArrowRight className="h-5 w-5 ml-2" />
@@ -447,7 +409,7 @@ const HomePage: React.FC = () => {
               >
                 <a
                   href="mailto:agiliocap@gmail.com"
-                  className="border-2 border-white text-white px-8 py-4 rounded-full font-poppins font-semibold hover:bg-white/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
+                  className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-purple-400/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
                 >
                   Email Us Directly
                 </a>
