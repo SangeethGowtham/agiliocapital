@@ -159,22 +159,11 @@ const HomePage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <Link
-                    to="/contact"
-                    className="bg-gradient-purple text-white px-8 py-4 rounded-full font-poppins font-semibold transition-all duration-300 inline-flex items-center justify-center shadow-glow hover:shadow-glow-lg"
-                  >
-                    Get Started
-                    <ArrowRight className="h-5 w-5 ml-2" />
-                  </Link>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
                     to="/about"
                     className="border-2 border-purple-400 text-purple-400 px-8 py-4 rounded-full font-poppins font-semibold hover:bg-purple-400/10 backdrop-blur-sm transition-all duration-300 inline-flex items-center justify-center"
                   >
                     Learn More
+                    <ArrowRight className="h-5 w-5 ml-2" />
                   </Link>
                 </motion.div>
               </motion.div>

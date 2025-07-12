@@ -3,14 +3,46 @@ import { motion } from 'framer-motion';
 
 const ClientsSection: React.FC = () => {
   const clients = [
-    { name: 'Unnatti Finserv', logo: 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Swara Fincare', logo: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Virutcham Microfinance', logo: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Sugmya Finance', logo: 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'MSM Microfinance', logo: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Janakalyan', logo: 'https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Shiksha Finance', logo: 'https://images.pexels.com/photos/3786126/pexels-photo-3786126.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' },
-    { name: 'Dhanalakshmi', logo: 'https://images.pexels.com/photos/3943716/pexels-photo-3943716.jpeg?auto=compress&cs=tinysrgb&w=200&h=100' }
+    { 
+      name: 'Swara Fincare', 
+      initials: 'SF',
+      color: 'from-blue-500 to-blue-600'
+    },
+    { 
+      name: 'Virutcham Microfinance', 
+      initials: 'VM',
+      color: 'from-green-500 to-green-600'
+    },
+    { 
+      name: 'Sugmya Finance', 
+      initials: 'SF',
+      color: 'from-orange-500 to-orange-600'
+    },
+    { 
+      name: 'MSM Microfinance', 
+      initials: 'MM',
+      color: 'from-red-500 to-red-600'
+    },
+    { 
+      name: 'Janakalyan', 
+      initials: 'JK',
+      color: 'from-purple-500 to-purple-600'
+    },
+    { 
+      name: 'Unnatti Finserv', 
+      initials: 'UF',
+      color: 'from-teal-500 to-teal-600'
+    },
+    { 
+      name: 'Shiksha Finance', 
+      initials: 'SF',
+      color: 'from-indigo-500 to-indigo-600'
+    },
+    { 
+      name: 'Dhanalakshmi', 
+      initials: 'DL',
+      color: 'from-pink-500 to-pink-600'
+    }
   ];
 
   // Duplicate the array for seamless infinite scroll
@@ -55,16 +87,17 @@ const ClientsSection: React.FC = () => {
             {duplicatedClients.map((client, index) => (
               <motion.div
                 key={`${client.name}-${index}`}
-                className="flex-shrink-0 w-48 h-24 bg-navy-800/60 backdrop-blur-sm rounded-xl border border-purple-600/20 flex items-center justify-center group hover:bg-navy-700/60 hover:border-purple-400/40 transition-all duration-300"
+                className="flex-shrink-0 w-48 h-32 bg-navy-800/60 backdrop-blur-sm rounded-2xl border border-purple-600/20 flex flex-col items-center justify-center group hover:bg-navy-700/60 hover:border-purple-400/40 transition-all duration-300 shadow-glow hover:shadow-glow-lg"
                 whileHover={{ scale: 1.05, y: -5 }}
               >
                 <div className="text-center p-4">
-                  <div className="w-12 h-12 bg-purple-600/20 rounded-lg mx-auto mb-2 flex items-center justify-center">
-                    <span className="text-purple-400 font-bold text-lg">
-                      {client.name.charAt(0)}
+                  {/* Professional Logo Placeholder */}
+                  <div className={`w-16 h-16 bg-gradient-to-br ${client.color} rounded-full mx-auto mb-3 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                    <span className="text-white font-bold text-xl font-poppins">
+                      {client.initials}
                     </span>
                   </div>
-                  <span className="text-white font-inter font-medium text-sm group-hover:text-purple-200 transition-colors">
+                  <span className="text-white font-inter font-medium text-sm group-hover:text-purple-200 transition-colors leading-tight">
                     {client.name}
                   </span>
                 </div>
@@ -87,10 +120,10 @@ const ClientsSection: React.FC = () => {
           {[
             { number: '8+', label: 'Active Clients' },
             { number: '₹1000Cr+', label: 'Funds Mobilized' },
-            { number: '25+', label: 'Years Experience' },
+            { number: '15+', label: 'Years Experience' },
             { number: '100%', label: 'Client Satisfaction' }
           ].map((stat, index) => (
-            <div key={index} className="text-center bg-navy-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-600/20">
+            <div key={index} className="text-center bg-navy-800/50 backdrop-blur-sm p-6 rounded-xl border border-purple-600/20 hover:border-purple-400/30 transition-all duration-300">
               <div className="text-3xl font-poppins font-bold text-purple-400 mb-2">{stat.number}</div>
               <div className="text-gray-300 font-medium font-inter">{stat.label}</div>
             </div>
