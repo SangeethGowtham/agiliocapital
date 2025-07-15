@@ -118,7 +118,7 @@ const ClientsSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           {[
-            { number: '8+', label: 'Active Clients' },
+            { number: '30+', label: 'Active Clients' },
             { number: '₹1000Cr+', label: 'Funds Mobilized' },
             { number: '15+', label: 'Years Experience' },
             { number: '100%', label: 'Client Satisfaction' }

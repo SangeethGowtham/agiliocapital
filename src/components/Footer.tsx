@@ -11,8 +11,8 @@ const Footer: React.FC = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
               <div className="flex flex-col">
-                <span className="text-2xl font-bold font-poppins text-white">Agilio Capital</span>
-                <span className="text-sm -mt-1 font-inter text-purple-400">Funds Progrez^</span>
+                <span className="text-2xl font-bold font-poppins text-white text-shadow-sm">Agilio Capital</span>
+                <span className="text-sm -mt-1 font-inter text-purple-400 font-medium">Funds Progrez^</span>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">

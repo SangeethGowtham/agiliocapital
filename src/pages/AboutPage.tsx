@@ -37,7 +37,7 @@ const AboutPage: React.FC = () => {
   const team = [
     {
       name: 'T M Durai',
-     ,
+      role: 'Managing Director',
       description: 'T M Durai an investment banker and growth strategy professional with 15+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships'
     }
   ];
@@ -176,7 +176,7 @@ const AboutPage: React.FC = () => {
                   {/* Content */}
                   <div className="lg:col-span-3">
                     <h3 className="font-poppins text-3xl font-bold text-white mb-2">{member.name}</h3>
-                    <p className="font-inter text-lg text-purple-400 font-semibold mb-4">{member.role}</p>
+                    <p className="font-inter text-lg text-purple-400 font-semibold mb-4">Managing Director</p>
                     <p className="font-inter text-gray-300 leading-relaxed mb-6">{member.description}</p>
                     
                     {/* LinkedIn Button */}

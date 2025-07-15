@@ -73,7 +73,7 @@ const HomePage: React.FC = () => {
     { number: 50, label: 'Successful Deals', suffix: '+' },
     { number: 1000, label: 'Transaction Value (M)', suffix: '+' },
     { number: 15, label: 'Years Experience', suffix: '+' },
-    { number: 100, label: 'Client Satisfaction', suffix: '%' }
+    { number: 30, label: 'Active Clients', suffix: '+' }
   ];
 
   return (
@@ -124,7 +124,7 @@ const HomePage: React.FC = () => {
               transition={{ duration: 1, ease: 'easeOut' }}
             >
               <motion.h1 
-                className="font-poppins font-bold leading-tight mb-6 text-white"
+                className="font-poppins font-bold leading-tight mb-6 text-white text-shadow"
                 style={{ fontSize: 'clamp(36px, 5vw, 64px)' }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
@@ -140,7 +140,7 @@ const HomePage: React.FC = () => {
               </motion.h1>
               
               <motion.p 
-                className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed"
+                className="font-inter text-xl lg:text-2xl text-gray-200 mb-8 leading-relaxed text-shadow-sm"
                 initial={{ opacity: 0, y: 30 }}
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.4 }}

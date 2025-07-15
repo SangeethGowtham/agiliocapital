@@ -56,14 +56,14 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-3">
             <div className="flex flex-col">
               <motion.span 
-                className="text-2xl font-bold font-poppins text-white"
+                className="text-2xl font-bold font-poppins text-white text-shadow-sm"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
                 Agilio Capital
               </motion.span>
               <motion.span 
-                className="text-sm -mt-1 font-inter text-purple-400"
+                className="text-sm -mt-1 font-inter text-purple-400 font-medium"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
