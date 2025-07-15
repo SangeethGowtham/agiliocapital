@@ -242,43 +242,46 @@ const FinancialAnimation: React.FC = () => {
         ))}
 
         {/* Growth Arrow */}
-        <motion.div
-          className="absolute right-1/4 top-1/3"
-          animate={{
-            y: [-10, -20, -10],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          <svg
-            width="60"
-            height="60"
-            viewBox="0 0 24 24"
-            fill="none"
-            className="text-purple-400 opacity-60"
+        <div className="absolute right-1/4 top-1/3">
+          <motion.div
+            animate={{
+              y: [-10, -20, -10],
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           >
-            <path
-              d="M7 17L17 7M17 7H7M17 7V17"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </motion.div>
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 24 24"
+              fill="none"
+              className="text-purple-400 opacity-60"
+              style={{ filter: 'drop-shadow(0 0 10px rgba(139, 92, 246, 0.3))' }}
+            >
+              <path
+                d="M7 17L17 7M17 7H7M17 7V17"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </motion.div>
+        </div>
 
         {/* Orbiting Elements */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-40">
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={`orbit-${i}`}
-              className="absolute w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+              className="absolute w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full shadow-lg"
               style={{
                 transformOrigin: `${50 + (i * 20)}px 0px`,
+                boxShadow: '0 0 15px rgba(139, 92, 246, 0.4)',
               }}
               animate={{
                 rotate: 360,
@@ -291,6 +294,35 @@ const FinancialAnimation: React.FC = () => {
             />
           ))}
         </div>
+
+        {/* Financial Network Connections */}
+        <svg className="absolute inset-0 w-full h-full opacity-20" style={{ zIndex: 1 }}>
+          {[...Array(6)].map((_, i) => (
+            <motion.line
+              key={`connection-${i}`}
+              x1={`${20 + (i * 15)}%`}
+              y1={`${30 + (i * 8)}%`}
+              x2={`${40 + (i * 10)}%`}
+              y2={`${50 + (i * 5)}%`}
+              stroke="url(#gradient)"
+              strokeWidth="1"
+              initial={{ pathLength: 0, opacity: 0 }}
+              animate={{ pathLength: 1, opacity: 0.6 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatType: 'reverse',
+                delay: i * 0.5,
+              }}
+            />
+          ))}
+          <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#8B5CF6" />
+              <stop offset="100%" stopColor="#EC4899" />
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
     </div>
   );

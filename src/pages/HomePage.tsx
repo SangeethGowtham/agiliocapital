@@ -6,6 +6,7 @@ import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
 import ClientsSection from '../components/ClientsSection';
+import FinancialAnimation from '../components/FinancialAnimation';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HomePage: React.FC = () => {
@@ -84,6 +85,9 @@ const HomePage: React.FC = () => {
         className="relative text-white overflow-hidden bg-gradient-navy"
         style={{ minHeight: '100vh' }}
       >
+        {/* 3D Financial Animation */}
+        <FinancialAnimation />
+        
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
