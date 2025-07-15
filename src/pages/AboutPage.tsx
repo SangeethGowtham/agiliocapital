@@ -37,14 +37,14 @@ const AboutPage: React.FC = () => {
   const team = [
     {
       name: 'T M Durai',
-      role: 'Managing Director - Agilio Capital Private Limited',
+     ,
       description: 'T M Durai an investment banker and growth strategy professional with 15+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships'
     }
   ];
 
   const stats = [
     { number: 50, label: 'Successful Deals', suffix: '+' },
-    { number: 1500, label: 'Funds Mobilized (₹Cr)', suffix: '+' },
+    { number: 1000, label: 'Funds Mobilized (₹Cr)', suffix: '+' },
     { number: 15, label: 'Years Experience', suffix: '+' },
     { number: 30, label: 'Active Clients', suffix: '+' }
   ];
