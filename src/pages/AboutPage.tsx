@@ -38,12 +38,7 @@ const AboutPage: React.FC = () => {
     {
       name: 'T M Durai',
       role: 'Managing Director - Agilio Capital Private Limited',
-      description: 'T M Durai an investment banker and growth strategy professional with 25+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships',
-      experience: [
-        { title: 'Investment Banking', years: '25+ years', icon: <TrendingUp className="h-6 w-6" /> },
-        { title: 'Corporate Finance', years: '20+ years', icon: <Building className="h-6 w-6" /> },
-        { title: 'Risk Management', years: '15+ years', icon: <Shield className="h-6 w-6" /> }
-      ]
+      description: 'T M Durai an investment banker and growth strategy professional with 15+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships'
     }
   ];
 
@@ -54,11 +49,6 @@ const AboutPage: React.FC = () => {
     { number: 30, label: 'Active Clients', suffix: '+' }
   ];
 
-  const metrics = [
-    { value: 95, label: 'Success Rate', suffix: '%' },
-    { value: 24, label: 'Avg Response Time', suffix: 'hrs' },
-    { value: 8, label: 'Industry Sectors', suffix: '+' }
-  ];
 
   return (
     <div className="min-h-screen bg-navy-950">
@@ -102,8 +92,8 @@ const AboutPage: React.FC = () => {
               </h2>
               <p className="font-inter text-lg text-gray-300 leading-relaxed mb-6">
                 Agilio Capital Partners was founded with a clear vision: to provide world-class investment banking services 
-                that drive meaningful business transformation. Based in Bangalore, we combine global financial expertise 
-                with deep local market knowledge
+                that drive meaningful business transformation. We combine global financial expertise 
+                with deep local market knowledge to deliver exceptional results
               </p>
               <p className="font-inter text-lg text-gray-300 leading-relaxed mb-8">
                 Our mission is to empower businesses across various sectors by providing strategic financial advisory, 
@@ -188,33 +178,6 @@ const AboutPage: React.FC = () => {
                     <p className="font-inter text-lg text-purple-400 font-semibold mb-4">{member.role}</p>
                     <p className="font-inter text-gray-300 leading-relaxed mb-6">{member.description}</p>
                     
-                    {/* Experience Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                      {member.experience.map((exp, expIndex) => (
-                        <div key={expIndex} className="bg-navy-900/60 backdrop-blur-md rounded-xl p-4 border border-purple-600/20">
-                          <div className="text-center">
-                            <div className="text-purple-400 mb-2 flex justify-center">
-                              {exp.icon}
-                            </div>
-                            <div className="font-poppins font-bold text-purple-400 text-lg">{exp.years}</div>
-                            <div className="font-inter text-sm text-gray-300">{exp.title}</div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Metrics */}
-                    <div className="grid grid-cols-3 gap-4 mb-6">
-                      {metrics.map((metric, metricIndex) => (
-                        <div key={metricIndex} className="text-center">
-                          <div className="font-poppins font-bold text-2xl text-purple-400">
-                            <Counter end={metric.value} suffix={metric.suffix} isActive={teamInView} />
-                          </div>
-                          <div className="font-inter text-sm text-gray-300">{metric.label}</div>
-                        </div>
-                      ))}
-                    </div>
-
                     {/* LinkedIn Button */}
                     <div className="mt-6">
                       <motion.a

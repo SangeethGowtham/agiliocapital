@@ -130,7 +130,7 @@ const HomePage: React.FC = () => {
                 animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 1, delay: 0.2 }}
               >
-                Investment Banking
+                Investment Banking & Capital Market
                 <span className="block bg-gradient-purple bg-clip-text text-transparent">
                   <TypewriterText 
                     texts={['Excellence', 'Innovation', 'Growth', 'Success', 'Transformation', 'Progress']}
