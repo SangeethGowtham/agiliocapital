@@ -8,6 +8,44 @@ interface ServicePageProps {
 }
 
 const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
+  const getServiceImage = (type: string) => {
+    switch (type) {
+      case 'seed-angel':
+        return 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800'; // Growing plant/seedling for startup funding
+      case 'corporate-finance':
+        return 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800'; // Financial charts and documents
+      case 'loan-debt-syndication':
+        return 'https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=800'; // Contract signing/banking
+      case 'structured-finance':
+        return 'https://images.pexels.com/photos/590020/pexels-photo-590020.jpeg?auto=compress&cs=tinysrgb&w=800'; // Complex financial diagrams
+      case 'strategic-partnerships':
+        return 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800'; // Business handshake/partnership
+      case 'cfo-services':
+        return 'https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=800'; // Executive at desk/financial leadership
+      default:
+        return 'https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800';
+    }
+  };
+
+  const getBenefitsImage = (type: string) => {
+    switch (type) {
+      case 'seed-angel':
+        return 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=800'; // Investment charts/growth
+      case 'corporate-finance':
+        return 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800'; // Corporate meeting
+      case 'loan-debt-syndication':
+        return 'https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800'; // Bank buildings/financial networks
+      case 'structured-finance':
+        return 'https://images.pexels.com/photos/590016/pexels-photo-590016.jpeg?auto=compress&cs=tinysrgb&w=800'; // Structured data visualization
+      case 'strategic-partnerships':
+        return 'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'; // Connected network/collaboration
+      case 'cfo-services':
+        return 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=800'; // Financial dashboard/leadership
+      default:
+        return 'https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800';
+    }
+  };
+
   const getServiceData = (type: string) => {
     switch (type) {
       case 'seed-angel':
@@ -55,19 +93,18 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
             'Strategic Investor Partnerships',
             'OCPS and CCPS Structuring',
             'Pre-IPO and IPO Funding',
-            'International Capital Markets Access',
             'SME Exchange Listings'
           ],
           process: [
             { step: '1', title: 'Strategic Analysis', description: 'Comprehensive analysis of your business and growth capital requirements.' },
             { step: '2', title: 'Capital Structure Design', description: 'Design optimal equity structure with OCPS/CCPS for various maturities.' },
             { step: '3', title: 'Investor Matching', description: 'Connect with suitable PE/VC funds, family offices, and strategic investors.' },
-            { step: '4', title: 'International Access', description: 'Facilitate access to international stock exchanges and foreign capital.' },
+            { step: '4', title: 'Market Access', description: 'Facilitate access to stock exchanges and capital markets.' },
             { step: '5', title: 'IPO Preparation', description: 'Support pre-IPO readiness and eventual main board listing.' }
           ],
           benefits: [
             'Access to large PE/VC funds',
-            'International capital markets',
+            'Capital markets access',
             'Pre-IPO preparation support',
             'Strategic investor connections',
             'FDI and ECB facilitation',
@@ -262,8 +299,8 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
             >
               <div className="relative">
                 <img
-                  src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional financial services"
+                  src={getServiceImage(serviceType)}
+                  alt={`${service.title} services`}
                   className="rounded-2xl shadow-glow-lg"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent rounded-2xl"></div>
@@ -402,8 +439,8 @@ const ServicePage: React.FC<ServicePageProps> = ({ serviceType }) => {
             >
               <div className="relative">
                 <img
-                  src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional benefits"
+                  src={getBenefitsImage(serviceType)}
+                  alt={`${service.title} benefits`}
                   className="rounded-2xl shadow-glow"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent rounded-2xl"></div>

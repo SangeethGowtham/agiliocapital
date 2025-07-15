@@ -71,6 +71,7 @@ const AboutPage: React.FC = () => {
             transition={{ duration: 0.8 }}
           >
             <h1 className="font-poppins text-5xl lg:text-6xl font-bold mb-6">About Agilio Capital Partners</h1>
+            <h1 className="font-poppins text-5xl lg:text-6xl font-bold mb-6">About Agilio Capital</h1>
             <p className="font-inter text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
               Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives
             </p>
@@ -91,9 +92,9 @@ const AboutPage: React.FC = () => {
                 Our Story & Mission
               </h2>
               <p className="font-inter text-lg text-gray-300 leading-relaxed mb-6">
-                Agilio Capital Partners was founded with a clear vision: to provide world-class investment banking services 
+                Agilio Capital was founded with a clear vision: to provide world-class investment banking services 
                 that drive meaningful business transformation. We combine global financial expertise 
-                with deep local market knowledge to deliver exceptional results
+                with deep market knowledge to deliver exceptional results
               </p>
               <p className="font-inter text-lg text-gray-300 leading-relaxed mb-8">
                 Our mission is to empower businesses across various sectors by providing strategic financial advisory, 
@@ -145,7 +146,7 @@ const AboutPage: React.FC = () => {
               Leadership Team
             </h2>
             <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
-              Meet the experienced professionals leading Agilio Capital Partners
+              Meet the experienced professionals leading Agilio Capital
             </p>
           </motion.div>
 

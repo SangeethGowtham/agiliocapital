@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-3 mb-4">
               <div className="flex flex-col">
                 <span className="text-2xl font-bold font-poppins text-white">Agilio Capital</span>
-                <span className="text-sm -mt-1 font-inter text-purple-400">Partners</span>
+                <span className="text-sm -mt-1 font-inter text-purple-400">Funds Progrez^</span>
               </div>
             </div>
             <p className="text-gray-300 text-sm leading-relaxed">
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
         <div className="border-t border-purple-600/20 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm font-inter">
-              © 2024 <span className="text-white font-semibold">Agilio Capital Partners</span>. All rights reserved
+              © 2024 <span className="text-white font-semibold">Agilio Capital</span>. All rights reserved
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link to="/contact" className="text-gray-400 hover:text-purple-400 text-sm transition-colors font-inter">
