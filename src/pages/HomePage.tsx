@@ -82,42 +82,12 @@ const HomePage: React.FC = () => {
       {/* Hero Section */}
       <section 
         ref={heroRef}
-        className="relative text-white overflow-hidden bg-gradient-navy"
+        className="relative text-white overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-800"
         style={{ minHeight: '100vh' }}
       >
-        {/* 3D Financial Animation */}
-        <FinancialAnimation />
-        
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-                             radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)`
-          }} />
-        </div>
-
-        {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-2 h-2 bg-purple-400/30 rounded-full"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [-20, -100],
-                opacity: [0, 1, 0],
-                scale: [0, 1, 0],
-              }}
-              transition={{
-                duration: Math.random() * 3 + 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-transparent to-magenta-600/20" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-screen">
@@ -173,20 +143,86 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Hero Image */}
+            {/* Spline 3D Scene */}
             <motion.div 
               className="relative"
               initial={{ opacity: 0, x: 50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-glow-lg">
-                <img
-                  src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional business meeting"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent"></div>
+              <div className="relative w-full h-96 rounded-2xl overflow-hidden">
+                {/* Spline 3D Container */}
+                <div className="w-full h-full bg-gradient-to-br from-navy-800/50 to-navy-900/50 backdrop-blur-sm rounded-2xl border border-purple-600/20 flex items-center justify-center">
+                  {/* Simple 3D Geometric Elements */}
+                  <div className="relative w-full h-full overflow-hidden">
+                    {/* Floating Geometric Shapes */}
+                    <motion.div
+                      className="absolute top-1/4 left-1/4 w-16 h-16 bg-gradient-to-br from-purple-500/30 to-magenta-500/30 rounded-lg backdrop-blur-sm border border-purple-400/20"
+                      animate={{
+                        y: [-10, 10, -10],
+                        rotateX: [0, 15, 0],
+                        rotateY: [0, 15, 0],
+                      }}
+                      transition={{
+                        duration: 6,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                      style={{ transformStyle: 'preserve-3d' }}
+                    />
+                    
+                    <motion.div
+                      className="absolute top-1/2 right-1/3 w-12 h-12 bg-gradient-to-br from-purple-400/40 to-pink-400/40 rounded-full backdrop-blur-sm border border-purple-300/30"
+                      animate={{
+                        y: [10, -10, 10],
+                        x: [-5, 5, -5],
+                        scale: [1, 1.1, 1],
+                      }}
+                      transition={{
+                        duration: 8,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 1
+                      }}
+                    />
+                    
+                    <motion.div
+                      className="absolute bottom-1/3 left-1/2 w-20 h-6 bg-gradient-to-r from-purple-600/25 to-magenta-600/25 rounded-full backdrop-blur-sm border border-purple-500/20"
+                      animate={{
+                        rotateZ: [0, 360],
+                        y: [-5, 5, -5],
+                      }}
+                      transition={{
+                        rotateZ: {
+                          duration: 20,
+                          repeat: Infinity,
+                          ease: "linear"
+                        },
+                        y: {
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut",
+                          delay: 2
+                        }
+                      }}
+                    />
+                    
+                    {/* Subtle Grid Pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <svg className="w-full h-full" viewBox="0 0 100 100">
+                        <defs>
+                          <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-purple-400"/>
+                          </pattern>
+                        </defs>
+                        <rect width="100%" height="100%" fill="url(#grid)" />
+                      </svg>
+                    </div>
+                    
+                    {/* Ambient Light Effect */}
+                    <div className="absolute inset-0 bg-gradient-radial from-purple-500/5 via-transparent to-transparent" />
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
