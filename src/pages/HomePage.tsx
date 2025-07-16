@@ -222,6 +222,17 @@ const AboutPage: React.FC = () => {
             {values.map((value, index) => (
               <motion.div 
                 key={index}
+                className="bg-navy-800/60 backdrop-blur-md rounded-2xl p-8 border border-purple-600/20 hover:border-purple-400/40 transition-all duration-300"
+                initial={{ opacity: 0, y: 30 }}
+                animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="text-purple-400 mb-4">{value.icon}</div>
+                <h3 className="font-poppins text-xl font-bold text-white mb-3">{value.title}</h3>
+                <p className="font-inter text-gray-300 leading-relaxed">{value.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
