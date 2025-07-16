@@ -68,7 +68,7 @@ const Header: React.FC = () => {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, ease: 'easeInOut' }}
               >
-                Funds.Progrez^
+                Funds Progrez^
               </motion.span>
             </div>
           </Link>
