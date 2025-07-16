@@ -70,7 +70,6 @@ const AboutPage: React.FC = () => {
             animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="font-poppins text-5xl lg:text-6xl font-bold mb-6">About Agilio Capital Partners</h1>
             <h1 className="font-poppins text-5xl lg:text-6xl font-bold mb-6">About Agilio Capital</h1>
             <p className="font-inter text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
               Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives
