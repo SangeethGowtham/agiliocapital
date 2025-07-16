@@ -79,60 +79,6 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Company Overview */}
-      <section className="py-20 bg-navy-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
-                Our Story & Mission
-              </h2>
-              <p className="font-inter text-lg text-gray-300 leading-relaxed mb-6">
-                Agilio Capital was founded with a clear vision: to provide world-class investment banking services 
-                that drive meaningful business transformation. We combine global financial expertise 
-                with deep market knowledge to deliver exceptional results
-              </p>
-              <p className="font-inter text-lg text-gray-300 leading-relaxed mb-8">
-                Our mission is to empower businesses across various sectors by providing strategic financial advisory, 
-                facilitating capital raising, and creating value through innovative financial solutions
-              </p>
-              
-              <div ref={statsRef} className="grid grid-cols-2 gap-6">
-                {stats.map((stat, index) => (
-                  <div key={index} className="bg-navy-800/60 backdrop-blur-md rounded-2xl p-6 border border-purple-600/20 hover:border-purple-400/40 transition-all duration-300">
-                    <div className="text-center">
-                      <div className="text-3xl font-poppins font-bold text-purple-400 mb-2">
-                        <Counter end={stat.number} suffix={stat.suffix} isActive={statsInView} />
-                      </div>
-                      <div className="font-inter text-gray-300 font-medium">{stat.label}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="relative">
-                <img
-                  src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Modern office building"
-                  className="rounded-2xl shadow-glow-lg"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent rounded-2xl"></div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Leadership Team */}
       <section ref={teamRef} className="py-20 bg-gradient-dark">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
