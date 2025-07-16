@@ -1,133 +1,263 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Mail, Linkedin, MapPin, Phone } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Award, Users, Target, Globe, CheckCircle, Linkedin, TrendingUp, Shield, Building } from 'lucide-react';
+import Counter from '../components/Counter';
+import FloatingContainer from '../components/FloatingContainer';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
-const Footer: React.FC = () => {
+const AboutPage: React.FC = () => {
+  const { ref: heroRef, isIntersecting: heroInView } = useIntersectionObserver();
+  const { ref: valuesRef, isIntersecting: valuesInView } = useIntersectionObserver();
+  const { ref: teamRef, isIntersecting: teamInView } = useIntersectionObserver();
+  const { ref: statsRef, isIntersecting: statsInView } = useIntersectionObserver();
+
+  const values = [
+    {
+      icon: <Target className="h-8 w-8" />,
+      title: 'Excellence',
+      description: 'We strive for excellence in every transaction and client relationship, delivering superior results'
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: 'Integrity',
+      description: 'Transparent and ethical practices form the foundation of our business operations'
+    },
+    {
+      icon: <Globe className="h-8 w-8" />,
+      title: 'Innovation',
+      description: 'We leverage cutting-edge financial strategies and technologies for optimal outcomes'
+    },
+    {
+      icon: <Award className="h-8 w-8" />,
+      title: 'Progress',
+      description: 'Deep industry knowledge across multiple sectors and financial instruments'
+    }
+  ];
+
+  const team = [
+    {
+      name: 'T M Durai',
+      role: 'Managing Director',
+      description: 'T M Durai an investment banker and growth strategy professional with 15+ years of experience, working in the BFSI, Microfinance, Dairy, and Social enterprises sectors. Handled Retail Financial Products, Corporate Finance and Fund raising, Treasury and Strategic Partnerships'
+    }
+  ];
+
+  const stats = [
+    { number: 50, label: 'Successful Deals', suffix: '+' },
+    { number: 1000, label: 'Funds Mobilized (₹Cr)', suffix: '+' },
+    { number: 15, label: 'Years Experience', suffix: '+' },
+    { number: 30, label: 'Active Clients', suffix: '+' }
+  ];
+
+
   return (
-    <footer className="bg-navy-950 text-gray-200 border-t border-purple-600/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold font-poppins text-white text-shadow-sm">Agilio Capital</span>
-                <span className="text-sm -mt-1 font-inter text-purple-400 font-medium">Funds Progrez^</span>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Premier investment banking services with expertise in seed funding, corporate finance, and strategic partnerships
+    <div className="min-h-screen bg-navy-950">
+      {/* Hero Section */}
+      <section 
+        ref={heroRef}
+        className="bg-gradient-purple text-white py-20 relative overflow-hidden"
+      >
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%)`
+          }} />
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <motion.div 
+            className="text-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.8 }}
+          >
+            <h1 className="font-poppins text-5xl lg:text-6xl font-bold mb-6">About Agilio Capital</h1>
+            <p className="font-inter text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+              Your trusted partner in navigating complex financial landscapes and achieving strategic business objectives
             </p>
-          </div>
+          </motion.div>
+        </div>
+      </section>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-400 font-poppins">Quick Links</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/about" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/seed-angel-funding" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Seed & Angel Funding
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/corporate-finance" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Corporate Finance
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+      {/* Leadership Team */}
+      <section ref={teamRef} className="py-20 bg-gradient-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
+              Leadership Team
+            </h2>
+            <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
+              Meet the experienced professionals leading Agilio Capital
+            </p>
+          </motion.div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-400 font-poppins">Services</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/services/loan-debt-syndication" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Loan & Debt Syndication
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/structured-finance" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Structured Finance
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/strategic-partnerships" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  Strategic Partnerships
-                </Link>
-              </li>
-              <li>
-                <Link to="/services/cfo-services" className="text-gray-300 hover:text-purple-400 transition-colors font-inter">
-                  CFO Services
-                </Link>
-              </li>
-            </ul>
+          <div className="max-w-6xl mx-auto">
+            {team.map((member, index) => (
+              <motion.div 
+                key={index} 
+                className="bg-navy-800/80 backdrop-blur-md rounded-2xl shadow-glow p-8 lg:p-12 border border-purple-600/20"
+                initial={{ opacity: 0, y: 30 }}
+                animate={teamInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
+                  {/* Profile Image */}
+                  <div className="lg:col-span-2">
+                    <div className="relative">
+                      <img
+                        src="/files_5286024-1749798839350-WhatsApp_Image_2025-06-12_at_22.40.32_83de4719-removebg-preview (1).png"
+                        alt={member.name}
+                        className="w-full max-w-sm mx-auto rounded-2xl shadow-glow"
+                        style={{ width: '400px', height: '400px', objectFit: 'cover' }}
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="lg:col-span-3">
+                    <h3 className="font-poppins text-3xl font-bold text-white mb-2">{member.name}</h3>
+                    <p className="font-inter text-lg text-purple-400 font-semibold mb-4">Managing Director</p>
+                    <p className="font-inter text-gray-300 leading-relaxed mb-6">{member.description}</p>
+                    
+                    {/* LinkedIn Button */}
+                    <div className="mt-6">
+                      <motion.a
+                        href="https://www.linkedin.com/in/t-m-durai-b913356/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-full font-inter font-medium transition-all duration-300 shadow-glow hover:shadow-glow-lg"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <Linkedin className="h-5 w-5 mr-2" />
+                        Connect on LinkedIn
+                      </motion.a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4 text-purple-400 font-poppins">Contact Info</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                <div className="text-gray-300 text-sm font-inter">
-                  14-1, BTS Main Road<br />
-                  Wilson Garden<br />
-                  Bangalore, Karnataka 560030
+      {/* Values Section */}
+      <section ref={valuesRef} className="py-20 bg-navy-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
+              Our Core Values
+            </h2>
+            <p className="font-inter text-xl text-gray-300 max-w-3xl mx-auto">
+              The principles that guide our approach to investment banking and client relationships
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {values.map((value, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                animate={valuesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+              >
+                <div className="bg-navy-800/60 backdrop-blur-md rounded-2xl p-6 border border-purple-600/20 hover:border-purple-400/40 transition-all duration-500 hover:shadow-glow">
+                  <div className="text-center">
+                    <div className="text-purple-400 mb-4 flex justify-center">
+                      {value.icon}
+                    </div>
+                    <h3 className="font-poppins text-xl font-bold text-white mb-3">{value.title}</h3>
+                    <p className="font-inter text-gray-300 leading-relaxed">{value.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Location */}
+      <section className="py-20 bg-gradient-dark">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="font-poppins text-4xl lg:text-5xl font-bold text-white mb-6">
+              Our Location
+            </h2>
+            <p className="font-inter text-xl text-gray-300">
+              Strategically located in the heart of Bangalore's business district
+            </p>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="bg-navy-800/80 backdrop-blur-md rounded-2xl shadow-glow p-8 lg:p-12 max-w-4xl mx-auto border border-purple-600/20">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="font-poppins text-2xl font-bold text-white mb-4">Bangalore Office</h3>
+                  <div className="space-y-3 font-inter text-gray-300">
+                    <p className="text-lg">
+                      <strong className="text-purple-400">Address:</strong><br />
+                      14-1, BTS Main Road<br />
+                      Wilson Garden<br />
+                      Bangalore, Karnataka 560030
+                    </p>
+                    <p className="text-lg">
+                      <strong className="text-purple-400">Email:</strong><br />
+                      <a href="mailto:agiliocap@gmail.com" className="text-purple-400 hover:text-purple-300 transition-colors duration-300">
+                        agiliocap@gmail.com
+                      </a>
+                    </p>
+                    <p className="text-lg">
+                      <strong className="text-purple-400">LinkedIn:</strong><br />
+                      <a
+                        href="https://www.linkedin.com/in/t-m-durai-b913356/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-400 hover:text-blue-300 inline-flex items-center transition-colors duration-300"
+                      >
+                        <Linkedin className="h-5 w-5 mr-2" />
+                        Professional Profile
+                      </a>
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div className="relative">
+                    <img
+                      src="https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg?auto=compress&cs=tinysrgb&w=800"
+                      alt="Bangalore business district"
+                      className="rounded-xl shadow-glow"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/40 to-transparent rounded-xl"></div>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-purple-400 flex-shrink-0" />
-                <a 
-                  href="mailto:agiliocap@gmail.com" 
-                  className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-inter"
-                >
-                  agiliocap@gmail.com
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Linkedin className="h-5 w-5 text-purple-400 flex-shrink-0" />
-                <a 
-                  href="https://www.linkedin.com/in/t-m-durai-b913356/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-gray-300 hover:text-purple-400 transition-colors text-sm font-inter"
-                >
-                  LinkedIn Profile
-                </a>
-              </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-
-        <div className="border-t border-purple-600/20 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm font-inter">
-              © 2024 <span className="text-white font-semibold">Agilio Capital</span>. All rights reserved
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link to="/contact" className="text-gray-400 hover:text-purple-400 text-sm transition-colors font-inter">
-                Privacy Policy
-              </Link>
-              <Link to="/contact" className="text-gray-400 hover:text-purple-400 text-sm transition-colors font-inter">
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+      </section>
+    </div>
   );
 };
 
-export default Footer;
+export default AboutPage;
