@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Tractor, Star } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Star } from 'lucide-react';
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
@@ -64,7 +64,7 @@ const HomePage: React.FC = () => {
     },
     { 
       name: 'Agriculture', 
-      icon: <Tractor className="h-12 w-12" />, 
+      icon: <Sprout className="h-12 w-12" />, 
       description: 'AgTech, sustainable farming, renewable energy and food security solutions',
     }
   ];
