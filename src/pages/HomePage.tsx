@@ -71,7 +71,7 @@ const HomePage: React.FC = () => {
 
   const stats = [
     { number: 50, label: 'Successful Deals', suffix: '+' },
-    { number: 1000, label: 'Transaction Value (M)', suffix: '+' },
+    { number: 1000, label: 'Transaction Value (cr)', suffix: '+' },
     { number: 15, label: 'Years Experience', suffix: '+' },
     { number: 30, label: 'Active Clients', suffix: '+' }
   ];
