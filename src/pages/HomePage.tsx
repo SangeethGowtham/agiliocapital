@@ -6,6 +6,7 @@ import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
 import ClientsSection from '../components/ClientsSection';
+import SplineWorld from '../components/SplineWorld';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HomePage: React.FC = () => {
@@ -169,21 +170,35 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Hero Image */}
+            {/* Spline 3D World Planet */}
             <motion.div 
-              className="relative"
+              className="relative lg:flex lg:justify-center lg:items-center"
               initial={{ opacity: 0, x: 50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <div className="relative w-full h-96 rounded-2xl overflow-hidden shadow-glow-lg">
-                <img
-                  src="https://images.pexels.com/photos/3760069/pexels-photo-3760069.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Professional business meeting"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent"></div>
-              </div>
+              <motion.div
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3, ease: 'easeOut' }}
+              >
+                <SplineWorld className="shadow-glow-lg hover:shadow-glow-xl transition-all duration-500" />
+                
+                {/* Ambient glow effect */}
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-600/10 via-magenta-600/10 to-purple-600/10 rounded-3xl blur-2xl -z-10 animate-pulse"></div>
+                
+                {/* Floating text overlay */}
+                <motion.div
+                  className="absolute bottom-4 left-4 right-4 bg-navy-950/80 backdrop-blur-md rounded-lg p-3 border border-purple-600/30"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 1.2 }}
+                >
+                  <p className="text-purple-300 text-sm font-inter text-center">
+                    🌍 Global Financial Network
+                  </p>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
