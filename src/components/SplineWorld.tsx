@@ -44,7 +44,7 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     }, 10000); // 10 second timeout
 
     const splineViewer = document.createElement('spline-viewer');
-    splineViewer.setAttribute('url', 'https://my.spline.design/worldplanet-H8seS5zFIrQvutU4UC6p7WlH/');
+    splineViewer.setAttribute('url', 'https://prod.spline.design/sQxrVJl4MtWx-tDN/scene.splinecode');
     splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
     splineViewer.setAttribute('disable-zoom', 'true');
     splineViewer.setAttribute('camera-controls', 'orbit-only');
