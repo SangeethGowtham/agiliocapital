@@ -85,11 +85,8 @@ const HomePage: React.FC = () => {
         className="relative text-white overflow-hidden bg-gradient-navy"
         style={{ minHeight: '100vh' }}
       >
-        {/* Spline 3D Planet Background */}
-        <SplineWorld asBackground={true} className="absolute inset-0" />
-        
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-5 z-10">
+        <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
                              radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)`
@@ -97,7 +94,7 @@ const HomePage: React.FC = () => {
         </div>
 
         {/* Floating Particles */}
-        <div className="absolute inset-0 overflow-hidden z-10">
+        <div className="absolute inset-0 overflow-hidden">
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
@@ -120,13 +117,12 @@ const HomePage: React.FC = () => {
           ))}
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-screen z-20">
-          <div className="grid grid-cols-1 gap-12 items-center w-full text-center">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center min-h-screen">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 1, ease: 'easeOut' }}
-              className="max-w-4xl mx-auto"
             >
               <motion.h1 
                 className="font-poppins font-bold leading-tight mb-6 text-white text-shadow"
@@ -172,6 +168,16 @@ const HomePage: React.FC = () => {
                   </Link>
                 </motion.div>
               </motion.div>
+            </motion.div>
+            
+            {/* Spline 3D World Planet */}
+            <motion.div 
+              className="relative flex justify-center items-center"
+              initial={{ opacity: 0, x: 50 }}
+              animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+              transition={{ duration: 1, delay: 0.4 }}
+            >
+              <SplineWorld />
             </motion.div>
           </div>
         </div>
