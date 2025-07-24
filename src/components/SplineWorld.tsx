@@ -3,9 +3,10 @@ import { motion } from 'framer-motion';
 
 interface SplineWorldProps {
   className?: string;
+  asBackground?: boolean;
 }
 
-const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
+const SplineWorld: React.FC<SplineWorldProps> = ({ className = '', asBackground = false }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     }, 10000); // 10 second timeout
 
     const splineViewer = document.createElement('spline-viewer');
-    splineViewer.setAttribute('url', 'https://prod.spline.design/sQxrVJl4MtWx-tDN/scene.splinecode');
+    splineViewer.setAttribute('url', 'https://my.spline.design/worldplanet-H8seS5zFIrQvutU4UC6p7WlH/');
     splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
     splineViewer.setAttribute('disable-zoom', 'true');
     splineViewer.setAttribute('camera-controls', 'orbit-only');
@@ -55,7 +56,8 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     splineViewer.style.background = 'transparent';
     splineViewer.style.border = 'none';
     splineViewer.style.outline = 'none';
-    splineViewer.style.cursor = 'grab';
+    splineViewer.style.cursor = asBackground ? 'default' : 'grab';
+    splineViewer.style.pointerEvents = asBackground ? 'none' : 'auto';
 
     // Handle loading and error events
     splineViewer.addEventListener('load', () => {
@@ -103,9 +105,19 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     containerRef.current.appendChild(splineViewer);
   };
 
+  const containerStyle = asBackground ? {
+    position: 'absolute' as const,
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    zIndex: 0,
+    pointerEvents: 'none' as const,
+  } : {};
+
   // Fallback component for errors
   const FallbackPlanet = () => (
-    <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+    <div className={`w-full h-full flex items-center justify-center relative overflow-hidden ${asBackground ? 'opacity-30' : ''}`}>
       <motion.div
         className="w-48 h-48 bg-gradient-to-br from-purple-500 to-magenta-500 rounded-full shadow-glow-lg relative"
         animate={{ 
@@ -150,10 +162,13 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
   );
 
   return (
-    <div className={`spline-container ${className}`}>
+    <div 
+      className={`spline-container ${className}`}
+      style={containerStyle}
+    >
       {/* Loading State */}
       {isLoading && (
-        <div className="absolute inset-0 z-10">
+        <div className={`absolute inset-0 z-10 ${asBackground ? 'opacity-50' : ''}`}>
           <LoadingSpinner />
         </div>
       )}
@@ -164,7 +179,7 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
       ) : (
         <div 
           ref={containerRef}
-          className="w-full h-full"
+          className={`w-full h-full ${asBackground ? 'opacity-80' : ''}`}
           style={{ background: 'transparent' }}
         />
       )}
