@@ -37,6 +37,12 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
   const createSplineViewer = () => {
     if (!containerRef.current) return;
 
+    // Set a timeout to catch loading failures
+    const loadingTimeout = setTimeout(() => {
+      setHasError(true);
+      setIsLoading(false);
+    }, 10000); // 10 second timeout
+
     const splineViewer = document.createElement('spline-viewer');
     splineViewer.setAttribute('url', 'https://my.spline.design/worldplanet-H8seS5zFIrQvutU4UC6p7WlH/');
     splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
@@ -53,6 +59,7 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
 
     // Handle loading and error events
     splineViewer.addEventListener('load', () => {
+      clearTimeout(loadingTimeout);
       setIsLoading(false);
       
       // Additional interaction controls
@@ -67,10 +74,19 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     });
 
     splineViewer.addEventListener('error', () => {
+      clearTimeout(loadingTimeout);
       setHasError(true);
       setIsLoading(false);
     });
 
+    // Listen for specific Spline errors
+    window.addEventListener('error', (event) => {
+      if (event.message && event.message.includes('Data read, but end of buffer not reached')) {
+        clearTimeout(loadingTimeout);
+        setHasError(true);
+        setIsLoading(false);
+      }
+    });
     // Handle cursor states
     splineViewer.addEventListener('mousedown', () => {
       splineViewer.style.cursor = 'grabbing';
