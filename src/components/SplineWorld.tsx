@@ -1,6 +1,5 @@
-import React, { Suspense, useState, useEffect } from 'react';
+import React, { Suspense, useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import Spline from '@splinetool/react-spline';
 
 interface SplineWorldProps {
   className?: string;
@@ -9,20 +8,88 @@ interface SplineWorldProps {
 const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleLoad = () => {
-    setIsLoading(false);
+  useEffect(() => {
+    // Load Spline viewer script
+    const script = document.createElement('script');
+    script.type = 'module';
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.10.35/build/spline-viewer.js';
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      // Script loaded, create spline viewer
+      createSplineViewer();
+    };
+
+    script.onerror = () => {
+      setHasError(true);
+      setIsLoading(false);
+    };
+
+    return () => {
+      if (document.head.contains(script)) {
+        document.head.removeChild(script);
+      }
+    };
+  }, []);
+
+  const createSplineViewer = () => {
+    if (!containerRef.current) return;
+
+    const splineViewer = document.createElement('spline-viewer');
+    splineViewer.setAttribute('url', 'https://my.spline.design/worldplanet-H8seS5zFIrQvutU4UC6p7WlH/');
+    splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
+    splineViewer.setAttribute('disable-zoom', 'true');
+    splineViewer.setAttribute('camera-controls', 'orbit-only');
+    
+    // Apply styles directly
+    splineViewer.style.width = '100%';
+    splineViewer.style.height = '100%';
+    splineViewer.style.background = 'transparent';
+    splineViewer.style.border = 'none';
+    splineViewer.style.outline = 'none';
+    splineViewer.style.cursor = 'grab';
+
+    // Handle loading and error events
+    splineViewer.addEventListener('load', () => {
+      setIsLoading(false);
+      
+      // Additional interaction controls
+      const canvas = splineViewer.shadowRoot?.querySelector('canvas');
+      if (canvas) {
+        // Prevent zoom with mouse wheel
+        canvas.addEventListener('wheel', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { passive: false });
+      }
+    });
+
+    splineViewer.addEventListener('error', () => {
+      setHasError(true);
+      setIsLoading(false);
+    });
+
+    // Handle cursor states
+    splineViewer.addEventListener('mousedown', () => {
+      splineViewer.style.cursor = 'grabbing';
+    });
+
+    splineViewer.addEventListener('mouseup', () => {
+      splineViewer.style.cursor = 'grab';
+    });
+
+    splineViewer.addEventListener('mouseleave', () => {
+      splineViewer.style.cursor = 'grab';
+    });
+
+    containerRef.current.appendChild(splineViewer);
   };
 
-  const handleError = () => {
-    setIsLoading(false);
-    setHasError(true);
-  };
-
-  // Fallback component for errors or unsupported browsers
+  // Fallback component for errors
   const FallbackPlanet = () => (
-    <div className="w-full h-full bg-gradient-to-br from-purple-600/20 to-magenta-600/20 rounded-2xl flex items-center justify-center relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-purple-600/10 to-magenta-600/10 animate-pulse"></div>
+    <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
       <motion.div
         className="w-48 h-48 bg-gradient-to-br from-purple-500 to-magenta-500 rounded-full shadow-glow-lg relative"
         animate={{ 
@@ -51,46 +118,23 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         />
       </motion.div>
-      
-      {/* Floating particles */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-purple-400/60 rounded-full"
-          style={{
-            left: `${20 + (i * 10)}%`,
-            top: `${30 + (i * 5)}%`,
-          }}
-          animate={{
-            y: [-20, -40, -20],
-            opacity: [0.3, 0.8, 0.3],
-            scale: [0.5, 1, 0.5],
-          }}
-          transition={{
-            duration: 3 + (i * 0.5),
-            repeat: Infinity,
-            delay: i * 0.3,
-            ease: 'easeInOut',
-          }}
-        />
-      ))}
     </div>
   );
 
   // Loading component
   const LoadingSpinner = () => (
-    <div className="w-full h-full bg-gradient-to-br from-purple-600/10 to-magenta-600/10 rounded-2xl flex flex-col items-center justify-center">
+    <div className="w-full h-full flex flex-col items-center justify-center">
       <motion.div
         className="w-16 h-16 border-4 border-purple-400/30 border-t-purple-400 rounded-full mb-4"
         animate={{ rotate: 360 }}
         transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       />
-      <p className="text-purple-300 font-inter text-sm">Loading Global Financial Network...</p>
+      <p className="text-purple-300 font-inter text-sm">Loading...</p>
     </div>
   );
 
   return (
-    <div className={`spline-container relative ${className}`}>
+    <div className={`spline-container ${className}`}>
       {/* Loading State */}
       {isLoading && (
         <div className="absolute inset-0 z-10">
@@ -102,24 +146,12 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
       {hasError ? (
         <FallbackPlanet />
       ) : (
-        <Suspense fallback={<LoadingSpinner />}>
-          <div className="w-full h-full rounded-2xl overflow-hidden">
-            <Spline
-              scene="https://prod.spline.design/sQxrVJl4MtWx-tDN/scene.splinecode"
-              onLoad={handleLoad}
-              onError={handleError}
-              style={{
-                width: '100%',
-                height: '100%',
-                borderRadius: '16px',
-              }}
-            />
-          </div>
-        </Suspense>
+        <div 
+          ref={containerRef}
+          className="w-full h-full"
+          style={{ background: 'transparent' }}
+        />
       )}
-
-      {/* Glow Effect */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-600/20 to-magenta-600/20 rounded-2xl blur-xl"></div>
     </div>
   );
 };
