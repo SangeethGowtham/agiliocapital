@@ -111,6 +111,21 @@ img {
   }
 }
 
+/* Enhanced Spline Integration */
+.spline-container {
+  position: relative;
+  background: transparent;
+  border: none;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+spline-viewer {
+  width: 100% !important;
+  height: 100% !important;
+  background: transparent !important;
+  border: none !important;
+}
 
 /* Professional Print Styles */
 @media print {
