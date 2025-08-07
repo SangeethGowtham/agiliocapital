@@ -48,7 +48,10 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     splineViewer.setAttribute('url', 'https://prod.spline.design/5F5tfZbS0cAiHyEa/scene.splinecode');
     splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
     splineViewer.setAttribute('disable-zoom', 'true');
-    splineViewer.setAttribute('camera-controls', 'orbit-only');
+    splineViewer.setAttribute('disable-pan', 'true');
+    splineViewer.setAttribute('camera-controls', 'none');
+    splineViewer.setAttribute('mouse-controls', 'false');
+    splineViewer.setAttribute('touch-controls', 'false');
     
     // Apply styles directly for seamless integration
     splineViewer.style.width = '100%';
@@ -56,21 +59,34 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     splineViewer.style.background = 'transparent';
     splineViewer.style.border = 'none';
     splineViewer.style.outline = 'none';
-    splineViewer.style.cursor = 'grab';
+    splineViewer.style.cursor = 'default';
+    splineViewer.style.pointerEvents = 'none';
 
     // Handle loading and error events
     splineViewer.addEventListener('load', () => {
       clearTimeout(loadingTimeout);
       setIsLoading(false);
       
-      // Additional interaction controls
+      // Disable all interactions
       const canvas = splineViewer.shadowRoot?.querySelector('canvas');
       if (canvas) {
-        // Prevent zoom with mouse wheel
+        // Disable all mouse interactions
         canvas.addEventListener('wheel', (e) => {
           e.preventDefault();
           e.stopPropagation();
         }, { passive: false });
+        
+        canvas.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { passive: false });
+        
+        canvas.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+        }, { passive: false });
+        
+        canvas.style.pointerEvents = 'none';
       }
     });
 
@@ -80,7 +96,7 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
       setIsLoading(false);
     });
 
-    // Listen for specific Spline errors including data corruption
+    // Listen for specific Spline errors
     window.addEventListener('error', (event) => {
       if (event.message && (
         event.message.includes('Data read, but end of buffer not reached') ||
@@ -91,19 +107,6 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
         setHasError(true);
         setIsLoading(false);
       }
-    });
-
-    // Handle cursor states for better UX
-    splineViewer.addEventListener('mousedown', () => {
-      splineViewer.style.cursor = 'grabbing';
-    });
-
-    splineViewer.addEventListener('mouseup', () => {
-      splineViewer.style.cursor = 'grab';
-    });
-
-    splineViewer.addEventListener('mouseleave', () => {
-      splineViewer.style.cursor = 'grab';
     });
 
     containerRef.current.appendChild(splineViewer);
