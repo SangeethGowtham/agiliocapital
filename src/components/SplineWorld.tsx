@@ -37,21 +37,18 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
   const createSplineViewer = () => {
     if (!containerRef.current) return;
 
-    // Set a timeout to catch loading failures
+    // Set a shorter timeout to show fallback faster
     const loadingTimeout = setTimeout(() => {
+      console.log('Spline loading timeout, showing fallback');
       setHasError(true);
       setIsLoading(false);
-    }, 15000); // 15 second timeout for better loading
+    }, 5000); // 5 second timeout
 
     const splineViewer = document.createElement('spline-viewer');
-    // Updated to use the new globe scene URL
     splineViewer.setAttribute('url', 'https://prod.spline.design/5F5tfZbS0cAiHyEa/scene.splinecode');
-    splineViewer.setAttribute('loading-anim-type', 'spinner-small-dark');
-    splineViewer.setAttribute('disable-zoom', 'true');
-    splineViewer.setAttribute('disable-pan', 'true');
-    splineViewer.setAttribute('camera-controls', 'none');
-    splineViewer.setAttribute('mouse-controls', 'false');
-    splineViewer.setAttribute('touch-controls', 'false');
+    splineViewer.setAttribute('loading-anim-type', 'none');
+    splineViewer.setAttribute('camera-controls', 'orbit');
+    splineViewer.setAttribute('disable-zoom', 'false');
     
     // Apply styles directly for seamless integration
     splineViewer.style.width = '100%';
@@ -59,54 +56,21 @@ const SplineWorld: React.FC<SplineWorldProps> = ({ className = '' }) => {
     splineViewer.style.background = 'transparent';
     splineViewer.style.border = 'none';
     splineViewer.style.outline = 'none';
-    splineViewer.style.cursor = 'default';
-    splineViewer.style.pointerEvents = 'none';
+    splineViewer.style.cursor = 'grab';
+    splineViewer.style.pointerEvents = 'auto';
 
     // Handle loading and error events
     splineViewer.addEventListener('load', () => {
+      console.log('Spline loaded successfully');
       clearTimeout(loadingTimeout);
       setIsLoading(false);
-      
-      // Disable all interactions
-      const canvas = splineViewer.shadowRoot?.querySelector('canvas');
-      if (canvas) {
-        // Disable all mouse interactions
-        canvas.addEventListener('wheel', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }, { passive: false });
-        
-        canvas.addEventListener('mousedown', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }, { passive: false });
-        
-        canvas.addEventListener('touchstart', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }, { passive: false });
-        
-        canvas.style.pointerEvents = 'none';
-      }
     });
 
     splineViewer.addEventListener('error', () => {
+      console.log('Spline error occurred');
       clearTimeout(loadingTimeout);
       setHasError(true);
       setIsLoading(false);
-    });
-
-    // Listen for specific Spline errors
-    window.addEventListener('error', (event) => {
-      if (event.message && (
-        event.message.includes('Data read, but end of buffer not reached') ||
-        event.message.includes('spline') ||
-        event.message.includes('viewer')
-      )) {
-        clearTimeout(loadingTimeout);
-        setHasError(true);
-        setIsLoading(false);
-      }
     });
 
     containerRef.current.appendChild(splineViewer);
