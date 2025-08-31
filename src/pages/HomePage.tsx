@@ -1,12 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Star } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, Shield, Award, CheckCircle, Building2, Briefcase, DollarSign, Globe, BarChart3, PieChart, Banknote, Heart, Sprout, Smartphone, Star, LineChart, TrendingDown } from 'lucide-react';
 import Counter from '../components/Counter';
 import TypewriterText from '../components/TypewriterText';
 import FloatingContainer from '../components/FloatingContainer';
 import ClientsSection from '../components/ClientsSection';
-import SplineWorld from '../components/SplineWorld';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const HomePage: React.FC = () => {
@@ -170,14 +169,108 @@ const HomePage: React.FC = () => {
               </motion.div>
             </motion.div>
             
-            {/* Spline 3D World Planet */}
+            {/* Professional Financial Animation */}
             <motion.div 
               className="relative flex justify-center items-center"
               initial={{ opacity: 0, x: 50 }}
               animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              <SplineWorld />
+              <div className="relative w-full max-w-lg h-96 flex items-center justify-center">
+                {/* Central Globe */}
+                <motion.div
+                  className="relative w-64 h-64 bg-gradient-to-br from-purple-500 via-purple-600 to-magenta-600 rounded-full shadow-glow-lg"
+                  animate={{ 
+                    rotate: 360,
+                  }}
+                  transition={{ 
+                    rotate: { duration: 20, repeat: Infinity, ease: "linear" }
+                  }}
+                >
+                  {/* Globe Surface Details */}
+                  <div className="absolute inset-4 bg-gradient-to-br from-purple-400/70 to-magenta-500/70 rounded-full"></div>
+                  <div className="absolute inset-8 bg-gradient-to-br from-purple-300/50 to-magenta-400/50 rounded-full"></div>
+                  
+                  {/* Continent Outlines */}
+                  <div className="absolute top-1/4 left-1/3 w-8 h-6 bg-purple-300/30 rounded-lg transform rotate-12"></div>
+                  <div className="absolute top-1/2 right-1/4 w-6 h-8 bg-purple-300/30 rounded-lg transform -rotate-45"></div>
+                  <div className="absolute bottom-1/3 left-1/4 w-10 h-4 bg-purple-300/30 rounded-lg transform rotate-45"></div>
+                  
+                  {/* Energy Lines */}
+                  <div className="absolute inset-0 rounded-full border-2 border-purple-300/20"></div>
+                  <div className="absolute inset-2 rounded-full border border-purple-300/15"></div>
+                </motion.div>
+                
+                {/* Orbital Rings */}
+                <motion.div
+                  className="absolute inset-0 border-2 border-purple-400/30 rounded-full"
+                  style={{ transform: 'scale(1.3) rotateX(75deg)' }}
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+                />
+                <motion.div
+                  className="absolute inset-0 border border-magenta-400/20 rounded-full"
+                  style={{ transform: 'scale(1.5) rotateX(60deg)' }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                />
+
+                {/* Financial Data Points */}
+                <motion.div
+                  className="absolute top-8 left-8 bg-navy-800/80 backdrop-blur-sm rounded-lg p-3 border border-purple-400/30"
+                  animate={{ y: [-5, 5, -5] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <LineChart className="h-6 w-6 text-green-400" />
+                </motion.div>
+
+                <motion.div
+                  className="absolute top-16 right-12 bg-navy-800/80 backdrop-blur-sm rounded-lg p-3 border border-purple-400/30"
+                  animate={{ y: [5, -5, 5] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                >
+                  <BarChart3 className="h-6 w-6 text-blue-400" />
+                </motion.div>
+
+                <motion.div
+                  className="absolute bottom-12 left-12 bg-navy-800/80 backdrop-blur-sm rounded-lg p-3 border border-purple-400/30"
+                  animate={{ y: [-3, 7, -3] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                >
+                  <PieChart className="h-6 w-6 text-purple-400" />
+                </motion.div>
+
+                <motion.div
+                  className="absolute bottom-8 right-8 bg-navy-800/80 backdrop-blur-sm rounded-lg p-3 border border-purple-400/30"
+                  animate={{ y: [7, -3, 7] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                >
+                  <DollarSign className="h-6 w-6 text-yellow-400" />
+                </motion.div>
+
+                {/* Floating Particles */}
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-2 h-2 bg-purple-400/40 rounded-full"
+                    style={{
+                      left: `${20 + (i * 8)}%`,
+                      top: `${25 + (i * 6)}%`,
+                    }}
+                    animate={{
+                      y: [-15, -35, -15],
+                      opacity: [0.4, 0.8, 0.4],
+                      scale: [0.5, 1, 0.5],
+                    }}
+                    transition={{
+                      duration: 4 + (i * 0.3),
+                      repeat: Infinity,
+                      delay: i * 0.2,
+                      ease: 'easeInOut',
+                    }}
+                  />
+                ))}
+              </div>
             </motion.div>
           </div>
         </div>

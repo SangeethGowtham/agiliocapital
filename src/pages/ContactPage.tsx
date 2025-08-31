@@ -261,7 +261,7 @@ const ContactPage: React.FC = () => {
                         rel="noopener noreferrer"
                         className="text-purple-400 hover:text-purple-300 transition-colors font-inter"
                       >
-                        Agilio Capital Partners
+                        Agilio Capital
                       </a>
                     </div>
                   </div>
